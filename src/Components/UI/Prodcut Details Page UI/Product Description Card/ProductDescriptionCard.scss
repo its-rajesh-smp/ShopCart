@@ -1,0 +1,24 @@
+@import "../../../../Style/color";
+
+.ProductDescriptionCard-div {
+  display: flex;
+  gap: torem(10px);
+  font-family: roboto;
+  padding: torem(20px) torem(10px);
+  border: torem(1px) solid gainsboro;
+  img {
+    width: torem(150px);
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: torem(10px);
+    h2 {
+      font-size: torem(20px);
+      font-weight: 100;
+    }
+    p {
+      font-size: torem(13px);
+    }
+  }
+}

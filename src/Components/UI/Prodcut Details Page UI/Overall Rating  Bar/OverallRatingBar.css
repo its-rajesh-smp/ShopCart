@@ -1,0 +1,17 @@
+.OverallRatingBar-div {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.OverallRatingBar-div_bar {
+  background-color: rgb(185, 188, 188);
+  width: 12.5rem;
+  height: 0.3125rem;
+  border-radius: 0.9375rem;
+}
+
+.OverallRatingBar-div_bar_inner {
+  border-radius: 0.9375rem;
+  height: 100%;
+}/*# sourceMappingURL=OverallRatingBar.css.map */

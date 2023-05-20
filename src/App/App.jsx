@@ -4,6 +4,7 @@ import Header from "../Components/Header/Header";
 import Login from "../Pages/Login/Login";
 import Homepage from "../Pages/Homepage/Homepage";
 import Productpage from "../Pages/Productpage/Productpage";
+import Productdetailspage from "../Pages/Productdetailspage/Productdetailspage";
 
 function App(props) {
   return (
@@ -11,7 +12,8 @@ function App(props) {
       <Header />
       {/* <Login /> */}
       {/* <Homepage /> */}
-      <Productpage />
+      {/* <Productpage /> */}
+      <Productdetailspage />
     </div>
   );
 }

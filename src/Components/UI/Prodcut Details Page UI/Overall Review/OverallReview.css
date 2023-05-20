@@ -1,0 +1,22 @@
+.OverallReview-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1.5625rem 0px;
+  align-items: center;
+  border: 1px solid gainsboro;
+}
+
+.OverallReview-div_div1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .OverallReview-div {
+    padding: 2.5rem 0px;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=OverallReview.css.map */

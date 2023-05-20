@@ -1,0 +1,22 @@
+@import "../../../../Style/color";
+
+.ProductSpecificationCard-div {
+  font-family: roboto;
+  border-top: torem(1px) solid gainsboro;
+  border-bottom: torem(1px) solid gainsboro;
+  .ProductSpecificationCard-div__name {
+    padding: torem(10px);
+    font-size: torem(20px);
+  }
+  .ProductSpecificationCard-div__container {
+    div {
+      font-size: torem(12px);
+      padding: torem(10px);
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      .shadow {
+        color: rgb(108, 108, 108);
+      }
+    }
+  }
+}

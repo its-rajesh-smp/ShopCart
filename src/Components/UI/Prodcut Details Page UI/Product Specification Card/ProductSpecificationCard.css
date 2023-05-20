@@ -1,0 +1,18 @@
+.ProductSpecificationCard-div {
+  font-family: roboto;
+  border-top: 0.0625rem solid gainsboro;
+  border-bottom: 0.0625rem solid gainsboro;
+}
+.ProductSpecificationCard-div .ProductSpecificationCard-div__name {
+  padding: 0.625rem;
+  font-size: 1.25rem;
+}
+.ProductSpecificationCard-div .ProductSpecificationCard-div__container div {
+  font-size: 0.75rem;
+  padding: 0.625rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+.ProductSpecificationCard-div .ProductSpecificationCard-div__container div .shadow {
+  color: rgb(108, 108, 108);
+}/*# sourceMappingURL=ProductSpecificationCard.css.map */

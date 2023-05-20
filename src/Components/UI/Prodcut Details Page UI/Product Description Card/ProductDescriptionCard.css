@@ -1,0 +1,22 @@
+.ProductDescriptionCard-div {
+  display: flex;
+  gap: 0.625rem;
+  font-family: roboto;
+  padding: 1.25rem 0.625rem;
+  border: 0.0625rem solid gainsboro;
+}
+.ProductDescriptionCard-div img {
+  width: 9.375rem;
+}
+.ProductDescriptionCard-div div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.ProductDescriptionCard-div div h2 {
+  font-size: 1.25rem;
+  font-weight: 100;
+}
+.ProductDescriptionCard-div div p {
+  font-size: 0.8125rem;
+}/*# sourceMappingURL=ProductDescriptionCard.css.map */

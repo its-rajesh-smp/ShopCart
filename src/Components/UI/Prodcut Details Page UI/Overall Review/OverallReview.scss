@@ -1,0 +1,28 @@
+@import "../../../../Style/color";
+.OverallReview-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: torem(25px) 0px;
+  align-items: center;
+  border: 1px solid gainsboro;
+}
+
+.OverallReview-div_div1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .OverallReview-div {
+    padding: torem(40px) 0px;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

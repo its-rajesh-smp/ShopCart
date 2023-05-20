@@ -1,0 +1,18 @@
+@import "../../../../Style/color";
+
+.OverallRatingBar-div {
+  display: flex;
+  align-items: center;
+  gap: torem(10px);
+}
+
+.OverallRatingBar-div_bar {
+  background-color: rgb(185, 188, 188);
+  width: torem(200px);
+  height: torem(5px);
+  border-radius: torem(15px);
+}
+.OverallRatingBar-div_bar_inner {
+  border-radius: torem(15px);
+  height: 100%;
+}

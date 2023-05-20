@@ -1,0 +1,12 @@
+.ProductDetailsDetailsSection-div {
+  padding: 10px;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProductDetailsDetailsSection-div {
+    padding: 5px;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=ProductDetailsDetailsSection.css.map */

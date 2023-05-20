@@ -1,0 +1,24 @@
+.Productdetailspage-div {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  padding-top: 20px;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Productdetailspage-div {
+    flex-direction: column;
+    padding-top: 0px;
+    display: flex;
+  }
+}
+/* Tablet */
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .Productdetailspage-div {
+    flex-direction: column;
+    padding-top: 0px;
+    display: flex;
+  }
+}/*# sourceMappingURL=Productdetailspage.css.map */

@@ -1,0 +1,45 @@
+.ProductReview-div {
+  background-color: aliceblue;
+  padding: 0.625rem;
+  margin-bottom: 0.625rem;
+  font-family: roboto;
+}
+
+.ProductReview-div_name {
+  font-size: larger;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 0.8125rem;
+}
+
+.ProductReview-div_rating {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  font-size: 0.6875rem;
+}
+
+.ProductReview-div_comment {
+  font-size: 0.6875rem;
+}
+
+.ProductReview-div_btnGroup {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: flex-end;
+}
+
+.ProductReview-div_btnHelpfull {
+  color: gray;
+  cursor: pointer;
+  padding: 0.1875rem;
+  margin-top: 0.3125rem;
+  border: none;
+  font-size: 0.75rem;
+  border-radius: 0.3125rem;
+  background-color: aliceblue;
+}
+
+.ProductReview-div_btnHelpfull:hover {
+  background-color: antiquewhite;
+}/*# sourceMappingURL=ProductReview.css.map */

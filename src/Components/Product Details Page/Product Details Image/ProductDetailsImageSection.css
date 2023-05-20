@@ -1,0 +1,13 @@
+.ProductDetailsImageSection-div {
+  margin: 0px 20px;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProductDetailsImageSection-div {
+    margin: 0px;
+    border: none;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=ProductDetailsImageSection.css.map */
