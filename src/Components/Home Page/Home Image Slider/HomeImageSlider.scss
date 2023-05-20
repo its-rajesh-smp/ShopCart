@@ -1,0 +1,15 @@
+@import "../../../Style/color";
+.HomeImageSlider-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: torem(5px);
+  margin-top: torem(15px);
+  background-color: rebeccapurple;
+}
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HomeImageSlider-div {
+    height: 150px;
+  }
+}

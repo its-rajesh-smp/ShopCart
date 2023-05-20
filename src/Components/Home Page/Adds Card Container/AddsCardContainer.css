@@ -1,0 +1,8 @@
+.AddsCardContainer-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.3125rem 0.3125rem;
+}/*# sourceMappingURL=AddsCardContainer.css.map */

@@ -1,0 +1,19 @@
+.HomeImageSliderBtn-div {
+  position: absolute;
+}
+.HomeImageSliderBtn-div button {
+  background-color: whitesmoke;
+  height: 9.375rem;
+  width: 3.125rem;
+  border: none;
+  font-family: roboto;
+  font-size: 1.25rem;
+}
+
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HomeImageSliderBtn-div button {
+    height: 6.25rem;
+    width: 1.875rem;
+  }
+}/*# sourceMappingURL=HomeImageSliderBtn.css.map */

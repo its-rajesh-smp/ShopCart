@@ -1,0 +1,15 @@
+.HomeImageSliderImage-div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.HomeImageSliderImage-div img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+/*? Smartphones (portrait and landscape) ----------- *//*# sourceMappingURL=HomeImageSliderImage.css.map */

@@ -1,0 +1,17 @@
+.HomeImageSliderImage-div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HomeImageSliderImage-div {
+  }
+}

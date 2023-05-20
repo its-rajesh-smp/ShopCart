@@ -1,0 +1,22 @@
+@import "../../../../../Style/color";
+
+.HomeImageSliderBtn-div {
+  position: absolute;
+  button {
+    background-color: whitesmoke;
+    height: torem(150px);
+    width: torem(50px);
+    border: none;
+    font-family: roboto;
+    font-size: torem(20px);
+  }
+}
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HomeImageSliderBtn-div {
+    button {
+      height: torem(100px);
+      width: torem(30px);
+    }
+  }
+}

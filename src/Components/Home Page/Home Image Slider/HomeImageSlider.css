@@ -1,0 +1,15 @@
+.HomeImageSlider-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3125rem;
+  margin-top: 0.9375rem;
+  background-color: rebeccapurple;
+}
+
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HomeImageSlider-div {
+    height: 150px;
+  }
+}/*# sourceMappingURL=HomeImageSlider.css.map */

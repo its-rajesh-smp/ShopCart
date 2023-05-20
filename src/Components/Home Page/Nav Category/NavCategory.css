@@ -1,0 +1,29 @@
+.NavCategory-div {
+  padding: 20px;
+  display: flex;
+  background-color: white;
+}
+
+.NavCategory-div__itemContainer {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+}
+
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .NavCategory-div__itemContainer {
+    gap: 0.9375rem;
+    justify-content: flex-start;
+    overflow: scroll;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .NavCategory-div {
+    padding: 20px 5px;
+  }
+}/*# sourceMappingURL=NavCategory.css.map */
