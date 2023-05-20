@@ -1,0 +1,25 @@
+@import "../../../../../Style/color";
+.RatingFilter-div {
+  .RatingFilter-div__name {
+    font-size: torem(11px);
+    font-family: roboto;
+    font-weight: 600;
+  }
+}
+.RatingFilter-div__ratingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: roboto;
+  font-size: torem(11px);
+  margin-top: torem(15px);
+}
+.RatingFilter-div__rating {
+  display: flex;
+  align-items: center;
+  gap: torem(20px);
+  input {
+    position: relative;
+    top: torem(2px);
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../../../Style/color";
+.ToggleFilterMobile-div {
+  width: 100%;
+  background-color: white;
+  margin-bottom: torem(2px);
+  button {
+    font-family: roboto;
+    border: none;
+    background-color: white;
+    padding: torem(10px) torem(40px);
+    i {
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../../Style/color";
+.Product-div {
+  padding: torem(20px) torem(10px);
+  margin-bottom: torem(2px);
+  background-color: white;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+  gap: torem(12px);
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Product-div {
+    display: flex;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

@@ -1,0 +1,16 @@
+.TopSortBar-div {
+  font-family: roboto;
+  margin-bottom: 2px;
+  background-color: white;
+  padding: 10px;
+}
+
+.TopSortBar-div__currentCat {
+  display: flex;
+  gap: 0.3125rem;
+  align-items: center;
+}
+.TopSortBar-div__currentCat p {
+  font-size: 0.6875rem;
+  color: #626262;
+}/*# sourceMappingURL=TopSortBar.css.map */

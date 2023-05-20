@@ -1,0 +1,38 @@
+@import "../../../Style/color";
+.FilterSection-div {
+  width: torem(270px);
+  padding: 0px torem(10px);
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.FilterSection-div__applyFilterBTN {
+  align-self: center;
+  width: 150px;
+  height: 40px;
+  border: none;
+  background-color: $header_base;
+  color: white;
+  font-family: roboto;
+  border-radius: 5px;
+  margin: 20px;
+}
+.filterCard {
+  padding: torem(15px);
+  background-color: white;
+  border-bottom: torem(2px) solid #e0e0e0;
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .FilterSection-div {
+    width: calc(100vw - torem(20px));
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

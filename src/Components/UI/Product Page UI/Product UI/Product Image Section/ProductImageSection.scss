@@ -1,0 +1,51 @@
+@import "../../../../../Style/color";
+.ProductImageSection-div {
+  display: flex;
+  flex-direction: column;
+  gap: torem(20px);
+  width: torem(160px);
+  i {
+    align-self: flex-end;
+    color: grey;
+  }
+  img {
+    width: torem(160px);
+  }
+}
+
+.ProductImageSection-div__btnContainer {
+  display: flex;
+  gap: torem(20px);
+  align-items: center;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: torem(16px);
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: $header_base;
+    color: white;
+    border-radius: torem(2px);
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProductImageSection-div {
+    justify-content: space-evenly;
+    i {
+    }
+    img {
+      width: torem(100px);
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

@@ -1,0 +1,24 @@
+.RatingFilter-div .RatingFilter-div__name {
+  font-size: 0.6875rem;
+  font-family: roboto;
+  font-weight: 600;
+}
+
+.RatingFilter-div__ratingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: roboto;
+  font-size: 0.6875rem;
+  margin-top: 0.9375rem;
+}
+
+.RatingFilter-div__rating {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.RatingFilter-div__rating input {
+  position: relative;
+  top: 0.125rem;
+}/*# sourceMappingURL=RatingFilter.css.map */

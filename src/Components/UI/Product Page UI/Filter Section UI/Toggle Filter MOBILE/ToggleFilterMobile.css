@@ -1,0 +1,14 @@
+.ToggleFilterMobile-div {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 0.125rem;
+}
+.ToggleFilterMobile-div button {
+  font-family: roboto;
+  border: none;
+  background-color: white;
+  padding: 0.625rem 2.5rem;
+}
+.ToggleFilterMobile-div button i {
+  margin-right: 10px;
+}/*# sourceMappingURL=ToggleFilterMobile.css.map */

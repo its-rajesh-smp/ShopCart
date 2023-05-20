@@ -1,0 +1,20 @@
+@import "../../../../..//Style/color";
+.TopFilter-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .TopFilter-div__firstDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: roboto;
+    .TopFilter-div__firstDiv__filter {
+      font-size: torem(18px);
+    }
+    .TopFilter-div__firstDiv__clear {
+      color: $header_base;
+      font-size: torem(12px);
+      font-weight: 500;
+    }
+  }
+}

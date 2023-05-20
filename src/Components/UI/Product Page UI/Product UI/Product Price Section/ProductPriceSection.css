@@ -1,0 +1,30 @@
+.ProductPriceSection-div {
+  font-family: roboto;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.625rem;
+}
+.ProductPriceSection-div h1 {
+  font-size: 1.5625rem;
+  margin-bottom: 0.3125rem;
+}
+.ProductPriceSection-div div {
+  margin-bottom: 0.3125rem;
+  display: flex;
+  gap: 0.3125rem;
+  align-items: center;
+}
+.ProductPriceSection-div div .fakePrice {
+  text-decoration: line-through;
+  font-size: 0.9375rem;
+}
+.ProductPriceSection-div div .off {
+  color: green;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.ProductPriceSection-div .freeDel {
+  font-size: 0.75rem;
+}/*# sourceMappingURL=ProductPriceSection.css.map */

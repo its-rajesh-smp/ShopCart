@@ -1,0 +1,22 @@
+@import "../../../../../Style/color";
+.PriceFilter-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .PriceFilter-div__name {
+    font-size: torem(11px);
+    font-family: roboto;
+    font-weight: 600;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      font-size: torem(15px);
+      font-family: roboto;
+      font-weight: 500;
+      color: #757575;
+    }
+  }
+}

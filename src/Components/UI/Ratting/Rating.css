@@ -1,0 +1,13 @@
+.Rating-div {
+  display: flex;
+  background-color: green;
+  width: 3.125rem;
+  padding: 0.1875rem 0.1875rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3125rem;
+  color: white;
+  border-radius: 0.1875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}/*# sourceMappingURL=Rating.css.map */

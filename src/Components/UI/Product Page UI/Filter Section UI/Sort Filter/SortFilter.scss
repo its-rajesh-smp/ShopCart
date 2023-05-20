@@ -1,0 +1,25 @@
+@import "../../../../../Style/color";
+.SortFilter-div {
+  display: flex;
+  gap: torem(30px);
+  font-size: torem(13px);
+  margin-top: torem(15px);
+  font-family: roboto;
+  background-color: white;
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .SortFilter-div {
+    flex-direction: column;
+    gap: torem(15px);
+    padding: torem(9px);
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

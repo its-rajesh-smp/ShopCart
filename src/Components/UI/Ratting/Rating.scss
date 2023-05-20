@@ -1,0 +1,14 @@
+@import "../../../Style/color";
+.Rating-div {
+  display: flex;
+  background-color: green;
+  width: torem(50px);
+  padding: torem(3px) torem(3px);
+  justify-content: center;
+  align-items: center;
+  gap: torem(5px);
+  color: white;
+  border-radius: torem(3px);
+  font-size: torem(13px);
+  font-weight: 500;
+}

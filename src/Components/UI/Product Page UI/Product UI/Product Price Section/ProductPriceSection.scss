@@ -1,0 +1,31 @@
+@import "../../../../../Style/color";
+.ProductPriceSection-div {
+  font-family: roboto;
+  display: flex;
+  gap: torem(20px);
+  align-items: center;
+  flex-wrap: wrap;
+  padding: torem(10px);
+  h1 {
+    font-size: torem(25px);
+    margin-bottom: torem(5px);
+  }
+  div {
+    margin-bottom: torem(5px);
+    display: flex;
+    gap: torem(5px);
+    align-items: center;
+    .fakePrice {
+      text-decoration: line-through;
+      font-size: torem(15px);
+    }
+    .off {
+      color: green;
+      font-size: torem(12px);
+      font-weight: 700;
+    }
+  }
+  .freeDel {
+    font-size: torem(12px);
+  }
+}

@@ -1,0 +1,21 @@
+.PriceFilter-div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.PriceFilter-div .PriceFilter-div__name {
+  font-size: 0.6875rem;
+  font-family: roboto;
+  font-weight: 600;
+}
+.PriceFilter-div div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.PriceFilter-div div p {
+  font-size: 0.9375rem;
+  font-family: roboto;
+  font-weight: 500;
+  color: #757575;
+}/*# sourceMappingURL=PriceFilter.css.map */

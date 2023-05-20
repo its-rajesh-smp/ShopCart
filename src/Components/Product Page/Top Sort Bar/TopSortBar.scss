@@ -1,0 +1,19 @@
+@import "../../../Style/color";
+.TopSortBar-div {
+  font-family: roboto;
+  margin-bottom: 2px;
+  background-color: white;
+  padding: 10px;
+}
+.TopSortBar-div__currentCat {
+  display: flex;
+  gap: torem(5px);
+  align-items: center;
+
+  h3 {
+  }
+  p {
+    font-size: torem(11px);
+    color: #626262;
+  }
+}

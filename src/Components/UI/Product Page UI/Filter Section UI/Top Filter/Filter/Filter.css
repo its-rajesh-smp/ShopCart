@@ -1,0 +1,13 @@
+.Filter-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 7px 10px;
+  gap: 5px;
+  font-family: roboto;
+  font-size: 11px;
+  border-radius: 2px;
+}/*# sourceMappingURL=Filter.css.map */

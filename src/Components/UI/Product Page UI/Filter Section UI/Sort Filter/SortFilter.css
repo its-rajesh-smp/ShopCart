@@ -1,0 +1,19 @@
+.SortFilter-div {
+  display: flex;
+  gap: 1.875rem;
+  font-size: 0.8125rem;
+  margin-top: 0.9375rem;
+  font-family: roboto;
+  background-color: white;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .SortFilter-div {
+    flex-direction: column;
+    gap: 0.9375rem;
+    padding: 0.5625rem;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=SortFilter.css.map */
