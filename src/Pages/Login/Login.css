@@ -1,0 +1,89 @@
+.Login-div {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(55, 55, 55, 0.475);
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Login-div__inner {
+  height: 35.625rem;
+  width: 43.75rem;
+  background-color: white;
+  border-radius: 0.3125rem;
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+}
+
+.Login-div__inner_info {
+  border-top-left-radius: 0.3125rem;
+  border-bottom-left-radius: 0.3125rem;
+  background-color: #2874f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.Login-div__inner_info div {
+  font-family: roboto;
+  color: white;
+  padding: 1.875rem;
+}
+.Login-div__inner_info div h2 {
+  margin-bottom: 1.25rem;
+}
+.Login-div__inner_info img {
+  width: 12.5rem;
+  margin-bottom: 3.125rem;
+}
+
+.Login-div__inner__form {
+  padding: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: roboto;
+}
+.Login-div__inner__form div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.Login-div__inner__form div p {
+  font-size: 0.75rem;
+}
+.Login-div__inner__form div button {
+  height: 3.125rem;
+  border: none;
+  border-radius: 0.3125rem;
+  font-family: roboto;
+  font-weight: 500;
+  color: white;
+  background-color: orange;
+}
+.Login-div__inner__form .createacc {
+  color: #2874f0;
+  text-align: center;
+  font-size: 0.8125rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Login-div__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .Login-div__inner .createacc {
+    margin-top: 20px;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=Login.css.map */

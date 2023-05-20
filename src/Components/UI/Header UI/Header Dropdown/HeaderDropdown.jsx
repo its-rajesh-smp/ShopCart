@@ -7,7 +7,7 @@ function HeaderDropdown(props) {
       <p className="forText">{props.for}</p>
       <i className="bx bx-chevron-down downIcon"></i>
 
-      <HeaderDropdownContainer>{props.children}</HeaderDropdownContainer>
+      {/* <HeaderDropdownContainer>{props.children}</HeaderDropdownContainer> */}
     </div>
   );
 }
