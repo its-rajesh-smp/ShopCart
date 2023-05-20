@@ -1,0 +1,46 @@
+.CartPagePriceCard-div__container {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: white;
+  padding: 1.25rem;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  position: fixed;
+}
+.CartPagePriceCard-div__container div div {
+  margin-top: 0.9375rem;
+  display: flex;
+  justify-content: space-between;
+}
+.CartPagePriceCard-div__container .priceDetails {
+  padding-bottom: 1.25rem;
+  border-bottom: 0.0625rem solid gainsboro;
+  color: gray;
+}
+.CartPagePriceCard-div__container .totalPrice {
+  border-top: 0.0625rem dashed gainsboro;
+  border-bottom: 0.0625rem dashed gainsboro;
+  font-size: 1.25rem;
+  padding: 0.625rem 0rem;
+}
+.CartPagePriceCard-div__container .totalSave {
+  color: green;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .CartPagePriceCard-div__container {
+    width: calc(100% - 2.5rem);
+    position: unset;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .CartPagePriceCard-div__container {
+    width: calc(100% - 2.5rem);
+    position: unset;
+  }
+}
+/* Tablet 2 *//*# sourceMappingURL=CartPagePriceCard.css.map */

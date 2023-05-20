@@ -1,0 +1,57 @@
+@import "../../Style/color";
+
+.Cartpage-div {
+  background-color: #e0e0e0;
+  margin-left: torem(20px);
+  margin-right: torem(20px);
+  font-family: roboto;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: torem(20px);
+  padding: torem(20px);
+}
+.Cartpage-div__checkoutBTN__div {
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: torem(20px);
+  margin-bottom: torem(20px);
+  border-bottom-left-radius: torem(5px);
+  border-bottom-right-radius: torem(5px);
+  button {
+    height: torem(50px);
+    width: 20%;
+    border: none;
+    background-color: $header_base;
+    color: white;
+    font-family: roboto;
+    font-weight: 500;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Cartpage-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: torem(10px);
+    margin-right: torem(10px);
+  }
+  .Cartpage-div__checkoutBTN__div {
+    justify-content: center;
+    button {
+      width: 100%;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .Cartpage-div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

@@ -1,0 +1,11 @@
+.CartPageTopBar-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.75rem;
+  background-color: white;
+  border-bottom: 0.125rem solid gainsboro;
+  box-shadow: 0.0625rem 0.0625rem 0.3125rem gainsboro;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}/*# sourceMappingURL=CartPageTopBar.css.map */

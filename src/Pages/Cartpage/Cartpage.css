@@ -1,0 +1,53 @@
+.Cartpage-div {
+  background-color: #e0e0e0;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  font-family: roboto;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+
+.Cartpage-div__checkoutBTN__div {
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom-left-radius: 0.3125rem;
+  border-bottom-right-radius: 0.3125rem;
+}
+.Cartpage-div__checkoutBTN__div button {
+  height: 3.125rem;
+  width: 20%;
+  border: none;
+  background-color: #2874f0;
+  color: white;
+  font-family: roboto;
+  font-weight: 500;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Cartpage-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+  }
+  .Cartpage-div__checkoutBTN__div {
+    justify-content: center;
+  }
+  .Cartpage-div__checkoutBTN__div button {
+    width: 100%;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .Cartpage-div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Tablet 2 *//*# sourceMappingURL=Cartpage.css.map */
