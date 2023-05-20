@@ -1,0 +1,43 @@
+@import "../../../../Style/color";
+.HeaderCart-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      color: white;
+      font-family: roboto;
+      font-weight: 600;
+      font-size: torem(20px);
+    }
+    div {
+      position: absolute;
+      height: torem(18px);
+      width: torem(18px);
+      background-color: #ff6161;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: torem(-12px);
+      left: torem(5px);
+      border-radius: torem(5px);
+      border: torem(1px) solid white;
+
+      span {
+        color: white;
+        font-family: roboto;
+      }
+    }
+  }
+  p {
+    margin-left: torem(10px);
+    color: white;
+    font-family: roboto;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,45 @@
+@import "../Style/color";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: toper(16);
+  background-color: gainsboro;
+}
+.App-div {
+}
+.remove__Header {
+  margin-top: torem(56px);
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  html {
+    font-size: toper(12);
+  }
+  .remove__Header {
+    margin-top: torem(80px);
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  html {
+    font-size: toper(15);
+  }
+  .remove__Header {
+    margin-top: torem(56px);
+  }
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+  html {
+    font-size: toper(10);
+  }
+  .remove__Header {
+    margin-top: torem(100px);
+  }
+}

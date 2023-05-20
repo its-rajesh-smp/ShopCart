@@ -1,0 +1,30 @@
+@import "../../../../Style/color";
+.HeaderIcon-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  img {
+    width: torem(75px);
+  }
+  div {
+    display: flex;
+    font-size: torem(11px);
+    color: white;
+    font-style: italic;
+    font-family: roboto;
+    div {
+      p {
+        color: yellow;
+        font-weight: 500;
+        margin-left: torem(2px);
+      }
+      img {
+        margin-left: torem(2px);
+        height: torem(10px);
+        width: torem(10px);
+      }
+    }
+  }
+}

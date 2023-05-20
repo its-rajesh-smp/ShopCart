@@ -1,0 +1,40 @@
+.HeaderCart-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.HeaderCart-div div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.HeaderCart-div div i {
+  color: white;
+  font-family: roboto;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.HeaderCart-div div div {
+  position: absolute;
+  height: 1.125rem;
+  width: 1.125rem;
+  background-color: #ff6161;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -0.75rem;
+  left: 0.3125rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid white;
+}
+.HeaderCart-div div div span {
+  color: white;
+  font-family: roboto;
+}
+.HeaderCart-div p {
+  margin-left: 0.625rem;
+  color: white;
+  font-family: roboto;
+  font-weight: 600;
+}/*# sourceMappingURL=HeaderCart.css.map */

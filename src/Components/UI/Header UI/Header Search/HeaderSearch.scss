@@ -1,0 +1,47 @@
+@import "../../../../Style/color.scss";
+
+.HeaderSearch-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px torem(5px);
+
+  input,
+  button {
+    border: none;
+    outline: none;
+    height: torem(36px);
+  }
+  input {
+    width: 100%;
+    padding: 0px torem(6px);
+    border-top-left-radius: torem(2px);
+    border-bottom-left-radius: torem(2px);
+  }
+  input::placeholder {
+    padding-left: torem(1px);
+    font-family: roboto;
+  }
+  button {
+    width: torem(40px);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: torem(2px);
+    border-bottom-right-radius: torem(2px);
+    i {
+      color: $header_base;
+      font-size: torem(20px);
+      font-weight: 600;
+    }
+  }
+}
+
+//? Media
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HeaderSearch-div {
+    display: none;
+  }
+}

@@ -1,0 +1,74 @@
+@import "../../Style/color";
+
+.Header-div {
+  background-color: $header_base;
+  height: torem(56px);
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr 0.8fr 0.8fr 0.3fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: torem(15px);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0.5px 0.5px 5px black;
+}
+.header__loginBTn {
+  background-color: white;
+  border: none;
+  height: torem(30px);
+  padding: torem(5px) torem(40px);
+  border-radius: torem(2px);
+  font-family: roboto;
+  font-weight: 600;
+  color: $header_base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__becomeASeller {
+  color: white;
+  font-family: roboto;
+  font-weight: 600;
+  font-size: torem(16px);
+  text-align: center;
+}
+
+//? Media
+
+/*? Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Header-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px torem(10px);
+    height: torem(80px);
+  }
+  .header__loginBTn,
+  .header__becomeASeller {
+    display: none;
+  }
+}
+
+/* Tablet 1 */
+@media only screen and (min-device-width: 900px) and (max-device-width: 1080px) {
+  .Header-div {
+    height: torem(56px);
+    display: flex;
+  }
+  .header__becomeASeller {
+    text-align: left;
+  }
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+  .Header-div {
+    height: torem(100px);
+    display: flex;
+  }
+  .header__becomeASeller {
+    text-align: left;
+  }
+}

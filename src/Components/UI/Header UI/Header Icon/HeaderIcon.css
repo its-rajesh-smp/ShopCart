@@ -1,0 +1,27 @@
+.HeaderIcon-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+.HeaderIcon-div img {
+  width: 4.6875rem;
+}
+.HeaderIcon-div div {
+  display: flex;
+  font-size: 0.6875rem;
+  color: white;
+  font-style: italic;
+  font-family: roboto;
+}
+.HeaderIcon-div div div p {
+  color: yellow;
+  font-weight: 500;
+  margin-left: 0.125rem;
+}
+.HeaderIcon-div div div img {
+  margin-left: 0.125rem;
+  height: 0.625rem;
+  width: 0.625rem;
+}/*# sourceMappingURL=HeaderIcon.css.map */

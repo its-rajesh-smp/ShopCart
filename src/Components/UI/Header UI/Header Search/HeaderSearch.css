@@ -1,0 +1,43 @@
+.HeaderSearch-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 0.3125rem;
+}
+.HeaderSearch-div input,
+.HeaderSearch-div button {
+  border: none;
+  outline: none;
+  height: 2.25rem;
+}
+.HeaderSearch-div input {
+  width: 100%;
+  padding: 0px 0.375rem;
+  border-top-left-radius: 0.125rem;
+  border-bottom-left-radius: 0.125rem;
+}
+.HeaderSearch-div input::placeholder {
+  padding-left: 0.0625rem;
+  font-family: roboto;
+}
+.HeaderSearch-div button {
+  width: 2.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 0.125rem;
+  border-bottom-right-radius: 0.125rem;
+}
+.HeaderSearch-div button i {
+  color: #015ff8;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HeaderSearch-div {
+    display: none;
+  }
+}/*# sourceMappingURL=HeaderSearch.css.map */

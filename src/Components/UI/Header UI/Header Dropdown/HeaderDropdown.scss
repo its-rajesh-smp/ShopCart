@@ -1,0 +1,80 @@
+@import "../../../../Style/color";
+.HeaderDropdown-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  .forText {
+    color: white;
+    font-family: roboto;
+    font-weight: 600;
+  }
+  .downIcon {
+    color: white;
+  }
+}
+
+//? Media
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HeaderDropdown-div {
+    display: none;
+  }
+}
+
+// Header DropDown Container
+.HeaderDropdownContainer__div {
+  position: absolute;
+  top: torem(57px);
+  width: torem(250px);
+  box-shadow: torem(2px) torem(2px) torem(10px) rgb(105, 105, 105);
+  display: flex;
+  flex-direction: column;
+  .HeaderDropdownContainer__div__pointer {
+    width: torem(20px);
+    height: torem(20px);
+    background-color: white;
+    position: absolute;
+    top: torem(-10px);
+    margin-left: calc(50% - torem(10px));
+    rotate: 45deg;
+  }
+}
+
+// Header Dropdown Item
+.HeaderDropdownItem__div {
+  color: #000;
+  display: flex;
+  gap: torem(20px);
+  font-family: roboto;
+  font-size: torem(16px);
+  padding: torem(10px);
+  background-color: white;
+  align-items: center;
+  border-bottom: torem(1px) solid gray;
+  i {
+    color: $header_base;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HeaderDropdownItem__div {
+    padding: 15px;
+    font-size: 13px;
+    i {
+      font-size: 20px;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .HeaderDropdownContainer__div {
+    top: torem(80px);
+  }
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}
