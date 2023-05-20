@@ -1,0 +1,32 @@
+@import "../../../../Style/color";
+
+.DeliveryAddressMain-div {
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 1fr;
+  font-size: torem(13px);
+}
+
+.DeliveryAddressMain-div__center div {
+  display: flex;
+  gap: torem(15px);
+  font-weight: 700;
+}
+.DeliveryAddressMain-div__center {
+  display: flex;
+  flex-direction: column;
+  gap: torem(5px);
+}
+.DeliveryAddressMain-div__center button {
+  background-color: #fb641b;
+  border: none;
+  color: white;
+  width: torem(150px);
+  padding: torem(8px) 0px;
+  font-family: roboto;
+  border-radius: torem(5px);
+}
+.DeliveryAddressMain-div__right {
+  display: flex;
+  justify-content: flex-end;
+  color: #2874f0;
+}

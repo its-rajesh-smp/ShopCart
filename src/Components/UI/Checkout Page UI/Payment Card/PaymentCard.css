@@ -1,0 +1,21 @@
+.PaymentCard-div {
+  padding: 1.25rem;
+  background-color: white;
+  margin-bottom: 0.3125rem;
+  font-family: roboto;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  border-bottom: 1px solid gainsboro;
+}
+
+.PaymentCard-div__cod {
+  display: flex;
+  align-items: center;
+  gap: 3.75rem;
+  margin-top: 0.9375rem;
+}
+.PaymentCard-div__cod img {
+  border: 0.0625rem solid black;
+  width: 40%;
+}/*# sourceMappingURL=PaymentCard.css.map */

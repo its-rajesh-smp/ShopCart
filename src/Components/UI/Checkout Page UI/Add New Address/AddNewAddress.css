@@ -1,0 +1,16 @@
+.AddNewAddress-div {
+  padding: 1.25rem;
+  background-color: aliceblue;
+  margin-bottom: 0.3125rem;
+  font-family: roboto;
+  font-size: 12px;
+}
+.AddNewAddress-div .AddNewAddress-div__bar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: #2874f0;
+}
+.AddNewAddress-div .AddNewAddress-div__bar i {
+  font-size: 17px;
+}/*# sourceMappingURL=AddNewAddress.css.map */

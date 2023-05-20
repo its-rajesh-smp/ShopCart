@@ -1,0 +1,59 @@
+@import "../../../../Style/color";
+.CheckoutAccordionCard-div {
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.CheckoutAccordionCard-div_bar {
+  display: grid;
+  grid-template-columns: 0.01fr 1fr 1fr;
+  height: torem(50px);
+  background-color: $header_base;
+  align-items: center;
+  gap: torem(10px);
+  border-top-left-radius: torem(2px);
+  border-top-right-radius: torem(2px);
+
+  padding: torem(0px) torem(20px);
+  p {
+    color: white;
+    font-weight: 500;
+  }
+  .CheckoutAccordionCard-div__number {
+    background-color: white;
+    color: $header_base;
+    padding: torem(4px) torem(7px);
+    border-radius: torem(3px);
+  }
+}
+
+.CheckoutAccordionCard-div_bar__shadow {
+  display: grid;
+  background-color: white;
+  padding: torem(20px);
+  gap: torem(20px);
+  border: torem(1px) solid gainsboro;
+
+  .CheckoutAccordionCard-div_bar_currentTick {
+    display: flex;
+    gap: torem(20px);
+  }
+  p {
+    color: gray;
+  }
+  .CheckoutAccordionCard-div__number {
+    background-color: gainsboro;
+  }
+  .CheckoutAccordionCard-div_bar__shadow__current {
+    color: black;
+  }
+  button {
+    border-radius: torem(3px);
+    justify-self: flex-end;
+    background-color: white;
+    border: torem(1px) solid $header_base;
+    height: torem(40px);
+    width: 30%;
+    font-size: torem(16px);
+  }
+}

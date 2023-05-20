@@ -1,0 +1,21 @@
+@import "../../../../Style/color";
+.PaymentCard-div {
+  padding: torem(20px);
+  background-color: white;
+  margin-bottom: torem(5px);
+  font-family: roboto;
+  display: flex;
+  align-items: flex-start;
+  gap: torem(20px);
+  border-bottom: 1px solid gainsboro;
+}
+.PaymentCard-div__cod {
+  display: flex;
+  align-items: center;
+  gap: torem(60px);
+  margin-top: torem(15px);
+  img {
+    border: torem(1px) solid black;
+    width: 40%;
+  }
+}

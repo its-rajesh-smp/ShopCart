@@ -1,0 +1,38 @@
+.EditDeliveryAddress-div {
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 1fr;
+}
+
+.EditDeliveryAddress-div__center__locationBtn {
+  padding: 0.625rem 1.25rem;
+  background-color: #2874f0;
+  border: none;
+  margin-top: 0.9375rem;
+  color: white;
+  border-radius: 0.3125rem;
+}
+
+.EditDeliveryAddress-div__center form div {
+  display: flex;
+  margin: 0.3125rem 0rem;
+  justify-content: space-between;
+}
+
+.EditDeliveryAddress-div__center__btnGrp button {
+  padding: 0.9375rem 1.25rem;
+  border: none;
+  border-radius: 0.3125rem;
+  margin-right: 0.9375rem;
+  margin-top: 0.9375rem;
+  font-family: poppins;
+  font-weight: 600;
+}
+
+.EditDeliveryAddress-div__center__btnGrp button:first-child {
+  color: white;
+  background-color: #fb641b;
+}
+
+.EditDeliveryAddress-div__center__btnGrp button:last-child {
+  color: #2874f0;
+}/*# sourceMappingURL=EditDeliveryAddress.css.map */

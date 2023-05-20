@@ -1,0 +1,18 @@
+@import "../../../../Style/color";
+
+.AddNewAddress-div {
+  padding: torem(20px);
+  background-color: aliceblue;
+  margin-bottom: torem(5px);
+  font-family: roboto;
+  font-size: 12px;
+  .AddNewAddress-div__bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: $header_base;
+    i {
+      font-size: 17px;
+    }
+  }
+}

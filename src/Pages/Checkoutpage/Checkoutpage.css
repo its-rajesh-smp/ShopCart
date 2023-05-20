@@ -1,0 +1,22 @@
+.Checkoutpage-div {
+  padding-top: 20px;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  font-family: roboto;
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 1.25rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Checkoutpage-div {
+    padding-top: 10px;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=Checkoutpage.css.map */

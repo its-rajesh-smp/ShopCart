@@ -1,0 +1,28 @@
+@import "../../Style/color";
+.Checkoutpage-div {
+  padding-top: 20px;
+  margin-left: torem(20px);
+  margin-right: torem(20px);
+  font-family: roboto;
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: torem(20px);
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Checkoutpage-div {
+    padding-top: 10px;
+    margin-left: torem(10px);
+    margin-right: torem(10px);
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

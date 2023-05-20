@@ -1,0 +1,56 @@
+.CheckoutAccordionCard-div {
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.CheckoutAccordionCard-div_bar {
+  display: grid;
+  grid-template-columns: 0.01fr 1fr 1fr;
+  height: 3.125rem;
+  background-color: #2874f0;
+  align-items: center;
+  gap: 0.625rem;
+  border-top-left-radius: 0.125rem;
+  border-top-right-radius: 0.125rem;
+  padding: 0rem 1.25rem;
+}
+.CheckoutAccordionCard-div_bar p {
+  color: white;
+  font-weight: 500;
+}
+.CheckoutAccordionCard-div_bar .CheckoutAccordionCard-div__number {
+  background-color: white;
+  color: #2874f0;
+  padding: 0.25rem 0.4375rem;
+  border-radius: 0.1875rem;
+}
+
+.CheckoutAccordionCard-div_bar__shadow {
+  display: grid;
+  background-color: white;
+  padding: 1.25rem;
+  gap: 1.25rem;
+  border: 0.0625rem solid gainsboro;
+}
+.CheckoutAccordionCard-div_bar__shadow .CheckoutAccordionCard-div_bar_currentTick {
+  display: flex;
+  gap: 1.25rem;
+}
+.CheckoutAccordionCard-div_bar__shadow p {
+  color: gray;
+}
+.CheckoutAccordionCard-div_bar__shadow .CheckoutAccordionCard-div__number {
+  background-color: gainsboro;
+}
+.CheckoutAccordionCard-div_bar__shadow .CheckoutAccordionCard-div_bar__shadow__current {
+  color: black;
+}
+.CheckoutAccordionCard-div_bar__shadow button {
+  border-radius: 0.1875rem;
+  justify-self: flex-end;
+  background-color: white;
+  border: 0.0625rem solid #2874f0;
+  height: 2.5rem;
+  width: 30%;
+  font-size: 1rem;
+}/*# sourceMappingURL=CheckoutAccordionCard.css.map */

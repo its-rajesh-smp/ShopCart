@@ -1,0 +1,33 @@
+.DeliveryAddressMain-div {
+  display: grid;
+  grid-template-columns: 0.2fr 3fr 1fr;
+  font-size: 0.8125rem;
+}
+
+.DeliveryAddressMain-div__center div {
+  display: flex;
+  gap: 0.9375rem;
+  font-weight: 700;
+}
+
+.DeliveryAddressMain-div__center {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
+
+.DeliveryAddressMain-div__center button {
+  background-color: #fb641b;
+  border: none;
+  color: white;
+  width: 9.375rem;
+  padding: 0.5rem 0px;
+  font-family: roboto;
+  border-radius: 0.3125rem;
+}
+
+.DeliveryAddressMain-div__right {
+  display: flex;
+  justify-content: flex-end;
+  color: #2874f0;
+}/*# sourceMappingURL=DeliveryAddressMain.css.map */
