@@ -1,0 +1,51 @@
+.YourOrderContainer-div__searchDiv {
+  height: 2.5rem;
+  display: flex;
+}
+.YourOrderContainer-div__searchDiv input {
+  width: 50%;
+  height: 100%;
+  font-family: roboto;
+  padding-left: 0.625rem;
+  border: none;
+  outline: none;
+  border-top-left-radius: 0.125rem;
+  border-bottom-left-radius: 0.125rem;
+}
+.YourOrderContainer-div__searchDiv button {
+  box-shadow: 0.0625rem 0.0625rem 0.1875rem gray;
+  border-top-right-radius: 0.125rem;
+  border-bottom-right-radius: 0.125rem;
+  font-family: roboto;
+  color: white;
+  background-color: #2874f0;
+  width: 10%;
+  border: none;
+  font-size: 1rem;
+}
+
+.YourOrderContainer-div__orderContainer {
+  margin: 1.25rem 0rem;
+  margin-right: 1.25rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .YourOrderContainer-div__searchDiv {
+    background-color: white;
+    margin-top: 10px;
+  }
+  .YourOrderContainer-div__searchDiv input {
+    width: 70%;
+    height: 3.125rem;
+  }
+  .YourOrderContainer-div__searchDiv button {
+    height: 3.125rem;
+    width: 30%;
+  }
+  .YourOrderContainer-div__orderContainer {
+    margin-right: 0px;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=YourOrderContainer.css.map */

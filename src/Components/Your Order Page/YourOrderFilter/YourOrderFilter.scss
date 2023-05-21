@@ -1,0 +1,50 @@
+@import "../../../Style/color";
+.YourOrderFilter-div {
+  border-radius: torem(2px);
+  padding: torem(15px);
+  font-family: roboto;
+  background-color: white;
+}
+.YourOrderFilter-div__filterBar {
+  display: flex;
+  gap: torem(5px);
+  align-items: center;
+  i {
+    font-size: torem(20px);
+  }
+  h2 {
+    font-size: torem(20px);
+  }
+}
+.YourOrderFilter-div__container {
+  margin-top: torem(20px);
+  .container_name {
+    font-size: torem(14px);
+    margin: torem(20px) torem(0px);
+    font-weight: 500;
+  }
+}
+
+.YourOrderFilter-div__item {
+  display: flex;
+  gap: torem(20px);
+  align-items: center;
+  margin-bottom: torem(10px);
+  p {
+    font-size: torem(13px);
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .YourOrderFilter-div {
+    margin-top: torem(10px);
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

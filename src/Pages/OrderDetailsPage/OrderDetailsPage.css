@@ -1,0 +1,89 @@
+.OrderDetailsPage-div {
+  padding: 1.25rem;
+}
+
+.OrderDetailsPage-div__deliveryCard {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  background-color: white;
+  margin-bottom: 1.25rem;
+  font-family: roboto;
+  gap: 0.3125rem;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__deliveryAddress {
+  padding: 1.25rem;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__deliveryAddress h2 {
+  font-size: 1.125rem;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__deliveryAddress p {
+  font-size: 12px;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__deliveryAddress p:nth-child(2) {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__deliveryAddress p:last-child {
+  margin-top: 0.625rem;
+  color: green;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice {
+  padding: 1.25rem;
+  border-left: 1px solid gray;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice h2 {
+  font-size: 1.125rem;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice div {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 0.5fr;
+  gap: 0.625rem;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice div p {
+  font-size: 0.8125rem;
+}
+.OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice div button {
+  font-size: 0.8125rem;
+  padding: 0.3125rem 0px;
+}
+
+.OrderDetailsPage-div__reportProblem {
+  background-color: white;
+  padding: 0.625rem;
+  font-family: roboto;
+  padding-bottom: 1.875rem;
+  margin-top: 1.25rem;
+}
+.OrderDetailsPage-div__reportProblem h2 {
+  padding: 0.625rem;
+  font-size: 1.125rem;
+  margin-bottom: 1.875rem;
+}
+.OrderDetailsPage-div__reportProblem div {
+  display: flex;
+}
+.OrderDetailsPage-div__reportProblem div button {
+  background-color: #2874f0;
+  border: none;
+  border-radius: 0.3125rem;
+  padding: 0px 30px;
+  margin-left: 1.25rem;
+  color: white;
+  font-family: roboto;
+  font-weight: 500;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .OrderDetailsPage-div__deliveryCard {
+    display: flex;
+    flex-direction: column;
+  }
+  .OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice {
+    border: none;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=OrderDetailsPage.css.map */

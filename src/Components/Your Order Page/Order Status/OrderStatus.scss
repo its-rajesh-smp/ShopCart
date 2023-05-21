@@ -1,0 +1,53 @@
+@import "../../../Style/color";
+.OrderStatus-div {
+  width: 100%;
+  .OrderStatus-div__lineContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .point {
+      border-radius: 100px;
+      width: torem(16px);
+      height: torem(16px);
+      background-color: green;
+    }
+    .centerLine {
+      width: 20%;
+      height: torem(4px);
+      background-color: green;
+    }
+  }
+  .OrderStatus-div__statusContainer {
+    display: flex;
+    font-size: torem(11px);
+    font-family: roboto;
+    margin-top: torem(10px);
+    justify-content: space-between;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .OrderStatus-div {
+    width: 100%;
+    .OrderStatus-div__lineContainer {
+      .point {
+        width: torem(10px);
+        height: torem(10px);
+      }
+    }
+    .OrderStatus-div__statusContainer {
+      display: flex;
+      gap: torem(5px);
+      justify-content: space-between;
+      font-size: torem(8px);
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

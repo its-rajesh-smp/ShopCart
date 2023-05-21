@@ -1,0 +1,69 @@
+.YourOrderItem-div {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr 0.4fr 1fr;
+  padding: 1.25rem;
+  margin-bottom: 0.3125rem;
+  font-family: roboto;
+}
+
+.YourOrderItem-div__imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.YourOrderItem-div__imageContainer img {
+  margin-right: 0.9375rem;
+  width: 4.375rem;
+}
+
+.YourOrderItem-div__nameContainer p:first-child {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.YourOrderItem-div__nameContainer p:nth-child(2) {
+  font-size: 0.75rem;
+  color: gray;
+}
+.YourOrderItem-div__nameContainer p:last-child {
+  font-size: 0.75rem;
+  color: green;
+}
+
+.YourOrderItem-div__priceContainer p:first-child {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.YourOrderItem-div__priceContainer p:last-child {
+  font-size: 0.75rem;
+}
+
+.YourOrderItem-div__statusContainer {
+  align-self: center;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .YourOrderItem-div__imageContainer img {
+    margin-right: 0.3125rem;
+    width: 3.125rem;
+  }
+  .YourOrderItem-div__nameContainer p:first-child {
+    font-size: 0.75rem;
+  }
+  .YourOrderItem-div__nameContainer p:nth-child(2) {
+    font-size: 0.625rem;
+  }
+  .YourOrderItem-div__nameContainer p:last-child {
+    font-size: 0.625rem;
+  }
+}
+.YourOrderItem-div__priceContainer p:first-child {
+  font-size: 0.75rem;
+}
+.YourOrderItem-div__priceContainer p:last-child {
+  font-size: 0.625rem;
+}
+
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=YourOrderItem.css.map */

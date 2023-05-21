@@ -7,6 +7,8 @@ import Productpage from "../Pages/Productpage/Productpage";
 import Productdetailspage from "../Pages/Productdetailspage/Productdetailspage";
 import Cartpage from "../Pages/Cartpage/Cartpage";
 import Checkoutpage from "../Pages/Checkoutpage/Checkoutpage";
+import Yourorderpage from "../Pages/Yourorderpage/Yourorderpage";
+import OrderDetailsPage from "../Pages/OrderDetailsPage/OrderDetailsPage";
 
 function App(props) {
   return (
@@ -17,7 +19,9 @@ function App(props) {
       {/* <Productpage /> */}
       {/* <Productdetailspage /> */}
       {/* <Cartpage /> */}
-      <Checkoutpage />
+      {/* <Checkoutpage /> */}
+      {/* <Yourorderpage /> */}
+      <OrderDetailsPage />
     </div>
   );
 }

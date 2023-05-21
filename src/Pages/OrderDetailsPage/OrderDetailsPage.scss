@@ -1,0 +1,95 @@
+@import "../../Style/color";
+.OrderDetailsPage-div {
+  padding: torem(20px);
+}
+.OrderDetailsPage-div__deliveryCard {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  background-color: white;
+  margin-bottom: torem(20px);
+  font-family: roboto;
+  gap: torem(5px);
+  .OrderDetailsPage-div__deliveryAddress {
+    padding: torem(20px);
+    h2 {
+      font-size: torem(18px);
+    }
+    p {
+      font-size: 12px;
+      &:nth-child(2) {
+        margin-top: torem(20px);
+        font-size: torem(16px);
+        font-weight: 500;
+      }
+      &:last-child {
+        margin-top: torem(10px);
+        color: green;
+      }
+    }
+  }
+
+  .OrderDetailsPage-div__invoice {
+    padding: torem(20px);
+    border-left: 1px solid gray;
+    h2 {
+      font-size: torem(18px);
+    }
+    div {
+      margin-top: torem(40px);
+      display: grid;
+      grid-template-columns: 0.1fr 1fr 0.5fr;
+      gap: torem(10px);
+      p {
+        font-size: torem(13px);
+      }
+      button {
+        font-size: torem(13px);
+        padding: torem(5px) 0px;
+      }
+    }
+  }
+}
+
+.OrderDetailsPage-div__reportProblem {
+  background-color: white;
+  padding: torem(10px);
+  font-family: roboto;
+  padding-bottom: torem(30px);
+  margin-top: torem(20px);
+  h2 {
+    padding: torem(10px);
+    font-size: torem(18px);
+    margin-bottom: torem(30px);
+  }
+  div {
+    display: flex;
+    button {
+      background-color: $header_base;
+      border: none;
+      border-radius: torem(5px);
+      padding: 0px 30px;
+      margin-left: torem(20px);
+      color: white;
+      font-family: roboto;
+      font-weight: 500;
+    }
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .OrderDetailsPage-div__deliveryCard {
+    display: flex;
+    flex-direction: column;
+    .OrderDetailsPage-div__invoice {
+      border: none;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

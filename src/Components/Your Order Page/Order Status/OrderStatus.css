@@ -1,0 +1,45 @@
+.OrderStatus-div {
+  width: 100%;
+}
+.OrderStatus-div .OrderStatus-div__lineContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.OrderStatus-div .OrderStatus-div__lineContainer .point {
+  border-radius: 100px;
+  width: 1rem;
+  height: 1rem;
+  background-color: green;
+}
+.OrderStatus-div .OrderStatus-div__lineContainer .centerLine {
+  width: 20%;
+  height: 0.25rem;
+  background-color: green;
+}
+.OrderStatus-div .OrderStatus-div__statusContainer {
+  display: flex;
+  font-size: 0.6875rem;
+  font-family: roboto;
+  margin-top: 0.625rem;
+  justify-content: space-between;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .OrderStatus-div {
+    width: 100%;
+  }
+  .OrderStatus-div .OrderStatus-div__lineContainer .point {
+    width: 0.625rem;
+    height: 0.625rem;
+  }
+  .OrderStatus-div .OrderStatus-div__statusContainer {
+    display: flex;
+    gap: 0.3125rem;
+    justify-content: space-between;
+    font-size: 0.5rem;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=OrderStatus.css.map */

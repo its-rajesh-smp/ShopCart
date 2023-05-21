@@ -1,0 +1,59 @@
+@import "../../../Style/color";
+.YourOrderContainer-div {
+}
+.YourOrderContainer-div__searchDiv {
+  height: torem(40px);
+  display: flex;
+  input {
+    width: 50%;
+    height: 100%;
+    font-family: roboto;
+    padding-left: torem(10px);
+    border: none;
+    outline: none;
+    border-top-left-radius: torem(2px);
+    border-bottom-left-radius: torem(2px);
+  }
+  button {
+    box-shadow: torem(1px) torem(1px) torem(3px) gray;
+    border-top-right-radius: torem(2px);
+    border-bottom-right-radius: torem(2px);
+    font-family: roboto;
+    color: white;
+    background-color: $header_base;
+    width: 10%;
+    border: none;
+    font-size: torem(16px);
+  }
+}
+
+.YourOrderContainer-div__orderContainer {
+  margin: torem(20px) torem(0px);
+  margin-right: torem(20px);
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .YourOrderContainer-div__searchDiv {
+    background-color: white;
+    margin-top: 10px;
+    input {
+      width: 70%;
+      height: torem(50px);
+    }
+    button {
+      height: torem(50px);
+      width: 30%;
+    }
+  }
+  .YourOrderContainer-div__orderContainer {
+    margin-right: 0px;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

@@ -1,0 +1,46 @@
+.YourOrderFilter-div {
+  border-radius: 0.125rem;
+  padding: 0.9375rem;
+  font-family: roboto;
+  background-color: white;
+}
+
+.YourOrderFilter-div__filterBar {
+  display: flex;
+  gap: 0.3125rem;
+  align-items: center;
+}
+.YourOrderFilter-div__filterBar i {
+  font-size: 1.25rem;
+}
+.YourOrderFilter-div__filterBar h2 {
+  font-size: 1.25rem;
+}
+
+.YourOrderFilter-div__container {
+  margin-top: 1.25rem;
+}
+.YourOrderFilter-div__container .container_name {
+  font-size: 0.875rem;
+  margin: 1.25rem 0rem;
+  font-weight: 500;
+}
+
+.YourOrderFilter-div__item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 0.625rem;
+}
+.YourOrderFilter-div__item p {
+  font-size: 0.8125rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .YourOrderFilter-div {
+    margin-top: 0.625rem;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=YourOrderFilter.css.map */

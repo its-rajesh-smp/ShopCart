@@ -1,0 +1,93 @@
+@import "../../../Style/color";
+.YourOrderItem-div {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr 0.4fr 1fr;
+  padding: torem(20px);
+  margin-bottom: torem(5px);
+  font-family: roboto;
+}
+.YourOrderItem-div__imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin-right: torem(15px);
+    width: torem(70px);
+  }
+}
+
+.YourOrderItem-div__nameContainer {
+  p {
+    &:first-child {
+      font-size: torem(16px);
+      font-weight: 500;
+    }
+    &:nth-child(2) {
+      font-size: torem(12px);
+      color: gray;
+    }
+    &:last-child {
+      font-size: torem(12px);
+      color: green;
+    }
+  }
+}
+
+.YourOrderItem-div__priceContainer {
+  p {
+    &:first-child {
+      font-weight: 500;
+      font-size: torem(16px);
+    }
+    &:last-child {
+      font-size: torem(12px);
+    }
+  }
+}
+
+.YourOrderItem-div__statusContainer {
+  align-self: center;
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .YourOrderItem-div__imageContainer {
+    img {
+      margin-right: torem(5px);
+      width: torem(50px);
+    }
+  }
+  .YourOrderItem-div__nameContainer {
+    p {
+      &:first-child {
+        font-size: torem(12px);
+      }
+      &:nth-child(2) {
+        font-size: torem(10px);
+      }
+      &:last-child {
+        font-size: torem(10px);
+      }
+    }
+  }
+}
+
+.YourOrderItem-div__priceContainer {
+  p {
+    &:first-child {
+      font-size: torem(12px);
+    }
+    &:last-child {
+      font-size: torem(10px);
+    }
+  }
+}
+
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}
