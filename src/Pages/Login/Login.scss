@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(55, 55, 55, 0.475);
+  background-color: rgba(55, 55, 55, 0.647);
   position: absolute;
   z-index: 100;
   display: flex;
@@ -29,6 +29,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  .bx-x {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: torem(30px);
+    background-color: white;
+    border-bottom-right-radius: torem(10px);
+    color: $header_base;
+    cursor: pointer;
+  }
   div {
     font-family: roboto;
     color: white;
@@ -64,6 +75,7 @@
       font-family: roboto;
       font-weight: 500;
       color: white;
+      cursor: pointer;
       background-color: orange;
     }
   }
@@ -71,6 +83,7 @@
     color: $header_base;
     text-align: center;
     font-size: torem(13px);
+    cursor: pointer;
   }
 }
 

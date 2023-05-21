@@ -11,8 +11,12 @@ import HeaderDropdown from "../UI/Header UI/Header Dropdown/HeaderDropdown";
 import HeaderCart from "../UI/Header UI/Header Cart/HeaderCart";
 import HeaderHambargar from "../UI/Header UI/Header Hambargar/HeaderHambargar";
 import { HeaderDropdownItem } from "../UI/Header UI/Header Dropdown/HeaderDropdown";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../Store/Reducer/toggleLogin";
 
 function Header(props) {
+  const dispatch = useDispatch();
+
   return (
     <div className=" Header-div ">
       <ShowOnMobile>
@@ -23,7 +27,14 @@ function Header(props) {
 
       <HeaderSearch />
 
-      <button className="header__loginBTn">LOGIN</button>
+      <button
+        onClick={() => {
+          dispatch(setLogin());
+        }}
+        className="header__loginBTn"
+      >
+        LOGIN
+      </button>
 
       <HeaderDropdown for="My Account">
         <HeaderDropdownItem />

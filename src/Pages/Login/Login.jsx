@@ -1,12 +1,23 @@
 import React from "react";
 import "./Login.css";
 import { TextField } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../Store/Reducer/toggleLogin";
 
 function Login(props) {
+  const dispatch = useDispatch();
+
+  // On Click Close BTN
+  const closeLoginHandeler = () => {
+    dispatch(setLogin());
+  };
+
   return (
     <div className=" Login-div ">
       <div className="Login-div__inner">
         <div className="Login-div__inner_info">
+          <i onClick={closeLoginHandeler} class="bx bx-x"></i>
+
           <div>
             <h2>"Login" "Create New Account"</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
