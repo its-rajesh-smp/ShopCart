@@ -14,14 +14,14 @@ function App(props) {
   return (
     <div className=" App-div ">
       <Header />
-      {/* <Login /> */}
-      {/* <Homepage /> */}
+      <Login />
+      <Homepage />
       {/* <Productpage /> */}
       {/* <Productdetailspage /> */}
       {/* <Cartpage /> */}
       {/* <Checkoutpage /> */}
       {/* <Yourorderpage /> */}
-      <OrderDetailsPage />
+      {/* <OrderDetailsPage /> */}
     </div>
   );
 }
