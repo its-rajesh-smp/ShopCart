@@ -5,9 +5,7 @@ export const RESET_PASSWORD = `https://identitytoolkit.googleapis.com/v1/account
 
 
 // PRODUCT
-export const HOME_PRODUCT_CATEGORY = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/HomeAllProductCategorie"
-export const HOME_PRODUCT_SLIDER = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/HomeSliderImage"
-export const HOME_PRODUCT_ADDS = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/HomeAllProductCover"
+export const HOME_PRODUCTS = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/homeProducts"
 
 
 // USER
