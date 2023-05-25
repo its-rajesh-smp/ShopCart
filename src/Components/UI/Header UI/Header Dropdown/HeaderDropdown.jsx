@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HeaderDropdown.css";
 
 function HeaderDropdown(props) {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  // On Mouse In Open
+  const onMouseInOpen = () => {
+    setShowDropdown(true);
+  };
+
+  // On Mouse Out Close
+  const onMouseOutClose = () => {
+    setShowDropdown(false);
+  };
+
   return (
-    <div className=" HeaderDropdown-div ">
+    <div
+      onMouseEnter={onMouseInOpen}
+      onMouseLeave={onMouseOutClose}
+      className=" HeaderDropdown-div "
+    >
       <p className="forText">{props.for}</p>
       <i className="bx bx-chevron-down downIcon"></i>
 
-      {/* <HeaderDropdownContainer>{props.children}</HeaderDropdownContainer> */}
+      {showDropdown && (
+        <HeaderDropdownContainer>{props.children}</HeaderDropdownContainer>
+      )}
     </div>
   );
 }
@@ -30,7 +48,7 @@ export default HeaderDropdown;
 /* -------------------------------------------------------------------------- */
 export function HeaderDropdownItem(props) {
   return (
-    <div className="HeaderDropdownItem__div">
+    <div onClick={props.onClick} className="HeaderDropdownItem__div">
       <i className="bx bxs-log-out"></i>
       <p>Logout</p>
     </div>

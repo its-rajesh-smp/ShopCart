@@ -13,10 +13,17 @@ import HeaderHambargar from "../UI/Header UI/Header Hambargar/HeaderHambargar";
 import { HeaderDropdownItem } from "../UI/Header UI/Header Dropdown/HeaderDropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
+import { logoutUser } from "../../Store/Reducer/authReducer";
 
 function Header(props) {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.authSlice.isAuth);
+
+  // On Click Logout
+  const onClickLogout = () => {
+    dispatch(logoutUser());
+    localStorage.clear("shopcart");
+  };
 
   return (
     <div className=" Header-div ">
@@ -40,7 +47,7 @@ function Header(props) {
       )}
 
       <HeaderDropdown for="My Account">
-        <HeaderDropdownItem />
+        <HeaderDropdownItem onClick={onClickLogout} />
       </HeaderDropdown>
 
       <p className="header__becomeASeller">Become a Seller</p>
