@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./CartProductsContainer.css";
 import Product from "../../Product Page/Product/Product";
 import { useSelector } from "react-redux";
@@ -23,4 +23,4 @@ function CartProductsContainer(props) {
   );
 }
 
-export default CartProductsContainer;
+export default memo(CartProductsContainer);

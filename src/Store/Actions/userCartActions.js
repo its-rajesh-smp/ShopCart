@@ -45,6 +45,7 @@ export const fetchCart = (email) => {
         try {
             const userEmail = email.replace(".", "").replace("@", "")
             const { data } = await axios.get(`${USER}/${userEmail}/cart.json`)
+            if (!data) { return }
             const cartArr = Object.keys(data).map((cartId) => {
                 return { ...data[cartId], cartId: cartId }
             })
@@ -63,6 +64,7 @@ export const increamentCartQuantity = (cartId, quantity, price, setQuantity) => 
     return async (dispatch, getState) => {
         try {
             const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
+            console.log(quantity);
             await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity + 1 })
             setQuantity(p => p + 1)
             dispatch(increamentTotal({ amount: price, quantity: 1 }))

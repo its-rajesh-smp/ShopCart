@@ -7,7 +7,6 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 function Product(props) {
   const navigate = useNavigate();
-  const param = useParams();
 
   // On Product Click --> Product Details
   const onProductClick = () => {
