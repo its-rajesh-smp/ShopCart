@@ -15,8 +15,12 @@ function Product(props) {
   };
 
   return (
-    <div onClick={onProductClick} className=" Product-div ">
-      <ProductImageSection data={props.data} showBtn={props.showBtn} />
+    <div className=" Product-div ">
+      <ProductImageSection
+        onClick={onProductClick}
+        data={props.data}
+        showBtn={props.showBtn}
+      />
       <ProductDescriptionSection
         data={props.data}
         showDetailsList={props.showDetailsList}

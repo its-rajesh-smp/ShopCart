@@ -2,17 +2,16 @@ import axios from "axios"
 import { USER } from "../../Firebase/API_URL"
 import { setCart } from "../Reducer/userCartReducer"
 import { setTotalAmount } from "./totalAmountActions"
+import { increamentTotal, decreamentTotal } from "../Reducer/totalAmoutReducer"
 
 export const addProductInUserCart = (product) => {
     return async (dispatch, getState) => {
         try {
             const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
             const currentCart = getState().userCartSlice.cartArr
-
             let isPresent = false
             let updatedQuantity = 1
             let cartProductId = ""
-
             const filteredCart = currentCart.map((cartProduct) => {
                 if (cartProduct.id === product.id) {
                     isPresent = true
@@ -22,7 +21,6 @@ export const addProductInUserCart = (product) => {
                 }
                 return cartProduct
             })
-
             if (isPresent === true) {
                 const { data } = await axios.patch(`${USER}/${userEmail}/cart/${cartProductId}.json`, { quantity: updatedQuantity })
                 dispatch(setCart(filteredCart))
@@ -58,3 +56,50 @@ export const fetchCart = (email) => {
         }
     }
 }
+
+
+// Increament Quantity
+export const increamentCartQuantity = (cartId, quantity, price, setQuantity) => {
+    return async (dispatch, getState) => {
+        try {
+            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
+            await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity + 1 })
+            setQuantity(p => p + 1)
+            dispatch(increamentTotal({ amount: price, quantity: 1 }))
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+}
+
+// Decreament Quantity
+export const decreamentCartQuantity = (cartId, quantity, price, setQuantity) => {
+    return async (dispatch, getState) => {
+        try {
+            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
+            if (quantity === 1) {
+                const currentCartArr = getState().userCartSlice.cartArr
+                await axios.delete(`${USER}/${userEmail}/cart/${cartId}.json`)
+                const filterCartAfterDelete = currentCartArr.filter((cartItem) => {
+                    if (cartItem.cartId !== cartId) {
+                        return true
+                    }
+                })
+                dispatch(setCart(filterCartAfterDelete))
+
+            }
+            else {
+                await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity - 1 })
+                setQuantity(p => p - 1)
+            }
+            dispatch(decreamentTotal({ amount: price, quantity: 1 }))
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+}
+
+
+
