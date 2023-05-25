@@ -3,7 +3,10 @@ import "./Login.css";
 import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
-import { createUserWithEmailAndPass } from "../../Store/Actions/userLoginActions";
+import {
+  createUserWithEmailAndPass,
+  loginUserWithEmailAndPass,
+} from "../../Store/Actions/userLoginActions";
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -24,7 +27,13 @@ function Login(props) {
   // On Create New Acc Btn Click
   const onCreateNewBtnHandeler = () => {
     const enteredData = { email: email, password: password };
-    dispatch(createUserWithEmailAndPass(enteredData));
+    dispatch(createUserWithEmailAndPass(enteredData, closeLoginHandeler));
+  };
+
+  // On Login Btn Click
+  const onLoginBtnHandeler = () => {
+    const enteredData = { email: email, password: password };
+    dispatch(loginUserWithEmailAndPass(enteredData, closeLoginHandeler));
   };
 
   return (
@@ -65,9 +74,11 @@ function Login(props) {
               Policy.
             </p>
             {switchLogin ? (
-              <button>LOGIN</button>
+              <button onClick={onLoginBtnHandeler}>LOGIN</button>
             ) : (
-              <button>Create New Account</button>
+              <button onClick={onCreateNewBtnHandeler}>
+                Create New Account
+              </button>
             )}
           </div>
 

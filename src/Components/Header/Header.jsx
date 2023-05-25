@@ -11,11 +11,12 @@ import HeaderDropdown from "../UI/Header UI/Header Dropdown/HeaderDropdown";
 import HeaderCart from "../UI/Header UI/Header Cart/HeaderCart";
 import HeaderHambargar from "../UI/Header UI/Header Hambargar/HeaderHambargar";
 import { HeaderDropdownItem } from "../UI/Header UI/Header Dropdown/HeaderDropdown";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
 
 function Header(props) {
   const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.authSlice.isAuth);
 
   return (
     <div className=" Header-div ">
@@ -27,14 +28,16 @@ function Header(props) {
 
       <HeaderSearch />
 
-      <button
-        onClick={() => {
-          dispatch(setLogin());
-        }}
-        className="header__loginBTn"
-      >
-        LOGIN
-      </button>
+      {!isAuth && (
+        <button
+          onClick={() => {
+            dispatch(setLogin());
+          }}
+          className="header__loginBTn"
+        >
+          LOGIN
+        </button>
+      )}
 
       <HeaderDropdown for="My Account">
         <HeaderDropdownItem />

@@ -5,12 +5,14 @@ import MyRoutes from "../Routes/MyRoutes";
 import MyLayout from "../Layout/MyLayout";
 import { useDispatch } from "react-redux";
 import { fetchHomeProducts } from "../Store/Actions/fetchHomeProducts";
+import { fetchUserOnLoadUsingIdToken } from "../Store/Actions/userLoginActions";
 
 function App(props) {
   const dispatch = useDispatch();
 
-  // FETCH HOME PRODUCTS
+  // FETCH HOME PRODUCTS - USER
   useEffect(() => {
+    dispatch(fetchUserOnLoadUsingIdToken());
     dispatch(fetchHomeProducts());
   }, []);
 
