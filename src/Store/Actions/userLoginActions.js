@@ -41,8 +41,9 @@ export const fetchUserOnLoadUsingIdToken = () => {
         try {
             const localIdToken = localStorage.getItem("shopcart")
             if (!localIdToken) { return }
-            const { data: authData } = await axios.post(GET_USER_BY_IDTOKEN, { idToken: localIdToken })
-            dispatch(loginUser({ idToken: authData.idToken, userData: { email: authData.email } }))
+            const { data } = await axios.post(GET_USER_BY_IDTOKEN, { idToken: localIdToken })
+            const authData = data.users[0]
+            dispatch(loginUser({ idToken: localIdToken, userData: { email: authData.email } }))
         } catch (error) {
             console.log(error);
         }
