@@ -14,7 +14,7 @@ function CartProductsContainer(props) {
             showDetailsList={false}
             showBtn={true}
             key={Math.random()}
-            id={index}
+            id={cartItem.id}
             data={cartItem}
           />
         );

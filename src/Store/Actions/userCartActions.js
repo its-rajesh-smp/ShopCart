@@ -26,12 +26,13 @@ export const addProductInUserCart = (product) => {
             if (isPresent === true) {
                 const { data } = await axios.patch(`${USER}/${userEmail}/cart/${cartProductId}.json`, { quantity: updatedQuantity })
                 dispatch(setCart(filteredCart))
-
+                dispatch(setTotalAmount(filteredCart))
             }
             else {
                 const { data } = await axios.post(`${USER}/${userEmail}/cart.json`, { ...product, quantity: updatedQuantity })
                 const newCartProduct = { ...product, cartId: data.name, quantity: 1 }
                 dispatch(setCart([...filteredCart, newCartProduct]))
+                dispatch(setTotalAmount([...filteredCart, newCartProduct]))
             }
         } catch (error) {
             console.log(error);
