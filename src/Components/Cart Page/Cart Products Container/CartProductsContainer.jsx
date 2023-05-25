@@ -1,17 +1,26 @@
-import React from 'react';
-import "./CartProductsContainer.css"
-import Product from '../../Product Page/Product/Product';
-
+import React from "react";
+import "./CartProductsContainer.css";
+import Product from "../../Product Page/Product/Product";
+import { useSelector } from "react-redux";
 
 function CartProductsContainer(props) {
-    return (
-        <div className=' CartProductsContainer-div '>
-            <Product showBtn={true} />
-            <Product showBtn={true} />
-            <Product showBtn={true} />
-            <Product showBtn={true} />
-        </div>
-    );
+  const cartProductList = useSelector((state) => state.userCartSlice.cartArr);
+
+  return (
+    <div className=" CartProductsContainer-div ">
+      {cartProductList.map((cartItem, index) => {
+        return (
+          <Product
+            showDetailsList={false}
+            showBtn={true}
+            key={Math.random()}
+            id={index}
+            data={cartItem}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default CartProductsContainer;

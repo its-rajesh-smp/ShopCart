@@ -8,7 +8,9 @@ import ToggleFilterMobile from "../../UI/Product Page UI/Filter Section UI/Toggl
 import Pagination from "../../Home Page/Pagination/Pagination";
 import { useSelector } from "react-redux";
 function ProductSectionContainer(props) {
-  const selector = useSelector((state) => state.allProductSlice.allProductList);
+  const productList = useSelector(
+    (state) => state.allProductSlice.allProductList
+  );
 
   return (
     <div className=" ProductSectionContainer-div ">
@@ -18,7 +20,7 @@ function ProductSectionContainer(props) {
         <ToggleFilterMobile />
       </ShowOnMobile>
 
-      {selector.map((product, index) => {
+      {productList.map((product, index) => {
         return (
           <Product
             showDetailsList={true}

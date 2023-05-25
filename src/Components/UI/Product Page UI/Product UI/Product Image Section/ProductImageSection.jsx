@@ -10,7 +10,7 @@ function ProductImageSection(props) {
       {props.showBtn && (
         <div className="ProductImageSection-div__btnContainer">
           <button>+</button>
-          <p>10</p>
+          <p>{props.data.quantity}</p>
           <button>-</button>
         </div>
       )}
