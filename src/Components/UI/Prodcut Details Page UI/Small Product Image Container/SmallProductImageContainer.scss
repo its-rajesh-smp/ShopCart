@@ -14,6 +14,8 @@
     img {
       border: torem(1px) solid gainsboro;
       width: torem(60px);
+      height: torem(60px);
+      object-fit: cover;
     }
   }
   .SmallProductImageContainer-div__mainImgContainer {
@@ -22,6 +24,8 @@
     .SmallProductImageContainer-div__mainImg {
       border: torem(1px) solid gainsboro;
       width: 30vw;
+      height: 60vh;
+      object-fit: cover;
     }
     div {
       margin-top: torem(10px);

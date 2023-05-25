@@ -14,6 +14,8 @@
 .SmallProductImageContainer-div .SmallProductImageContainer-div__contianer img {
   border: 0.0625rem solid gainsboro;
   width: 3.75rem;
+  height: 3.75rem;
+  object-fit: cover;
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer {
   display: flex;
@@ -22,6 +24,8 @@
 .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer .SmallProductImageContainer-div__mainImg {
   border: 0.0625rem solid gainsboro;
   width: 30vw;
+  height: 60vh;
+  object-fit: cover;
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer div {
   margin-top: 0.625rem;
@@ -47,7 +51,7 @@
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer div .addToCartBtn {
   background-color: whitesmoke;
-  color: #2874f0;
+  color: #015ff8;
 }
 
 /* Smartphones  */

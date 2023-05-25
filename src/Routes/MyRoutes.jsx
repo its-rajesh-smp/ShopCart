@@ -15,8 +15,11 @@ function MyRoutes(props) {
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/cart" element={<Cartpage />} />
-      <Route path="/product" element={<Productpage />} />
-      <Route path="/product-details" element={<Productdetailspage />} />
+      <Route path="/product/:category" element={<Productpage />} />
+      <Route
+        path="/productdetails/:category/:productid"
+        element={<Productdetailspage />}
+      />
 
       {isAuth && (
         <>

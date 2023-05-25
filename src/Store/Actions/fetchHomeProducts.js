@@ -11,7 +11,6 @@ export const fetchHomeProducts = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`${HOME_PRODUCTS}.json`)
-            console.log(data);
             const categoryList = Object.values(data.HomeAllProductCategorie)
             const sliderList = Object.values(data.HomeSliderImage)
             const addsList = Object.values(data.HomeAllProductCover)

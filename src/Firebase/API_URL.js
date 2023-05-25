@@ -10,3 +10,7 @@ export const HOME_PRODUCTS = "https://shopcart-a850d-default-rtdb.asia-southeast
 
 // USER
 export const USER = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/Users"
+
+
+export const PRODUCT_BY_CATEGORY = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/Products"
+export const GET_SINGLE_PRODUCT = "https://shopcart-a850d-default-rtdb.asia-southeast1.firebasedatabase.app/Products"

@@ -1,29 +1,37 @@
-import React from 'react';
-import "./ProductSectionContainer.css"
-import { ShowOnMobile } from '../../../Style/Media';
+import React from "react";
+import "./ProductSectionContainer.css";
+import { ShowOnMobile } from "../../../Style/Media";
 
-import TopSortBar from '../Top Sort Bar/TopSortBar';
-import Product from '../Product/Product';
-import ToggleFilterMobile from '../../UI/Product Page UI/Filter Section UI/Toggle Filter MOBILE/ToggleFilterMobile';
-import Pagination from '../../Home Page/Pagination/Pagination';
+import TopSortBar from "../Top Sort Bar/TopSortBar";
+import Product from "../Product/Product";
+import ToggleFilterMobile from "../../UI/Product Page UI/Filter Section UI/Toggle Filter MOBILE/ToggleFilterMobile";
+import Pagination from "../../Home Page/Pagination/Pagination";
+import { useSelector } from "react-redux";
 function ProductSectionContainer(props) {
-    return (
-        <div className=' ProductSectionContainer-div '>
-            <TopSortBar />
+  const selector = useSelector((state) => state.allProductSlice.allProductList);
 
-            <ShowOnMobile>
-                <ToggleFilterMobile />
-            </ShowOnMobile>
+  return (
+    <div className=" ProductSectionContainer-div ">
+      <TopSortBar />
 
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+      <ShowOnMobile>
+        <ToggleFilterMobile />
+      </ShowOnMobile>
 
-            <Pagination />
-        </div>
-    );
+      {selector.map((product, index) => {
+        return (
+          <Product
+            showDetailsList={true}
+            key={Math.random()}
+            id={index}
+            data={product}
+          />
+        );
+      })}
+
+      <Pagination />
+    </div>
+  );
 }
 
 export default ProductSectionContainer;

@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
+import { createUserWithEmailAndPass } from "../../Store/Actions/userLoginActions";
 
 function Login(props) {
   const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [switchLogin, setSwitchLogin] = useState(false);
 
   // On Click Close BTN
   const closeLoginHandeler = () => {
     dispatch(setLogin());
   };
 
+  // Switch Login-Create New Acccount
+  const switchLoginHandeler = () => {
+    setSwitchLogin((p) => !p);
+  };
+
+  // On Create New Acc Btn Click
+  const onCreateNewBtnHandeler = () => {
+    const enteredData = { email: email, password: password };
+    dispatch(createUserWithEmailAndPass(enteredData));
+  };
+
   return (
     <div className=" Login-div ">
       <div className="Login-div__inner">
         <div className="Login-div__inner_info">
-          <i onClick={closeLoginHandeler} class="bx bx-x"></i>
+          <i onClick={closeLoginHandeler} className="bx bx-x"></i>
 
           <div>
-            <h2>"Login" "Create New Account"</h2>
+            <h2>{switchLogin ? "Login" : "Create New Account"}</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
           <img
@@ -35,23 +50,31 @@ function Login(props) {
               id="email"
               size="small"
               variant="standard"
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               label="Enter Password"
               id="password"
               size="small"
               variant="standard"
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <p>
               By continuing, you agree to Flipkart's Terms of Use and Privacy
               Policy.
             </p>
-            <button>LOGIN</button>
+            {switchLogin ? (
+              <button>LOGIN</button>
+            ) : (
+              <button>Create New Account</button>
+            )}
           </div>
 
-          <p className="createacc">
-            New to Flipkart? Create an account "Existing User? Login
+          <p onClick={switchLoginHandeler} className="createacc">
+            {switchLogin
+              ? "New to Flipkart? Create an account"
+              : "Existing User? Login"}
           </p>
         </div>
       </div>
