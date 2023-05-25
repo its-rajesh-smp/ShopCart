@@ -1,6 +1,7 @@
 import axios from "axios"
 import { GET_USER_BY_IDTOKEN, SIGN_IN, SIGN_UP } from "../../Firebase/API_URL"
 import { loginUser } from "../Reducer/authReducer"
+import { fetchCart } from "./userCartActions"
 
 export const createUserWithEmailAndPass = (enteredData, closeLoginHandeler) => {
     return async (dispatch, getState) => {
@@ -27,6 +28,7 @@ export const loginUserWithEmailAndPass = (enteredData, closeLoginHandeler) => {
             dispatch(loginUser({ idToken: authData.idToken, userData: { email: authData.email } }))
             localStorage.setItem("shopcart", authData.idToken)
             closeLoginHandeler()
+            dispatch(fetchCart(authData.email))
         } catch (error) {
             console.log(error);
         }
@@ -44,6 +46,7 @@ export const fetchUserOnLoadUsingIdToken = () => {
             const { data } = await axios.post(GET_USER_BY_IDTOKEN, { idToken: localIdToken })
             const authData = data.users[0]
             dispatch(loginUser({ idToken: localIdToken, userData: { email: authData.email } }))
+            dispatch(fetchCart(authData.email))
         } catch (error) {
             console.log(error);
         }

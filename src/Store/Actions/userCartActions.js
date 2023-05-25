@@ -1,6 +1,6 @@
 import axios from "axios"
 import { USER } from "../../Firebase/API_URL"
-import { addToCart } from "../Reducer/userCartReducer"
+import { setCart } from "../Reducer/userCartReducer"
 
 export const addProductInUserCart = (product) => {
     return async (dispatch, getState) => {
@@ -24,14 +24,27 @@ export const addProductInUserCart = (product) => {
 
             if (isPresent === true) {
                 const { data } = await axios.patch(`${USER}/${userEmail}/cart/${cartProductId}.json`, { quantity: updatedQuantity })
-                dispatch(addToCart(filteredCart))
-                console.log(data);
+                dispatch(setCart(filteredCart))
             }
             else {
                 const { data } = await axios.post(`${USER}/${userEmail}/cart.json`, { ...product, quantity: updatedQuantity })
                 const newCartProduct = { ...product, cartId: data.name, quantity: 1 }
-                dispatch(addToCart([...filteredCart, newCartProduct]))
+                dispatch(setCart([...filteredCart, newCartProduct]))
             }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+
+
+export const fetchCart = (email) => {
+    return async (dispatch) => {
+        try {
+            const userEmail = email.replace(".", "").replace("@", "")
+            const { data: cartArr } = await axios.get(`${USER}/${userEmail}/cart.json`)
+            dispatch(setCart(cartArr))
         } catch (error) {
             console.log(error);
         }

@@ -4,11 +4,11 @@ const userCartReducer = createSlice({
     name: "user/cart",
     initialState: { cartArr: [] },
     reducers: {
-        addToCart: (state, action) => {
+        setCart: (state, action) => {
             state.cartArr = action.payload
         }
     }
 })
 
-export const { addToCart } = userCartReducer.actions
+export const { setCart } = userCartReducer.actions
 export default userCartReducer
