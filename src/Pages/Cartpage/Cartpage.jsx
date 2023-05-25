@@ -6,12 +6,14 @@ import CartProductsContainer from "../../Components/Cart Page/Cart Products Cont
 import { useSelector } from "react-redux";
 
 function Cartpage(props) {
-  const isItemPresent = useSelector(
-    (state) => state.totalAmountSlice.amountDetails.totalQuantity
+  const itemTotal = useSelector(
+    (state) => state.totalAmountSlice.amountDetails
   );
-  if (isItemPresent === 0) {
+
+  if (itemTotal.totalQuantity === 0) {
     return <h1>NOTHING TO SHOW</h1>;
   }
+
   return (
     <div className=" Cartpage-div remove__Header ">
       <div>
@@ -23,7 +25,7 @@ function Cartpage(props) {
       </div>
 
       <div>
-        <CartPagePriceCard />
+        <CartPagePriceCard data={itemTotal} />
       </div>
     </div>
   );
