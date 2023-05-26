@@ -2,13 +2,15 @@ import React from "react";
 import "./DeliveryAddressMain.css";
 import { useDispatch } from "react-redux";
 import { setDelivery } from "../../../../Store/Reducer/checkoutStepReducer";
+import { selectAddress } from "../../../../Store/Reducer/userAddressReducer";
 
 function DeliveryAddressMain(props) {
-  // On Delivery Here Btn Click
   const dispatch = useDispatch();
 
+  // On Delivery Here Btn Click
   const onClickDeliveryHereBtn = () => {
     dispatch(setDelivery());
+    dispatch(selectAddress(props.data));
   };
 
   return (
