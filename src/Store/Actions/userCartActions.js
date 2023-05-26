@@ -4,6 +4,7 @@ import { setCart } from "../Reducer/userCartReducer"
 import { setTotalAmount } from "./totalAmountActions"
 import { increamentTotal, decreamentTotal } from "../Reducer/totalAmoutReducer"
 
+// Add To Cart
 export const addProductInUserCart = (product) => {
     return async (dispatch, getState) => {
         try {
@@ -39,7 +40,7 @@ export const addProductInUserCart = (product) => {
 }
 
 
-
+// Fetch Cart
 export const fetchCart = (email) => {
     return async (dispatch) => {
         try {
@@ -49,7 +50,6 @@ export const fetchCart = (email) => {
             const cartArr = Object.keys(data).map((cartId) => {
                 return { ...data[cartId], cartId: cartId }
             })
-
             dispatch(setCart(cartArr))
             dispatch(setTotalAmount(cartArr))
         } catch (error) {
@@ -60,13 +60,20 @@ export const fetchCart = (email) => {
 
 
 // Increament Quantity
-export const increamentCartQuantity = (cartId, quantity, price, setQuantity) => {
+export const increamentCartQuantity = (cartId, quantity, price) => {
     return async (dispatch, getState) => {
         try {
+            const currentCart = getState().userCartSlice.cartArr
             const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
-            console.log(quantity);
             await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity + 1 })
-            setQuantity(p => p + 1)
+
+            const updatedCart = currentCart.map((cartItem) => {
+                if (cartId === cartItem.cartId) {
+                    return { ...cartItem, quantity: quantity + 1 }
+                }
+                return cartItem
+            })
+            dispatch(setCart(updatedCart))
             dispatch(increamentTotal({ amount: price, quantity: 1 }))
         } catch (error) {
             console.log(error);
@@ -76,7 +83,7 @@ export const increamentCartQuantity = (cartId, quantity, price, setQuantity) => 
 }
 
 // Decreament Quantity
-export const decreamentCartQuantity = (cartId, quantity, price, setQuantity) => {
+export const decreamentCartQuantity = (cartId, quantity, price) => {
     return async (dispatch, getState) => {
         try {
             const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
@@ -89,11 +96,17 @@ export const decreamentCartQuantity = (cartId, quantity, price, setQuantity) => 
                     }
                 })
                 dispatch(setCart(filterCartAfterDelete))
-
             }
             else {
+                const currentCart = getState().userCartSlice.cartArr
                 await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity - 1 })
-                setQuantity(p => p - 1)
+                const updatedCart = currentCart.map((cartItem) => {
+                    if (cartId === cartItem.cartId) {
+                        return { ...cartItem, quantity: quantity - 1 }
+                    }
+                    return cartItem
+                })
+                dispatch(setCart(updatedCart))
             }
             dispatch(decreamentTotal({ amount: price, quantity: 1 }))
         } catch (error) {

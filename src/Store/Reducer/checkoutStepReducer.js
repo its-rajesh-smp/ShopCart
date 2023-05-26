@@ -14,11 +14,22 @@ const checkoutStepReducer = createSlice({
             state.payment = true
             state.showShadowCart = true
         },
-        setPayment: (state) => {
-
+        goToFirstStep: (state) => {
+            state.deliveryAddress = true
+            state.cart = false
+            state.payment = false
+            state.showShadowDelivery = false
+            state.showShadowCart = false
+        },
+        goToSecondStep: (state) => {
+            state.deliveryAddress = false
+            state.cart = true
+            state.payment = false
+            state.showShadowDelivery = true
+            state.showShadowCart = false
         }
     }
 })
 
-export const { setCart, setDelivery, setPayment } = checkoutStepReducer.actions
+export const { setCart, setDelivery, goToFirstStep, goToSecondStep } = checkoutStepReducer.actions
 export default checkoutStepReducer

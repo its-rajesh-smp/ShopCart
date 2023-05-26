@@ -14,4 +14,4 @@ function CheckoutAccordionCard(props) {
   );
 }
 
-export default memo(CheckoutAccordionCard);
+export default CheckoutAccordionCard;

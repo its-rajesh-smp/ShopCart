@@ -7,18 +7,10 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Cartpage(props) {
-  const itemTotal = useSelector(
-    (state) => state.totalAmountSlice.amountDetails
-  );
-
   const namvigate = useNavigate();
   const onClickNavigateToCheckout = () => {
     namvigate("/checkout");
   };
-
-  if (itemTotal.totalQuantity === 0) {
-    return <h1>NOTHING TO SHOW</h1>;
-  }
 
   return (
     <div className=" Cartpage-div remove__Header ">

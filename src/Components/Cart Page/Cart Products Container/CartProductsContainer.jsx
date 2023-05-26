@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 function CartProductsContainer(props) {
   const cartProductList = useSelector((state) => state.userCartSlice.cartArr);
-
   return (
     <div className=" CartProductsContainer-div ">
       {cartProductList.map((cartItem, index) => {
@@ -23,4 +22,4 @@ function CartProductsContainer(props) {
   );
 }
 
-export default memo(CartProductsContainer);
+export default CartProductsContainer;

@@ -1,8 +1,21 @@
 import React from "react";
 import "./CheckoutStepAfterComplete.css";
+import { useDispatch } from "react-redux";
+import {
+  goToFirstStep,
+  goToSecondStep,
+} from "../../../../Store/Reducer/checkoutStepReducer";
 
 function CheckoutStepAfterComplete(props) {
+  const dispatch = useDispatch();
   // GO BACK ON CLICK CHANGE BTN
+  const onChangeBtnClick = () => {
+    if (props.step === "1") {
+      dispatch(goToFirstStep());
+    } else if (props.step === "2") {
+      dispatch(goToSecondStep());
+    }
+  };
 
   return (
     <div className="CheckoutAccordionCard-div_bar CheckoutAccordionCard-div_bar__shadow ">
@@ -16,7 +29,7 @@ function CheckoutStepAfterComplete(props) {
           {props.show}
         </p>
       </div>
-      <button>CHANGE</button>
+      <button onClick={onChangeBtnClick}>CHANGE</button>
     </div>
   );
 }

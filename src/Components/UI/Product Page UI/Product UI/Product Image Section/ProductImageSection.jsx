@@ -7,7 +7,6 @@ import {
 } from "../../../../../Store/Actions/userCartActions";
 
 function ProductImageSection(props) {
-  const [quantity, setQuantity] = useState(props.data.quantity);
   const dispatch = useDispatch();
 
   // Increament Quantity
@@ -15,9 +14,8 @@ function ProductImageSection(props) {
     dispatch(
       increamentCartQuantity(
         props.data.cartId,
-        quantity,
-        props.data.price,
-        setQuantity
+        props.data.quantity,
+        props.data.price
       )
     );
   };
@@ -27,9 +25,8 @@ function ProductImageSection(props) {
     dispatch(
       decreamentCartQuantity(
         props.data.cartId,
-        quantity,
-        props.data.price,
-        setQuantity
+        props.data.quantity,
+        props.data.price
       )
     );
   };
@@ -46,7 +43,7 @@ function ProductImageSection(props) {
       {props.showBtn && (
         <div className="ProductImageSection-div__btnContainer">
           <button onClick={increamentQuantity}>+</button>
-          <p>{quantity}</p>
+          <p>{props.data.quantity}</p>
           <button onClick={decreamentQuantity}>-</button>
         </div>
       )}
