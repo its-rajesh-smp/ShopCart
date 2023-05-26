@@ -9,13 +9,18 @@ function DeliveryAddress(props) {
   const onClickSetEdit = () => {
     setEdit((p) => !p);
   };
-
   return (
     <div className=" DeliveryAddress-div ">
       {!edit && (
         <DeliveryAddressMain data={props.data} onClick={onClickSetEdit} />
       )}
-      {edit && <EditDeliveryAddress onClick={onClickSetEdit} />}
+      {edit && (
+        <EditDeliveryAddress
+          data={props.data}
+          forEdit={props.forEdit}
+          onClick={onClickSetEdit}
+        />
+      )}
     </div>
   );
 }

@@ -7,15 +7,21 @@ import { addAddress } from "../../../../Store/Actions/userAddressActions";
 function EditDeliveryAddress(props) {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [pincode, setPincode] = useState("");
-  const [locality, setLocality] = useState("");
-  const [area, setArea] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [landmark, setLandmark] = useState("");
-  const [alternateMobile, setAlternateMobile] = useState("");
+  const [name, setName] = useState(props.data ? props.data.name : "");
+  const [mobile, setMobile] = useState(props.data ? props.data.mobile : "");
+  const [pincode, setPincode] = useState(props.data ? props.data.pincode : "");
+  const [locality, setLocality] = useState(
+    props.data ? props.data.locality : ""
+  );
+  const [area, setArea] = useState(props.data ? props.data.area : "");
+  const [city, setCity] = useState(props.data ? props.data.city : "");
+  const [state, setState] = useState(props.data ? props.data.state : "");
+  const [landmark, setLandmark] = useState(
+    props.data ? props.data.landmark : ""
+  );
+  const [alternateMobile, setAlternateMobile] = useState(
+    props.data ? props.data.alternateMobile : ""
+  );
 
   // ON ADD NEW ADDRESS BTN CLICK
   const onClickAddNewAddress = () => {
@@ -35,12 +41,8 @@ function EditDeliveryAddress(props) {
 
   return (
     <div className=" EditDeliveryAddress-div ">
-      <div className="EditDeliveryAddress-div__left">
-        <input type="radio" />
-      </div>
-
       <div className="EditDeliveryAddress-div__center">
-        <p>EDIT ADDRESS</p>
+        <p>{props.forEdit ? "EDIT ADDRESS" : "ADD NEW ADDRESS"}</p>
 
         <button className="EditDeliveryAddress-div__center__locationBtn">
           Use my current location
@@ -49,6 +51,7 @@ function EditDeliveryAddress(props) {
         <form>
           <div>
             <TextField
+              value={name}
               onChange={(e) => setName(e.target.value)}
               label="Name"
               id="standard-size-small"
@@ -56,6 +59,7 @@ function EditDeliveryAddress(props) {
               variant="filled"
             />
             <TextField
+              value={mobile}
               onChange={(e) => setMobile(e.target.value)}
               label="10-digit mobile number"
               id="standard-size-small"
@@ -66,6 +70,7 @@ function EditDeliveryAddress(props) {
 
           <div>
             <TextField
+              value={pincode}
               onChange={(e) => setPincode(e.target.value)}
               label="Pincode"
               id="standard-size-small"
@@ -73,6 +78,7 @@ function EditDeliveryAddress(props) {
               variant="filled"
             />
             <TextField
+              value={locality}
               onChange={(e) => setLocality(e.target.value)}
               label="Locality"
               id="standard-size-small"
@@ -82,6 +88,7 @@ function EditDeliveryAddress(props) {
           </div>
 
           <TextField
+            value={area}
             onChange={(e) => setArea(e.target.value)}
             label="Address (Area and Street)"
             id="standard-size-small"
@@ -91,6 +98,7 @@ function EditDeliveryAddress(props) {
 
           <div>
             <TextField
+              value={city}
               onChange={(e) => setCity(e.target.value)}
               label="City/District/Town"
               id="standard-size-small"
@@ -98,6 +106,7 @@ function EditDeliveryAddress(props) {
               variant="filled"
             />
             <TextField
+              value={state}
               onChange={(e) => setState(e.target.value)}
               label="State"
               id="standard-size-small"
@@ -108,6 +117,7 @@ function EditDeliveryAddress(props) {
 
           <div>
             <TextField
+              value={landmark}
               onChange={(e) => setLandmark(e.target.value)}
               label="Landmark"
               id="standard-size-small"
@@ -115,6 +125,7 @@ function EditDeliveryAddress(props) {
               variant="filled"
             />
             <TextField
+              value={alternateMobile}
               onChange={(e) => setAlternateMobile(e.target.value)}
               label="Alternate Phone"
               id="standard-size-small"
@@ -125,8 +136,12 @@ function EditDeliveryAddress(props) {
         </form>
 
         <div className="EditDeliveryAddress-div__center__btnGrp">
-          <button>SAVE AND DELIVER HERE</button>
-          <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>
+          {props.forEdit && <button>SAVE AND DELIVER HERE</button>}
+
+          {!props.forEdit && (
+            <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>
+          )}
+
           <button onClick={props.onClick}>CANCEL</button>
         </div>
       </div>

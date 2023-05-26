@@ -15,7 +15,13 @@ function CheckoutDropdownAccordionContainer(props) {
     <div className=" CheckoutDropdownAccordionContainer-div ">
       <CheckoutAccordionCard>
         {userAddress.map((addressData) => {
-          return <DeliveryAddress key={addressData.id} data={addressData} />;
+          return (
+            <DeliveryAddress
+              forEdit={true}
+              key={addressData.id}
+              data={addressData}
+            />
+          );
         })}
         <AddNewAddress />
       </CheckoutAccordionCard>

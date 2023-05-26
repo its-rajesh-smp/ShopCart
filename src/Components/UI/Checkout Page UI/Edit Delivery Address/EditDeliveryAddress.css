@@ -1,6 +1,6 @@
 .EditDeliveryAddress-div {
   display: grid;
-  grid-template-columns: 0.2fr 3fr 1fr;
+  grid-template-columns: 3fr 1fr;
 }
 
 .EditDeliveryAddress-div__center__locationBtn {
