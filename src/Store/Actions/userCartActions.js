@@ -78,7 +78,6 @@ export const increamentCartQuantity = (cartId, quantity, price) => {
         } catch (error) {
             console.log(error);
         }
-
     }
 }
 

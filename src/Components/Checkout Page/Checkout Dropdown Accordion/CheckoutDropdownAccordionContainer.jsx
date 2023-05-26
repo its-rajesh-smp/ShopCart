@@ -26,6 +26,7 @@ function CheckoutDropdownAccordionContainer(props) {
   // On Click Place Order Btn In Payment Accrodian
   const onClickPlaceOrderBtnHandeler = () => {
     dispatch(placeUserOrder());
+    props.onOrderPlace();
   };
 
   return (
