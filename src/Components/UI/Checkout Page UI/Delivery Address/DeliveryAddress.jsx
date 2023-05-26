@@ -12,7 +12,9 @@ function DeliveryAddress(props) {
 
   return (
     <div className=" DeliveryAddress-div ">
-      {!edit && <DeliveryAddressMain onClick={onClickSetEdit} />}
+      {!edit && (
+        <DeliveryAddressMain data={props.data} onClick={onClickSetEdit} />
+      )}
       {edit && <EditDeliveryAddress onClick={onClickSetEdit} />}
     </div>
   );

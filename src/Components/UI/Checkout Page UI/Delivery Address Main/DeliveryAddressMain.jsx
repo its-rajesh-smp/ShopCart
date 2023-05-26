@@ -10,14 +10,14 @@ function DeliveryAddressMain(props) {
 
       <div className="DeliveryAddressMain-div__center">
         <div>
-          <p>Sourav Pathak</p>
-          <p>8942908195</p>
+          <p>{props.data.name}</p>
+          <p>{props.data.mobile}</p>
         </div>
 
         <p>
-          <span>Tilaboni More</span>,<span>Tilaboni</span>,
-          <span>Bankura District</span>,<span>West Bengal</span>-
-          <span>722151</span>
+          <span>{props.data.area}</span>,<span>{props.data.locality}</span>,
+          <span>{props.data.city}</span>,<span>{props.data.state}</span>-
+          <span>{props.data.pincode}</span>
         </p>
         <button>DELIVERY HERE</button>
       </div>

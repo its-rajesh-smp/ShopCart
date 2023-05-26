@@ -6,11 +6,17 @@ import EditDeliveryAddress from "../../UI/Checkout Page UI/Edit Delivery Address
 import AddNewAddress from "../../UI/Checkout Page UI/Add New Address/AddNewAddress";
 import CartProductsContainer from "../../Cart Page/Cart Products Container/CartProductsContainer";
 import PaymentCard from "../../UI/Checkout Page UI/Payment Card/PaymentCard";
+import { useSelector } from "react-redux";
 
 function CheckoutDropdownAccordionContainer(props) {
+  const userAddress = useSelector((state) => state.userAddressSlice.address);
+
   return (
     <div className=" CheckoutDropdownAccordionContainer-div ">
       <CheckoutAccordionCard>
+        {userAddress.map((addressData) => {
+          return <DeliveryAddress key={addressData.id} data={addressData} />;
+        })}
         <AddNewAddress />
       </CheckoutAccordionCard>
 
