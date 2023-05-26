@@ -8,6 +8,7 @@ import Cartpage from "../Pages/Cartpage/Cartpage";
 import Homepage from "../Pages/Homepage/Homepage";
 import Productpage from "../Pages/Productpage/Productpage";
 import Productdetailspage from "../Pages/Productdetailspage/Productdetailspage";
+import Checkoutpage from "../Pages/Checkoutpage/Checkoutpage";
 
 function MyRoutes(props) {
   const isAuth = useSelector((state) => state.authSlice.isAuth);
@@ -25,6 +26,7 @@ function MyRoutes(props) {
         <>
           <Route path="/orderdetails" element={<OrderDetailsPage />} />
           <Route path="/yourorder" element={<Yourorderpage />} />
+          <Route path="/checkout" element={<Checkoutpage />} />
           <Route path="/orderdetails" element={<OrderDetailsPage />} />
         </>
       )}

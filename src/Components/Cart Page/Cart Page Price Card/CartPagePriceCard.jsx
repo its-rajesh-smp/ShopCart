@@ -1,7 +1,12 @@
 import React from "react";
 import "./CartPagePriceCard.css";
+import { useSelector } from "react-redux";
 
 function CartPagePriceCard(props) {
+  const itemTotal = useSelector(
+    (state) => state.totalAmountSlice.amountDetails
+  );
+
   return (
     <div className=" CartPagePriceCard-div ">
       <div className="CartPagePriceCard-div__container">
@@ -12,14 +17,14 @@ function CartPagePriceCard(props) {
           <div>
             <p>
               Price {"("}
-              {props.data.totalQuantity} items{")"}
+              {itemTotal.totalQuantity} items{")"}
             </p>
-            <p>₹{props.data.totalAmount}</p>
+            <p>₹{itemTotal.totalAmount}</p>
           </div>
 
           <div className="totalPrice">
             <p>Total Amount</p>
-            <p>₹{props.data.totalAmount}</p>
+            <p>₹{itemTotal.totalAmount}</p>
           </div>
 
           <div className="totalSave">

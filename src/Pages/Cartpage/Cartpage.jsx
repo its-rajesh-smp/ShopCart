@@ -4,11 +4,17 @@ import CartPageTopBar from "../../Components/Cart Page/Cart Page Top Bar/CartPag
 import CartPagePriceCard from "../../Components/Cart Page/Cart Page Price Card/CartPagePriceCard";
 import CartProductsContainer from "../../Components/Cart Page/Cart Products Container/CartProductsContainer";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Cartpage(props) {
   const itemTotal = useSelector(
     (state) => state.totalAmountSlice.amountDetails
   );
+
+  const namvigate = useNavigate();
+  const onClickNavigateToCheckout = () => {
+    namvigate("/checkout");
+  };
 
   if (itemTotal.totalQuantity === 0) {
     return <h1>NOTHING TO SHOW</h1>;
@@ -20,12 +26,12 @@ function Cartpage(props) {
         <CartPageTopBar />
         <CartProductsContainer />
         <div className="Cartpage-div__checkoutBTN__div">
-          <button>PLACE ORDER</button>
+          <button onClick={onClickNavigateToCheckout}>PLACE ORDER</button>
         </div>
       </div>
 
       <div>
-        <CartPagePriceCard data={itemTotal} />
+        <CartPagePriceCard />
       </div>
     </div>
   );
