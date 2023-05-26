@@ -13,7 +13,8 @@
   align-items: center;
   img {
     margin-right: torem(15px);
-    width: torem(70px);
+    width: torem(200px);
+    object-fit: cover;
   }
 }
 

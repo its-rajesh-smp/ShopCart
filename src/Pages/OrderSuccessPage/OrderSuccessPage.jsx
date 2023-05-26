@@ -3,9 +3,11 @@ import "./OrderSuccessPage.css";
 import { useNavigate } from "react-router-dom";
 
 function OrderSuccessPage(props) {
+  const navigate = useNavigate();
   // After 5 Sec Redirect to your order
   setTimeout(function () {
     props.afterFive();
+    navigate("/yourorder");
   }, 5000);
 
   return (

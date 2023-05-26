@@ -14,7 +14,8 @@
 }
 .YourOrderItem-div__imageContainer img {
   margin-right: 0.9375rem;
-  width: 4.375rem;
+  width: 12.5rem;
+  object-fit: cover;
 }
 
 .YourOrderItem-div__nameContainer p:first-child {

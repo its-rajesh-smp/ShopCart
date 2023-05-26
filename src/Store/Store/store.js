@@ -8,6 +8,7 @@ import userCartReducer from "../Reducer/userCartReducer";
 import totalAmoutReducer from "../Reducer/totalAmoutReducer";
 import userAddressReducer from "../Reducer/userAddressReducer";
 import checkoutStepReducer from "../Reducer/checkoutStepReducer";
+import userOrdersReducer from "../Reducer/userOrdersReducer";
 
 const store = configureStore({
     reducer: {
@@ -19,7 +20,8 @@ const store = configureStore({
         userCartSlice: userCartReducer.reducer,
         totalAmountSlice: totalAmoutReducer.reducer,
         userAddressSlice: userAddressReducer.reducer,
-        checkoutStepSlice: checkoutStepReducer.reducer
+        checkoutStepSlice: checkoutStepReducer.reducer,
+        userOrdersSlice: userOrdersReducer.reducer
     }
 })
 

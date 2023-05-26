@@ -7,7 +7,7 @@ import CartProductsContainer from "../../Cart Page/Cart Products Container/CartP
 import PaymentCard from "../../UI/Checkout Page UI/Payment Card/PaymentCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../../Store/Reducer/checkoutStepReducer";
-import { placeUserOrder } from "../../../Store/Actions/placeOrderAction";
+import { placeUserOrder } from "../../../Store/Actions/userOrdersActions";
 import CheckoutStepAfterComplete from "../../UI/Checkout Page UI/Checkout Step After Complete/CheckoutStepAfterComplete";
 
 function CheckoutDropdownAccordionContainer(props) {
@@ -25,8 +25,7 @@ function CheckoutDropdownAccordionContainer(props) {
 
   // On Click Place Order Btn In Payment Accrodian
   const onClickPlaceOrderBtnHandeler = () => {
-    dispatch(placeUserOrder());
-    props.onOrderPlace();
+    dispatch(placeUserOrder(props.onOrderPlace));
   };
 
   return (
