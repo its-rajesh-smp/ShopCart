@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import "./EditDeliveryAddress.css";
 import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { addAddress } from "../../../../Store/Actions/userAddressActions";
+import {
+  addAddress,
+  editUserAddress,
+} from "../../../../Store/Actions/userAddressActions";
 
 function EditDeliveryAddress(props) {
   const dispatch = useDispatch();
@@ -37,6 +40,22 @@ function EditDeliveryAddress(props) {
       alternateMobile: alternateMobile,
     };
     dispatch(addAddress(newAddressObj));
+  };
+
+  // ON CLICK SAVE AND EDIT BTN
+  const onClickEditAddress = () => {
+    const newAddressObj = {
+      name: name,
+      mobile: mobile,
+      pincode: pincode,
+      locality: locality,
+      area: area,
+      city: city,
+      state: state,
+      landmark: landmark,
+      alternateMobile: alternateMobile,
+    };
+    dispatch(editUserAddress(props.data.id, newAddressObj));
   };
 
   return (
@@ -136,7 +155,9 @@ function EditDeliveryAddress(props) {
         </form>
 
         <div className="EditDeliveryAddress-div__center__btnGrp">
-          {props.forEdit && <button>SAVE AND DELIVER HERE</button>}
+          {props.forEdit && (
+            <button onClick={onClickEditAddress}>SAVE AND DELIVER HERE</button>
+          )}
 
           {!props.forEdit && (
             <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>

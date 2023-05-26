@@ -1,11 +1,20 @@
 import React from "react";
 import "./DeliveryAddressMain.css";
+import { useDispatch } from "react-redux";
+import { setDelivery } from "../../../../Store/Reducer/checkoutStepReducer";
 
 function DeliveryAddressMain(props) {
+  // On Delivery Here Btn Click
+  const dispatch = useDispatch();
+
+  const onClickDeliveryHereBtn = () => {
+    dispatch(setDelivery());
+  };
+
   return (
     <div className=" DeliveryAddressMain-div ">
       <div className="DeliveryAddressMain-div__left">
-        <input type="radio" />
+        <input name="address" type="radio" />
       </div>
 
       <div className="DeliveryAddressMain-div__center">
@@ -19,7 +28,7 @@ function DeliveryAddressMain(props) {
           <span>{props.data.city}</span>,<span>{props.data.state}</span>-
           <span>{props.data.pincode}</span>
         </p>
-        <button>DELIVERY HERE</button>
+        <button onClick={onClickDeliveryHereBtn}>DELIVERY HERE</button>
       </div>
 
       <div className="DeliveryAddressMain-div__right">
