@@ -12,6 +12,7 @@ function HeaderCart(props) {
   const onClickCartNavigate = () => {
     navigate("/cart");
   };
+
   return (
     <div onClick={onClickCartNavigate} className=" HeaderCart-div ">
       <div>

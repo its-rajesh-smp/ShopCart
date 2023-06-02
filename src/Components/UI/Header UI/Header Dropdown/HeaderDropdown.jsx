@@ -49,8 +49,8 @@ export default HeaderDropdown;
 export function HeaderDropdownItem(props) {
   return (
     <div onClick={props.onClick} className="HeaderDropdownItem__div">
-      <i className="bx bxs-log-out"></i>
-      <p>Logout</p>
+      {props.icon}
+      <p>{props.name}</p>
     </div>
   );
 }

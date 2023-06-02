@@ -27,12 +27,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .header__becomeASeller {
   color: white;
   font-family: roboto;
   font-weight: 600;
   font-size: torem(16px);
+  cursor: pointer;
   text-align: center;
 }
 

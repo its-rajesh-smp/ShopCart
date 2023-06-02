@@ -14,15 +14,22 @@ import { HeaderDropdownItem } from "../UI/Header UI/Header Dropdown/HeaderDropdo
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
 import { logoutUser } from "../../Store/Reducer/authReducer";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.authSlice.isAuth);
+  const navigate = useNavigate();
 
   // On Click Logout
   const onClickLogout = () => {
     dispatch(logoutUser());
     localStorage.clear("shopcart");
+  };
+
+  // On Click My Order
+  const onClickNavigateMyOrder = () => {
+    navigate("/yourorder");
   };
 
   return (
@@ -47,7 +54,16 @@ function Header(props) {
       )}
 
       <HeaderDropdown for="My Account">
-        <HeaderDropdownItem onClick={onClickLogout} />
+        <HeaderDropdownItem
+          name={"My Orders"}
+          icon={<i className="bx bxs-shopping-bag"></i>}
+          onClick={onClickNavigateMyOrder}
+        />
+        <HeaderDropdownItem
+          name={"Logout"}
+          icon={<i className="bx bxs-log-out"></i>}
+          onClick={onClickLogout}
+        />
       </HeaderDropdown>
 
       <p className="header__becomeASeller">Become a Seller</p>

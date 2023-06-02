@@ -7,7 +7,7 @@ function YourOrderItem(props) {
   const navigate = useNavigate();
 
   const onClickNavigate = () => {
-    navigate(`/orderdetails/${props.orderId}/${props.data.cartId}`);
+    navigate(`/orderdetails/${props.data.orderId}`);
   };
 
   return (

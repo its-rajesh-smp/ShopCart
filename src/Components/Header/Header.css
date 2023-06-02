@@ -26,6 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .header__becomeASeller {
@@ -33,6 +34,7 @@
   font-family: roboto;
   font-weight: 600;
   font-size: 1rem;
+  cursor: pointer;
   text-align: center;
 }
 

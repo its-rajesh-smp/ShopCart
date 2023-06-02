@@ -26,10 +26,7 @@ function MyRoutes(props) {
         <>
           <Route path="/yourorder" element={<Yourorderpage />} />
           <Route path="/checkout" element={<Checkoutpage />} />
-          <Route
-            path="/orderdetails/:bigOrderId/:smallOrderId"
-            element={<OrderDetailsPage />}
-          />
+          <Route path="/orderdetails/:orderId" element={<OrderDetailsPage />} />
         </>
       )}
     </Routes>
