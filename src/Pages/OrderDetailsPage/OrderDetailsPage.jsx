@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./OrderDetailsPage.css";
 import YourOrderItem from "../../Components/Your Order Page/Your Order Item/YourOrderItem";
 import { TextField } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchOrderDetailsAct } from "../../Store/Actions/orderDetailsAction";
 
 function OrderDetailsPage(props) {
-  const allOrders = useSelector((state) => state.userOrdersSlice.orders);
   const param = useParams();
-  const bigOrderId = param.bigOrderId;
-  const smallOrderId = param.smallOrderId;
+  const orderId = param.orderId;
+  const dispatch = useDispatch();
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    dispatch(fetchOrderDetailsAct(orderId, setLoader));
+  }, []);
+
+  const orderdetails = useSelector(
+    (state) => state.orderDetailsSlice.orderData
+  );
+  if (Object.keys(orderdetails).length === 0) {
+    return;
+  }
+
+  const orderAddress = orderdetails.orderAddress;
+  const orederStatus = orderdetails.orederStatus;
 
   return (
     <div className=" OrderDetailsPage-div remove__Header">
@@ -17,12 +32,21 @@ function OrderDetailsPage(props) {
       <div className="OrderDetailsPage-div__deliveryCard">
         <div className="OrderDetailsPage-div__deliveryAddress">
           <h2>Delivery Address</h2>
-          <p>Sourav Pathak</p>
-          <p>Tilaboni More Tilaboni, Bankura District - 722160, West Bengal</p>
+          <p>{orderAddress.name}</p>
+          <p className="boldField">{orderAddress.landmark}</p>
           <p>
-            <span>Phone number</span> <span>6294152789</span>
+            <span>{orderAddress.city}</span> , <span>{orderAddress.area}</span>-{" "}
+            <span className="boldField">{orderAddress.pincode}</span> ,{" "}
+            <span>{orderAddress.state}</span>
           </p>
-          <p>This order is also tracked by 6294543902</p>
+          <p>
+            <span>Phone number :-</span>{" "}
+            <span className="boldField">{orderAddress.mobile}</span>
+            {" | "}
+            <span>Alternative number :-</span>{" "}
+            <span className="boldField">{orderAddress.alternateMobile}</span>
+          </p>
+          <p>This order is also tracked by {orderId}</p>
         </div>
 
         {/* INVOICE DIV */}
@@ -37,7 +61,13 @@ function OrderDetailsPage(props) {
       </div>
 
       {/* YOUR ORDER ITEM */}
-      {/* <YourOrderItem /> */}
+      {!loader && (
+        <YourOrderItem
+          path="FROM_ORDERDETAILS"
+          data={orderdetails}
+          key={orderId}
+        />
+      )}
 
       {/* REPORT A PROBLEM */}
       <div className="OrderDetailsPage-div__reportProblem">

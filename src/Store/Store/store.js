@@ -9,6 +9,7 @@ import totalAmoutReducer from "../Reducer/totalAmoutReducer";
 import userAddressReducer from "../Reducer/userAddressReducer";
 import checkoutStepReducer from "../Reducer/checkoutStepReducer";
 import userOrdersReducer from "../Reducer/userOrdersReducer";
+import orderDetailsReducer from "../Reducer/orderDetailsReducer";
 
 const store = configureStore({
     reducer: {
@@ -21,7 +22,8 @@ const store = configureStore({
         totalAmountSlice: totalAmoutReducer.reducer,
         userAddressSlice: userAddressReducer.reducer,
         checkoutStepSlice: checkoutStepReducer.reducer,
-        userOrdersSlice: userOrdersReducer.reducer
+        userOrdersSlice: userOrdersReducer.reducer,
+        orderDetailsSlice: orderDetailsReducer.reducer
     }
 })
 

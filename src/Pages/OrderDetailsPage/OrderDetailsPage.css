@@ -65,7 +65,7 @@
   display: flex;
 }
 .OrderDetailsPage-div__reportProblem div button {
-  background-color: #2874f0;
+  background-color: #015ff8;
   border: none;
   border-radius: 0.3125rem;
   padding: 0px 30px;
@@ -73,6 +73,10 @@
   color: white;
   font-family: roboto;
   font-weight: 500;
+}
+
+.boldField {
+  font-weight: bold;
 }
 
 /* Smartphones  */

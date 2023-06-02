@@ -5,9 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 function YourOrderItem(props) {
   const navigate = useNavigate();
-
   const onClickNavigate = () => {
-    navigate(`/orderdetails/${props.data.orderId}`);
+    if (props.path === "FROM_ORDERDETAILS") {
+      navigate(`/productdetails/${props.data.category}/${props.data.id}`);
+    } else {
+      navigate(`/orderdetails/${props.data.orderId}`);
+    }
   };
 
   return (

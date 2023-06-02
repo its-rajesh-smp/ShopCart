@@ -14,8 +14,11 @@ const totalAmoutReducer = createSlice({
         decreamentTotal: (state, action) => {
             state.amountDetails.totalAmount -= (action.payload.amount * action.payload.quantity)
             state.amountDetails.totalQuantity -= action.payload.quantity
+        },
+        clearTotal: (state, action) => {
+            state.amountDetails = { totalAmount: 0, totalQuantity: 0 }
         }
     }
 })
-export const { setTotal, increamentTotal, decreamentTotal } = totalAmoutReducer.actions
+export const { setTotal, increamentTotal, decreamentTotal, clearTotal } = totalAmoutReducer.actions
 export default totalAmoutReducer

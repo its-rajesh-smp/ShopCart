@@ -14,7 +14,7 @@ function OrderStatus(props) {
     "ON THE WAY": [true, true, true, true, true],
     "READY TO RECIVE ON YOUR PLACE": [true, true, true, true, true, true],
     "NEAR TO YOU": [true, true, true, true, true, true, true],
-    "OUT FOR DELIVERY": [true, true, true, true, true, true, true],
+    "OUT FOR DELIVERY": [true, true, true, true, true, true, true, true],
     DELIVERED: [true, true, true, true, true, true, true, true, true],
   };
   const statusArr = statusObj[currentStatus];
