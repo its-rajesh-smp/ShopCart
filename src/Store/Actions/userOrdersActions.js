@@ -31,6 +31,7 @@ export const fetchUserOrders = () => {
             const newOrdersArr = Object.keys(data).map((orderId) => {
                 return { orderId: orderId, ...data[orderId] }
             })
+
             dispatch(setOrders(newOrdersArr))
         } catch (error) {
             console.log(error);

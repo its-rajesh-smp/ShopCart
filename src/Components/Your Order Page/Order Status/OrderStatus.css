@@ -10,12 +10,11 @@
   border-radius: 100px;
   width: 1rem;
   height: 1rem;
-  background-color: green;
 }
 .OrderStatus-div .OrderStatus-div__lineContainer .centerLine {
   width: 20%;
   height: 0.25rem;
-  background-color: green;
+  border-radius: 50px;
 }
 .OrderStatus-div .OrderStatus-div__statusContainer {
   display: flex;
@@ -23,6 +22,14 @@
   font-family: roboto;
   margin-top: 0.625rem;
   justify-content: space-between;
+}
+
+.active_orderStatus {
+  background-color: green;
+}
+
+.inActive_orderStatus {
+  background-color: gainsboro;
 }
 
 /* Smartphones  */

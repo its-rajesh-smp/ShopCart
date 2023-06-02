@@ -8,14 +8,16 @@ function YourOrderContainer(props) {
   if (yourOrders.length === 0) {
     return;
   }
+
   //  Extrating And Forming Order Item From A Order
-  const orderItemArr = yourOrders.map((order) => {
-    return order.orderItems.map((orderItem) => {
+  const orderItemArr = yourOrders.map((bigOrder) => {
+    return bigOrder.orderItems.map((orderItem) => {
       return (
         <YourOrderItem
+          orderStatus={bigOrder.orderStatus}
           data={orderItem}
-          orderId={order.orderId}
-          orderAddress={order.orderAddress}
+          orderId={bigOrder.orderId}
+          orderAddress={bigOrder.orderAddress}
           key={orderItem.cartId}
         />
       );

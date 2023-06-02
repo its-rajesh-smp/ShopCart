@@ -9,12 +9,11 @@
       border-radius: 100px;
       width: torem(16px);
       height: torem(16px);
-      background-color: green;
     }
     .centerLine {
       width: 20%;
       height: torem(4px);
-      background-color: green;
+      border-radius: 50px;
     }
   }
   .OrderStatus-div__statusContainer {
@@ -24,6 +23,12 @@
     margin-top: torem(10px);
     justify-content: space-between;
   }
+}
+.active_orderStatus {
+  background-color: green;
+}
+.inActive_orderStatus {
+  background-color: gainsboro;
 }
 
 //? Media

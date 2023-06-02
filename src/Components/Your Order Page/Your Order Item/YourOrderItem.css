@@ -18,6 +18,9 @@
   object-fit: cover;
 }
 
+.YourOrderItem-div__nameContainer {
+  padding: 1.25rem;
+}
 .YourOrderItem-div__nameContainer p:first-child {
   font-size: 1rem;
   font-weight: 500;
