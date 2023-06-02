@@ -1,18 +1,7 @@
 import React from "react";
 import "./DeliveryAddressMain.css";
-import { useDispatch } from "react-redux";
-import { setDelivery } from "../../../../Store/Reducer/checkoutStepReducer";
-import { selectAddress } from "../../../../Store/Reducer/userAddressReducer";
 
 function DeliveryAddressMain(props) {
-  const dispatch = useDispatch();
-
-  // On Delivery Here Btn Click
-  const onClickDeliveryHereBtn = () => {
-    dispatch(setDelivery());
-    dispatch(selectAddress(props.data));
-  };
-
   return (
     <div className=" DeliveryAddressMain-div ">
       <div className="DeliveryAddressMain-div__left">
@@ -30,11 +19,17 @@ function DeliveryAddressMain(props) {
           <span>{props.data.city}</span>,<span>{props.data.state}</span>-
           <span>{props.data.pincode}</span>
         </p>
-        <button onClick={onClickDeliveryHereBtn}>DELIVERY HERE</button>
+        <button
+          onClick={() => {
+            props.onClickDeliveryHereBtn(props.data);
+          }}
+        >
+          DELIVERY HERE
+        </button>
       </div>
 
       <div className="DeliveryAddressMain-div__right">
-        <p onClick={props.onClick}>EDIT</p>
+        <p onClick={props.onClickEdit}>EDIT</p>
       </div>
     </div>
   );

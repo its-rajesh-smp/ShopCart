@@ -55,7 +55,9 @@ function EditDeliveryAddress(props) {
       landmark: landmark,
       alternateMobile: alternateMobile,
     };
-    dispatch(editUserAddress(props.data.id, newAddressObj));
+    dispatch(
+      editUserAddress(props.data.id, newAddressObj, props.onClickSaveDeliver)
+    );
   };
 
   return (
@@ -163,7 +165,7 @@ function EditDeliveryAddress(props) {
             <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>
           )}
 
-          <button onClick={props.onClick}>CANCEL</button>
+          <button onClick={props.onClickCancle}>CANCEL</button>
         </div>
       </div>
     </div>

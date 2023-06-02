@@ -34,7 +34,7 @@ export const fetchUserAddress = () => {
 }
 
 
-export const editUserAddress = (id, enteredData) => {
+export const editUserAddress = (id, enteredData, onClickSaveDeliver) => {
     return async (dispatch, getState) => {
         const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
         const prevAddressArr = getState().userAddressSlice.address
@@ -49,6 +49,7 @@ export const editUserAddress = (id, enteredData) => {
                 }
             })
             dispatch(setAddress(newAddressArr))
+            onClickSaveDeliver({ ...enteredData, id: id })
         } catch (error) {
             console.log(error);
         }
