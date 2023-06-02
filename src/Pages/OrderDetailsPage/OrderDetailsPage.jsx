@@ -5,6 +5,7 @@ import { TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchOrderDetailsAct } from "../../Store/Actions/orderDetailsAction";
+import DownloadPdfBtn from "../../Functions/GeneratePdf";
 
 function OrderDetailsPage(props) {
   const param = useParams();
@@ -24,7 +25,6 @@ function OrderDetailsPage(props) {
   }
 
   const orderAddress = orderdetails.orderAddress;
-  const orederStatus = orderdetails.orederStatus;
 
   return (
     <div className=" OrderDetailsPage-div remove__Header">
@@ -55,7 +55,7 @@ function OrderDetailsPage(props) {
           <div>
             <p>📄</p>
             <p>Download Invoice</p>
-            <button>Download</button>
+            <DownloadPdfBtn data={orderdetails} orderId={orderId} />
           </div>
         </div>
       </div>

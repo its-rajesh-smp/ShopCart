@@ -39,14 +39,20 @@
   margin-top: 2.5rem;
   display: grid;
   grid-template-columns: 0.1fr 1fr 0.5fr;
+  align-items: center;
   gap: 0.625rem;
 }
 .OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice div p {
   font-size: 0.8125rem;
 }
 .OrderDetailsPage-div__deliveryCard .OrderDetailsPage-div__invoice div button {
+  cursor: pointer;
   font-size: 0.8125rem;
-  padding: 0.3125rem 0px;
+  font-family: roboto;
+  border-radius: 5px;
+  padding: 0.3125rem 0.625rem;
+  background-color: gainsboro;
+  border: none;
 }
 
 .OrderDetailsPage-div__reportProblem {

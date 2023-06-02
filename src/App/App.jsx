@@ -6,7 +6,6 @@ import MyLayout from "../Layout/MyLayout";
 import { useDispatch } from "react-redux";
 import { fetchHomeProducts } from "../Store/Actions/fetchHomeProducts";
 import { fetchUserOnLoadUsingIdToken } from "../Store/Actions/userLoginActions";
-import { fetchCart } from "../Store/Actions/userCartActions";
 
 function App(props) {
   const dispatch = useDispatch();
