@@ -5,7 +5,7 @@ function OrderStatus(props) {
   const orderStatus = props.data;
   const orderTime = new Date(orderStatus.orderDate).toLocaleDateString();
   const deliveryTime = new Date(orderStatus.deliveryDate).toLocaleDateString();
-  const currentStatus = props.generatedStatus;
+  const currentStatus = props.data.status;
 
   const statusObj = {
     "ORDER PROCESSING": [true],

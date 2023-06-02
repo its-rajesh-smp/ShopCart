@@ -24,10 +24,12 @@ function MyRoutes(props) {
 
       {isAuth && (
         <>
-          <Route path="/orderdetails" element={<OrderDetailsPage />} />
           <Route path="/yourorder" element={<Yourorderpage />} />
           <Route path="/checkout" element={<Checkoutpage />} />
-          <Route path="/orderdetails" element={<OrderDetailsPage />} />
+          <Route
+            path="/orderdetails/:bigOrderId/:smallOrderId"
+            element={<OrderDetailsPage />}
+          />
         </>
       )}
     </Routes>

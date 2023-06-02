@@ -9,21 +9,6 @@ function YourOrderContainer(props) {
     return;
   }
 
-  //  Extrating And Forming Order Item From A Order
-  const orderItemArr = yourOrders.map((bigOrder) => {
-    return bigOrder.orderItems.map((orderItem) => {
-      return (
-        <YourOrderItem
-          orderStatus={bigOrder.orderStatus}
-          data={orderItem}
-          orderId={bigOrder.orderId}
-          orderAddress={bigOrder.orderAddress}
-          key={orderItem.cartId}
-        />
-      );
-    });
-  });
-
   return (
     <div className=" YourOrderContainer-div ">
       <div className="YourOrderContainer-div__searchDiv">
@@ -32,7 +17,9 @@ function YourOrderContainer(props) {
       </div>
 
       <div className="YourOrderContainer-div__orderContainer">
-        {orderItemArr}
+        {yourOrders.map((order) => {
+          return <YourOrderItem data={order} key={order.orderId} />;
+        })}
       </div>
     </div>
   );

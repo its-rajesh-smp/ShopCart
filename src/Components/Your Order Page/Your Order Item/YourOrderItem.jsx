@@ -1,30 +1,17 @@
 import React from "react";
 import "./YourOrderItem.css";
 import OrderStatus from "../Order Status/OrderStatus";
+import { useNavigate } from "react-router-dom";
 
 function YourOrderItem(props) {
-  //   To show order status dynamically i am usnign math.random to generate different order status
-  function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  const navigate = useNavigate();
 
-  const generatedCurrentStatus = getRndInteger(0, 7);
-
-  const randomStatusArr = [
-    "ORDER PROCESSING",
-    "READY TO DISPATCH",
-    "DISPATCHED",
-    "ON THE WAY",
-    "READY TO RECIVE ON YOUR PLACE",
-    "NEAR TO YOU",
-    "OUT FOR DELIVERY",
-    "DELIVERED",
-  ];
-
-  const currentStatus = randomStatusArr[generatedCurrentStatus];
+  const onClickNavigate = () => {
+    navigate(`/orderdetails/${props.orderId}/${props.data.cartId}`);
+  };
 
   return (
-    <div className=" YourOrderItem-div ">
+    <div onClick={onClickNavigate} className=" YourOrderItem-div ">
       <div className="YourOrderItem-div__imageContainer">
         <img src={props.data.thumbnail} alt="" />
       </div>
@@ -32,9 +19,9 @@ function YourOrderItem(props) {
       <div className="YourOrderItem-div__nameContainer">
         <p>{props.data.description}</p>
         <p>
-          Order Id: <span>{props.data.cartId}</span>
+          Order Id: <span>{props.data.orderId}</span>
         </p>
-        <p>{currentStatus}</p>
+        <p>{props.data.orderStatus.status}</p>
       </div>
 
       <div className="YourOrderItem-div__priceContainer">
@@ -43,7 +30,7 @@ function YourOrderItem(props) {
       </div>
 
       <div className="YourOrderItem-div__statusContainer">
-        <OrderStatus data={props.orderStatus} generatedStatus={currentStatus} />
+        <OrderStatus data={props.data.orderStatus} />
       </div>
     </div>
   );
