@@ -31,7 +31,7 @@ function ProductSectionContainer(props) {
         );
       })}
 
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 }
