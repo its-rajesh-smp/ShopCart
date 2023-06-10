@@ -16,6 +16,10 @@
   border-top-left-radius: 0.125rem;
   border-bottom-left-radius: 0.125rem;
 }
+.HeaderSearch-div input::-moz-placeholder {
+  padding-left: 0.0625rem;
+  font-family: roboto;
+}
 .HeaderSearch-div input::placeholder {
   padding-left: 0.0625rem;
   font-family: roboto;

@@ -1,5 +1,6 @@
 .Add-div img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 31vw;
 }
 

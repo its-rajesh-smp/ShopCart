@@ -10,12 +10,12 @@
   align-items: center;
 }
 .Pagination-div .Pagination-div__next {
-  color: #2874f0;
+  color: #015ff8;
   font-weight: 500;
 }
 
 .active_page {
-  background-color: #2874f0;
+  background-color: #015ff8;
   color: white;
   width: 1.125rem;
   height: 1.125rem;

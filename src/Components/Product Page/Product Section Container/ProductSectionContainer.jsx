@@ -6,18 +6,15 @@ import TopSortBar from "../Top Sort Bar/TopSortBar";
 import Product from "../Product/Product";
 import ToggleFilterMobile from "../../UI/Product Page UI/Filter Section UI/Toggle Filter MOBILE/ToggleFilterMobile";
 import Pagination from "../../Home Page/Pagination/Pagination";
-import { useSelector } from "react-redux";
+
 function ProductSectionContainer(props) {
-  const productList = props.productList;
   return (
     <div className=" ProductSectionContainer-div ">
-      <TopSortBar />
-
+      <TopSortBar setProductList={props.setProductList} />
       <ShowOnMobile>
         <ToggleFilterMobile />
       </ShowOnMobile>
-
-      {productList.map((product, index) => {
+      {props.productList.map((product, index) => {
         return (
           <Product
             showDetailsList={true}
@@ -27,7 +24,6 @@ function ProductSectionContainer(props) {
           />
         );
       })}
-
       {/* <Pagination /> */}
     </div>
   );

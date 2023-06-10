@@ -15,7 +15,8 @@
   border: 0.0625rem solid gainsboro;
   width: 3.75rem;
   height: 3.75rem;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer {
   display: flex;
@@ -25,7 +26,8 @@
   border: 0.0625rem solid gainsboro;
   width: 30vw;
   height: 60vh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer div {
   margin-top: 0.625rem;

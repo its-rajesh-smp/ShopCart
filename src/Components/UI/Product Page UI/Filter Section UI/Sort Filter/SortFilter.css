@@ -7,6 +7,11 @@
   background-color: white;
 }
 
+.activSort {
+  font-weight: 600;
+  border-bottom: 2px solid #000;
+}
+
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .SortFilter-div {
