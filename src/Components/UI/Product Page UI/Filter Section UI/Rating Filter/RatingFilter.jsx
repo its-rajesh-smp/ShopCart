@@ -19,6 +19,7 @@ function RatingFilter(props) {
             name="rating_radio_filter"
             type="radio"
             value={5}
+            checked={props.filter.rating == 5}
           />
           <p>5 ⭐</p>
         </div>
@@ -29,6 +30,7 @@ function RatingFilter(props) {
             name="rating_radio_filter"
             type="radio"
             value={4}
+            checked={props.filter.rating == 4}
           />
           <p>4 ⭐</p>
         </div>
@@ -39,6 +41,7 @@ function RatingFilter(props) {
             name="rating_radio_filter"
             type="radio"
             value={3}
+            checked={props.filter.rating == 3}
           />
           <p>3 ⭐</p>
         </div>
@@ -49,6 +52,7 @@ function RatingFilter(props) {
             name="rating_radio_filter"
             type="radio"
             value={2}
+            checked={props.filter.rating == 2}
           />
           <p>2 ⭐</p>
         </div>
@@ -58,6 +62,7 @@ function RatingFilter(props) {
             name="rating_radio_filter"
             type="radio"
             value={1}
+            checked={props.filter.rating == 1}
           />
           <p>1 ⭐ </p>
         </div>

@@ -8,9 +8,9 @@ import SortFilter from "../../UI/Product Page UI/Filter Section UI/Sort Filter/S
 
 function FilterSection(props) {
   const [filter, setFilter] = useState({
-    minPrice: "MIN",
-    maxPrice: "MAX",
-    rating: "NO",
+    minPrice: "",
+    maxPrice: "",
+    rating: "",
   });
 
   // Run When Filter Change
@@ -18,11 +18,10 @@ function FilterSection(props) {
     const filteredArr = props.data.filter((product) => {
       const productPrice = product.price;
       const productRating = Math.floor(product.rating);
-      console.log(filter.rating);
       if (
-        (productPrice <= filter.maxPrice || filter.maxPrice === "MAX") &&
-        (productPrice >= filter.minPrice || filter.minPrice === "MIN") &&
-        (productRating == filter.rating || filter.rating === "NO")
+        (productPrice <= filter.maxPrice || filter.maxPrice === "") &&
+        (productPrice >= filter.minPrice || filter.minPrice === "") &&
+        (productRating == filter.rating || filter.rating === "")
       ) {
         return true;
       }
@@ -33,9 +32,9 @@ function FilterSection(props) {
 
   return (
     <div className=" FilterSection-div ">
-      <TopFilter />
-      <PriceFilter setFilter={setFilter} />
-      <RatingFilter setFilter={setFilter} />
+      <TopFilter filter={filter} setFilter={setFilter} />
+      <PriceFilter filter={filter} setFilter={setFilter} />
+      <RatingFilter filter={filter} setFilter={setFilter} />
       <ShowOnMobile>
         <SortFilter />
         <button className="FilterSection-div__applyFilterBTN">

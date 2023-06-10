@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./PriceFilter.css";
 
 function PriceFilter(props) {
@@ -8,6 +8,7 @@ function PriceFilter(props) {
 
       <div>
         <select
+          value={props.filter.minPrice}
           onChange={(e) => {
             props.setFilter((p) => {
               return { ...p, minPrice: e.target.value };
@@ -20,10 +21,9 @@ function PriceFilter(props) {
           <option value="1000">1000</option>
           <option value="3000">3000</option>
         </select>
-
         <p>to</p>
-
         <select
+          value={props.filter.maxPrice}
           onChange={(e) => {
             props.setFilter((p) => {
               return { ...p, maxPrice: e.target.value };
