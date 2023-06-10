@@ -39,7 +39,7 @@ function EditDeliveryAddress(props) {
       landmark: landmark,
       alternateMobile: alternateMobile,
     };
-    dispatch(addAddress(newAddressObj));
+    dispatch(addAddress(newAddressObj, props.onClick));
   };
 
   // ON CLICK SAVE AND EDIT BTN
@@ -58,6 +58,12 @@ function EditDeliveryAddress(props) {
     dispatch(
       editUserAddress(props.data.id, newAddressObj, props.onClickSaveDeliver)
     );
+  };
+
+  // ON CANCLE BTN CLICK
+  const onCancleBtnClick = () => {
+    props.onClick && props.onClick();
+    props.onClickCancle && props.onClickCancle();
   };
 
   return (
@@ -165,7 +171,7 @@ function EditDeliveryAddress(props) {
             <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>
           )}
 
-          <button onClick={props.onClickCancle}>CANCEL</button>
+          <button onClick={onCancleBtnClick}>CANCEL</button>
         </div>
       </div>
     </div>

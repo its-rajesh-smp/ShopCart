@@ -2,7 +2,7 @@ import axios from "axios"
 import { USER } from "../../Firebase/API_URL"
 import { setAddress } from "../Reducer/userAddressReducer"
 
-export const addAddress = (enteredData) => {
+export const addAddress = (enteredData,onClick) => {
     return async (dispatch, getState) => {
         const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
         const prevAddressArr = getState().userAddressSlice.address
@@ -10,6 +10,7 @@ export const addAddress = (enteredData) => {
             const { data } = await axios.post(`${USER}/${userEmail}/address.json`, enteredData)
             const newAddressArr = [...prevAddressArr, { ...enteredData, id: data.name }]
             dispatch(setAddress(newAddressArr))
+            onClick()
         } catch (error) {
             console.log(error);
         }
