@@ -16,7 +16,7 @@ function PriceFilter(props) {
           }}
           name="min"
         >
-          <option value="MIN">MIN</option>
+          <option value="">MIN</option>
           <option value="500">500</option>
           <option value="1000">1000</option>
           <option value="3000">3000</option>
@@ -31,7 +31,7 @@ function PriceFilter(props) {
           }}
           name="max"
         >
-          <option value="MAX">MAX</option>
+          <option value="">MAX</option>
           <option value="500">500</option>
           <option value="1000">1000</option>
           <option value="30000">30000</option>
