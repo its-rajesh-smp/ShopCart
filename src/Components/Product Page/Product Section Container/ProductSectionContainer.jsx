@@ -8,10 +8,7 @@ import ToggleFilterMobile from "../../UI/Product Page UI/Filter Section UI/Toggl
 import Pagination from "../../Home Page/Pagination/Pagination";
 import { useSelector } from "react-redux";
 function ProductSectionContainer(props) {
-  const productList = useSelector(
-    (state) => state.allProductSlice.allProductList
-  );
-
+  const productList = props.productList;
   return (
     <div className=" ProductSectionContainer-div ">
       <TopSortBar />
