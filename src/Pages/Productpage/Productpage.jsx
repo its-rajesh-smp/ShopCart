@@ -32,6 +32,35 @@ function Productpage(props) {
         return true;
       }
     });
+
+    // Sort
+    if (myFilter.sortBy === "popularity") {
+
+    }
+    else if (myFilter.sortBy === "low_to_high") {
+      filteredArr.sort((item1, item2) => {
+        return -item2.price + item1.price
+      })
+    }
+    else if (myFilter.sortBy === "high_to_low") {
+      filteredArr.sort((item1, item2) => {
+        return item2.price - item1.price
+      })
+    }
+    else if (myFilter.sortBy === "discount") {
+      filteredArr.sort((item1, item2) => {
+        return item2.discountPercentage - item1.discountPercentage
+      })
+    }
+    else if (myFilter.sortBy === "popularity") {
+      filteredArr.sort((item1, item2) => {
+        return item2.price - item1.price
+      })
+    }
+
+
+
+
     setProductList(filteredArr)
   }, [myFilter]);
 
