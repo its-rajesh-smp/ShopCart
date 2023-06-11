@@ -6,7 +6,7 @@ const filterSortReducer=createSlice({
         filter:{minPrice: "",
         maxPrice: "",
         rating: "",
-        
+        sortBy:""
     }
     },
     reducers:{
@@ -14,7 +14,7 @@ const filterSortReducer=createSlice({
             state.filter= {...state.filter , ...action.payload}
         },
         clearFilter:(state,action)=>{
-            state.filter= {minPrice: "",maxPrice: "",rating: ""}
+            state.filter= {minPrice: "",maxPrice: "",rating: "",sortBy:""}
         }
     }
 })

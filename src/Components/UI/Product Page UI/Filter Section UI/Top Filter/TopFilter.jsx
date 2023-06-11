@@ -30,7 +30,7 @@ function TopFilter(props) {
 
         {
           Object.entries(myFilter).map((item) => <Filter key={item[0]} name={item} />).filter((item) => {
-            if (item.props.name[1] !== "" && item.props.name[1] !== "" && item.props.name[1] !== "") { return true }
+            if (item.props.name[1] !== "") { return true }
           })
         }
 
