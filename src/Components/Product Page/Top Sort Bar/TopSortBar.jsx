@@ -14,7 +14,7 @@ function TopSortBar(props) {
         </p>
       </div>
       <ShowOnDesktop>
-        <SortFilter setProductList={props.setProductList} />
+        <SortFilter />
       </ShowOnDesktop>
     </div>
   );

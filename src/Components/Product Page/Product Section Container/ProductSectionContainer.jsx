@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductSectionContainer.css";
 import { ShowOnMobile } from "../../../Style/Media";
 
@@ -10,7 +10,7 @@ import Pagination from "../../Home Page/Pagination/Pagination";
 function ProductSectionContainer(props) {
   return (
     <div className=" ProductSectionContainer-div ">
-      <TopSortBar setProductList={props.setProductList} />
+      <TopSortBar />
       <ShowOnMobile>
         <ToggleFilterMobile />
       </ShowOnMobile>

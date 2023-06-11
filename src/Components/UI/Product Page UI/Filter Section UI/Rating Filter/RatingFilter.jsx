@@ -1,12 +1,14 @@
 import React from "react";
 import "./RatingFilter.css";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../../../../Store/Reducer/filterSortReducer";
 
 function RatingFilter(props) {
+  const dispatch = useDispatch()
+
   // On Click Rating
-  const onChangeHandeler = (e) => {
-    props.setFilter((p) => {
-      return { ...p, rating: e.target.value };
-    });
+  const onChangeHandeler = (rating) => {
+    dispatch(setFilter({ rating: rating }))
   };
 
   return (
@@ -15,54 +17,49 @@ function RatingFilter(props) {
       <div className="RatingFilter-div__ratingContainer">
         <div className="RatingFilter-div__rating">
           <input
-            onChange={onChangeHandeler}
+            onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
             value={5}
-            checked={props.filter.rating == 5}
           />
           <p>5 ⭐</p>
         </div>
 
         <div className="RatingFilter-div__rating">
           <input
-            onChange={onChangeHandeler}
+            onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
             value={4}
-            checked={props.filter.rating == 4}
           />
           <p>4 ⭐</p>
         </div>
 
         <div className="RatingFilter-div__rating">
           <input
-            onChange={onChangeHandeler}
+            onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
             value={3}
-            checked={props.filter.rating == 3}
           />
           <p>3 ⭐</p>
         </div>
 
         <div className="RatingFilter-div__rating">
           <input
-            onChange={onChangeHandeler}
+            onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
             value={2}
-            checked={props.filter.rating == 2}
           />
           <p>2 ⭐</p>
         </div>
         <div className="RatingFilter-div__rating">
           <input
-            onChange={onChangeHandeler}
+            onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
             value={1}
-            checked={props.filter.rating == 1}
           />
           <p>1 ⭐ </p>
         </div>
