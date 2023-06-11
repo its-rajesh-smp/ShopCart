@@ -72,6 +72,7 @@ function Productpage(props) {
         </ShowOnDesktop>
 
         <ProductSectionContainer
+          category={param.category}
           setProductList={setProductList}
           productList={productList}
         />

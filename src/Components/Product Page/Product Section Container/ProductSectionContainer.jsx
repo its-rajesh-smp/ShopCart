@@ -10,7 +10,7 @@ import Pagination from "../../Home Page/Pagination/Pagination";
 function ProductSectionContainer(props) {
   return (
     <div className=" ProductSectionContainer-div ">
-      <TopSortBar />
+      <TopSortBar category={props.category} />
       <ShowOnMobile>
         <ToggleFilterMobile />
       </ShowOnMobile>
