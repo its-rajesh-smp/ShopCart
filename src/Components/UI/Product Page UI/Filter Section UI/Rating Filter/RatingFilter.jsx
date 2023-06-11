@@ -1,10 +1,11 @@
 import React from "react";
 import "./RatingFilter.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFilter } from "../../../../../Store/Reducer/filterSortReducer";
 
 function RatingFilter(props) {
   const dispatch = useDispatch()
+  const filter = useSelector(state => state.filterSortSlice.filter)
 
   // On Click Rating
   const onChangeHandeler = (rating) => {
@@ -17,6 +18,8 @@ function RatingFilter(props) {
       <div className="RatingFilter-div__ratingContainer">
         <div className="RatingFilter-div__rating">
           <input
+            checked={filter.rating == 5}
+
             onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
@@ -27,6 +30,7 @@ function RatingFilter(props) {
 
         <div className="RatingFilter-div__rating">
           <input
+            checked={filter.rating == 4}
             onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
@@ -37,6 +41,7 @@ function RatingFilter(props) {
 
         <div className="RatingFilter-div__rating">
           <input
+            checked={filter.rating == 3}
             onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
@@ -47,6 +52,7 @@ function RatingFilter(props) {
 
         <div className="RatingFilter-div__rating">
           <input
+            checked={filter.rating == 2}
             onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"
@@ -56,6 +62,7 @@ function RatingFilter(props) {
         </div>
         <div className="RatingFilter-div__rating">
           <input
+            checked={filter.rating == 1}
             onChange={(e) => { onChangeHandeler(e.target.value) }}
             name="rating_radio_filter"
             type="radio"

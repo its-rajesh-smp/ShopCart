@@ -21,14 +21,13 @@ function Productpage(props) {
 
   // Filter Logic
   useEffect(() => {
-
     const filteredArr = data.filter((product) => {
       const price = product.price;
       const rating = Math.floor(product.rating);
       if (
-        (price <= myFilter.maxPrice || myFilter.maxPrice == "MAX") &&
-        (price >= myFilter.minPrice || myFilter.minPrice == "MIN") &&
-        (rating == myFilter.rating || myFilter.rating == "NO")
+        (price <= myFilter.maxPrice || myFilter.maxPrice == "") &&
+        (price >= myFilter.minPrice || myFilter.minPrice == "") &&
+        (rating == myFilter.rating || myFilter.rating == "")
       ) {
         return true;
       }

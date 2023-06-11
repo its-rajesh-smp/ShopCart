@@ -5,19 +5,21 @@ import { setFilter } from "../../../../../Store/Reducer/filterSortReducer";
 
 function PriceFilter(props) {
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.filterSortSlice.filter)
 
+  // On Change Filter Price
   const onChangeMaxPriceHandeler = (price) => {
     if (price !== "MAX") {
       dispatch(setFilter({ minPrice: price }));
     } else {
-      dispatch(setFilter({ minPrice: "MAX" }));
+      dispatch(setFilter({ minPrice: "" }));
     }
   };
   const onChangeMinPriceHandeler = (price) => {
     if (price !== "MIN") {
       dispatch(setFilter({ maxPrice: price }));
     } else {
-      dispatch(setFilter({ maxPrice: "MIN" }));
+      dispatch(setFilter({ maxPrice: "" }));
     }
   };
 
@@ -31,6 +33,7 @@ function PriceFilter(props) {
             onChangeMaxPriceHandeler(e.target.value);
           }}
           name="min"
+          value={filter.minPrice}
         >
           <option value="MIN">MIN</option>
           <option value={500}>500</option>
@@ -43,6 +46,7 @@ function PriceFilter(props) {
             onChangeMinPriceHandeler(e.target.value);
           }}
           name="max"
+          value={filter.maxPrice}
         >
           <option value="MAX">MAX</option>
           <option value={500}>500</option>

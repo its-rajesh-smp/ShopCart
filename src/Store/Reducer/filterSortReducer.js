@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const filterSortReducer=createSlice({
     name:"sort/Filter",
     initialState:{
-        filter:{minPrice: "MIN",
-        maxPrice: "MAX",
-        rating: "NO",
+        filter:{minPrice: "",
+        maxPrice: "",
+        rating: "",
         
     }
     },
@@ -14,7 +14,7 @@ const filterSortReducer=createSlice({
             state.filter= {...state.filter , ...action.payload}
         },
         clearFilter:(state,action)=>{
-            state.filter= {minPrice: "MIN",maxPrice: "MAX",rating: "NO"}
+            state.filter= {minPrice: "",maxPrice: "",rating: ""}
         }
     }
 })

@@ -1,13 +1,14 @@
 import React from "react";
 import "./Filter.css";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../../../../../Store/Reducer/filterSortReducer";
 
 function Filter(props) {
-  // Remove Filter On Click Close
+  const dispatch = useDispatch()
+
+  // Remove Filter On Click Single DeleteFliter
   const onClickClearFilter = () => {
-    props.setFilter((p) => {
-      const newObj = { ...p, [props.name[0]]: "" };
-      return newObj;
-    });
+    dispatch(setFilter({ [props.name[0]]: "" }))
   };
 
   return (
