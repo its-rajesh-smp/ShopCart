@@ -13,7 +13,6 @@ function Productpage(props) {
   const data = useFetchProduct(param.category);
   const myFilter = useSelector((state) => state.filterSortSlice.filter);
 
-
   // Set Product First Time
   useEffect(() => {
     setProductList(data);
@@ -35,33 +34,24 @@ function Productpage(props) {
 
     // Sort
     if (myFilter.sortBy === "popularity") {
-
-    }
-    else if (myFilter.sortBy === "low_to_high") {
+    } else if (myFilter.sortBy === "low_to_high") {
       filteredArr.sort((item1, item2) => {
-        return -item2.price + item1.price
-      })
-    }
-    else if (myFilter.sortBy === "high_to_low") {
+        return -item2.price + item1.price;
+      });
+    } else if (myFilter.sortBy === "high_to_low") {
       filteredArr.sort((item1, item2) => {
-        return item2.price - item1.price
-      })
-    }
-    else if (myFilter.sortBy === "discount") {
+        return item2.price - item1.price;
+      });
+    } else if (myFilter.sortBy === "discount") {
       filteredArr.sort((item1, item2) => {
-        return item2.discountPercentage - item1.discountPercentage
-      })
-    }
-    else if (myFilter.sortBy === "popularity") {
+        return item2.discountPercentage - item1.discountPercentage;
+      });
+    } else if (myFilter.sortBy === "popularity") {
       filteredArr.sort((item1, item2) => {
-        return item2.price - item1.price
-      })
+        return item2.price - item1.price;
+      });
     }
-
-
-
-
-    setProductList(filteredArr)
+    setProductList(filteredArr);
   }, [myFilter]);
 
   return (

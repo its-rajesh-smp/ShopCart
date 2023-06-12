@@ -1,10 +1,19 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./Pagination.css";
 import PaginationNumber from "../../UI/Pagination/PaginationNumber/PaginationNumber";
 import PaginationNextPrev from "../../UI/Pagination/PaginationNextPrev/PaginationNextPrev";
+import { useSelector } from "react-redux";
 
 function Pagination(props) {
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Reset The Pageination if click on Any Filter
+  const filter = useSelector((state) => state.filterSortSlice.filter);
+  useEffect(() => {
+    props.setSkip(5);
+    setCurrentPage(1);
+  }, [filter]);
+
   // Calculate Page Number
   const pageNumbersArray = useCallback(() => {
     const pageNumberArr = [];
