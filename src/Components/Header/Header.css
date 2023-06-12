@@ -2,7 +2,7 @@
   background-color: #015ff8;
   height: 3.5rem;
   display: grid;
-  grid-template-columns: 1fr 2fr 0.5fr 0.8fr 0.8fr 0.3fr 1fr;
+  grid-template-columns: 1fr 2fr 0.5fr 0.8fr 1fr;
   align-items: center;
   justify-content: center;
   gap: 0.9375rem;

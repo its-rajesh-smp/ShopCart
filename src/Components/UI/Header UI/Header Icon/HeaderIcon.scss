@@ -1,31 +1,17 @@
 @import "../../../../Style/color";
 .HeaderIcon-div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
   height: 100%;
+  gap: 10px;
   cursor: pointer;
-  img {
-    width: torem(75px);
+  img{
+    width: 40px;
   }
-  div {
-    display: flex;
-    font-size: torem(11px);
+  h1 {
+    font-size: 25px;
     color: white;
-    font-style: italic;
-    font-family: roboto;
-    div {
-      p {
-        color: yellow;
-        font-weight: 500;
-        margin-left: torem(2px);
-      }
-      img {
-        margin-left: torem(2px);
-        height: torem(10px);
-        width: torem(10px);
-      }
-    }
+    font-family: poppins;
   }
 }

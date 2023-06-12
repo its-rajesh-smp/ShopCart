@@ -1,28 +1,16 @@
 .HeaderIcon-div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
   height: 100%;
+  gap: 10px;
   cursor: pointer;
 }
 .HeaderIcon-div img {
-  width: 4.6875rem;
+  width: 40px;
 }
-.HeaderIcon-div div {
-  display: flex;
-  font-size: 0.6875rem;
+.HeaderIcon-div h1 {
+  font-size: 25px;
   color: white;
-  font-style: italic;
-  font-family: roboto;
-}
-.HeaderIcon-div div div p {
-  color: yellow;
-  font-weight: 500;
-  margin-left: 0.125rem;
-}
-.HeaderIcon-div div div img {
-  margin-left: 0.125rem;
-  height: 0.625rem;
-  width: 0.625rem;
+  font-family: poppins;
 }/*# sourceMappingURL=HeaderIcon.css.map */

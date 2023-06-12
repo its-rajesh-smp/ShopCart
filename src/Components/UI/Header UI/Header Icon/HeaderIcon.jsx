@@ -13,19 +13,10 @@ function HeaderIcon(props) {
   return (
     <div onClick={onClickNavigateHome} className=" HeaderIcon-div ">
       <img
-        src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png"
+        src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
         alt="FlipKartIcon"
       />
-      <div>
-        <p>Explore</p>
-        <div>
-          <p>Plus</p>
-          <img
-            src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/plus_aef861.png"
-            alt="plus"
-          />
-        </div>
-      </div>
+      <h1>ShopCart</h1>
     </div>
   );
 }

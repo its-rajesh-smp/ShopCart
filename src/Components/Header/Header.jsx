@@ -66,10 +66,6 @@ function Header(props) {
         />
       </HeaderDropdown>
 
-      <p className="header__becomeASeller">Become a Seller</p>
-
-      <HeaderDropdown for="More" />
-
       <HeaderCart />
     </div>
   );
