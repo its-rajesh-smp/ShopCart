@@ -8,23 +8,38 @@ import ToggleFilterMobile from "../../UI/Product Page UI/Filter Section UI/Toggl
 import Pagination from "../../Home Page/Pagination/Pagination";
 
 function ProductSectionContainer(props) {
+  // State To Change Page
+  const [skip, setSkip] = useState(5);
+
   return (
     <div className=" ProductSectionContainer-div ">
-      <TopSortBar category={props.category} />
+      <TopSortBar
+        skip={skip}
+        totalItem={props.productList.length}
+        category={props.category}
+      />
       <ShowOnMobile>
         <ToggleFilterMobile />
       </ShowOnMobile>
-      {props.productList.map((product, index) => {
-        return (
-          <Product
-            showDetailsList={true}
-            key={Math.random()}
-            id={index}
-            data={product}
-          />
-        );
-      })}
-      {/* <Pagination /> */}
+
+      {props.productList
+        .map((product, index) => {
+          return (
+            <Product
+              showDetailsList={true}
+              key={Math.random()}
+              id={index}
+              data={product}
+            />
+          );
+        })
+        .slice(skip - 5, skip)}
+
+      <Pagination
+        skip={skip}
+        setSkip={setSkip}
+        length={props.productList.length}
+      />
     </div>
   );
 }

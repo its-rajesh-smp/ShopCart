@@ -1,24 +1,33 @@
 .Pagination-div {
   display: flex;
   gap: 2.5rem;
-  background-color: white;
   padding: 1.25rem;
   justify-content: center;
   margin-top: 0.625rem;
+  align-items: center;
+  background-color: white;
+}
+.Pagination-div button {
   font-family: roboto;
   font-size: 0.75rem;
+  padding: 0.3125rem;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.3125rem;
 }
 .Pagination-div .Pagination-div__next {
   color: #015ff8;
   font-weight: 500;
 }
-
-.active_page {
+.Pagination-div .dissabledBtn {
+  background-color: gainsboro;
+  color: gray;
+}
+.Pagination-div .active_page {
   background-color: #015ff8;
   color: white;
-  width: 1.125rem;
-  height: 1.125rem;
   display: flex;
   border-radius: 0.3125rem;
   align-items: center;

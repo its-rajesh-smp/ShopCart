@@ -4,13 +4,17 @@ import SortFilter from "../../UI/Product Page UI/Filter Section UI/Sort Filter/S
 import { ShowOnDesktop } from "../../../Style/Media";
 
 function TopSortBar(props) {
+  const totalItem = props.totalItem;
+  const start = props.skip - 5 + 1;
+  const end = props.skip > totalItem ? totalItem : props.skip;
+
   return (
     <div className=" TopSortBar-div ">
       <div className="TopSortBar-div__currentCat">
         <h3>{props.category.toUpperCase()}</h3>
         <p>
-          {"("}Showing <span>1</span> - <span>24</span> of <span>29</span>{" "}
-          products{")"}
+          {"("}Showing <span>{start}</span> - <span>{end}</span> of{" "}
+          <span>{totalItem}</span> products{")"}
         </p>
       </div>
       <ShowOnDesktop>

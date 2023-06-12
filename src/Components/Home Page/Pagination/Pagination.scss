@@ -2,25 +2,36 @@
 .Pagination-div {
   display: flex;
   gap: torem(40px);
-  background-color: white;
   padding: torem(20px);
   justify-content: center;
   margin-top: torem(10px);
-  font-family: roboto;
-  font-size: torem(12px);
   align-items: center;
+  background-color: white;
+  button{
+    font-family: roboto;
+    font-size: torem(12px);
+    padding: torem(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: torem(5px);
+
+  }
   .Pagination-div__next {
     color: $header_base;
     font-weight: 500;
   }
-}
-.active_page {
-  background-color: $header_base;
-  color: white;
-  width: torem(18px);
-  height: torem(18px);
-  display: flex;
-  border-radius: torem(5px);
-  align-items: center;
-  justify-content: center;
+  .dissabledBtn{
+    background-color: gainsboro;
+    color: gray;
+  }
+  .active_page {
+    background-color: $header_base;
+    color: white;
+    display: flex;
+    border-radius: torem(5px);
+    align-items: center;
+    justify-content: center;
+  }
 }
