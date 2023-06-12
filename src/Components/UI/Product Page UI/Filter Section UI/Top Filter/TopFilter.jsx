@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearFilter } from "../../../../../Store/Reducer/filterSortReducer";
 
 function TopFilter(props) {
-
-  const myFilter = useSelector(state => state.filterSortSlice.filter)
-  const dispatch = useDispatch()
+  const myFilter = useSelector((state) => state.filterSortSlice.filter);
+  const dispatch = useDispatch();
 
   // On Click Clear Filter
   const onClickClearAll = () => {
-    dispatch(clearFilter())
+    dispatch(clearFilter());
   };
 
   return (
@@ -27,13 +26,13 @@ function TopFilter(props) {
       </div>
 
       <div>
-
-        {
-          Object.entries(myFilter).map((item) => <Filter key={item[0]} name={item} />).filter((item) => {
-            if (item.props.name[1] !== "") { return true }
-          })
-        }
-
+        {Object.entries(myFilter)
+          .map((item) => <Filter key={item[0]} name={item} />)
+          .filter((item) => {
+            if (item.props.name[1] !== "") {
+              return true;
+            }
+          })}
       </div>
     </div>
   );

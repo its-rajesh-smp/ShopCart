@@ -5,21 +5,21 @@ import { setFilter } from "../../../../../Store/Reducer/filterSortReducer";
 
 function PriceFilter(props) {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filterSortSlice.filter)
+  const filter = useSelector((state) => state.filterSortSlice.filter);
 
   // On Change Filter Price
   const onChangeMaxPriceHandeler = (price) => {
     if (price !== "MAX") {
-      dispatch(setFilter({ minPrice: price }));
+      dispatch(setFilter({ maxPrice: price }));
     } else {
-      dispatch(setFilter({ minPrice: "" }));
+      dispatch(setFilter({ maxPrice: "" }));
     }
   };
   const onChangeMinPriceHandeler = (price) => {
     if (price !== "MIN") {
-      dispatch(setFilter({ maxPrice: price }));
+      dispatch(setFilter({ minPrice: price }));
     } else {
-      dispatch(setFilter({ maxPrice: "" }));
+      dispatch(setFilter({ minPrice: "" }));
     }
   };
 
@@ -30,7 +30,7 @@ function PriceFilter(props) {
       <div>
         <select
           onChange={(e) => {
-            onChangeMaxPriceHandeler(e.target.value);
+            onChangeMinPriceHandeler(e.target.value);
           }}
           name="min"
           value={filter.minPrice}
@@ -43,7 +43,7 @@ function PriceFilter(props) {
         <p>to</p>
         <select
           onChange={(e) => {
-            onChangeMinPriceHandeler(e.target.value);
+            onChangeMaxPriceHandeler(e.target.value);
           }}
           name="max"
           value={filter.maxPrice}

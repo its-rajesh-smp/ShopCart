@@ -10,6 +10,9 @@
 }
 .ProductImageSection-div img {
   width: 10rem;
+  height: 12.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .ProductImageSection-div__btnContainer {
