@@ -32,4 +32,12 @@
   border-radius: 0.3125rem;
   align-items: center;
   justify-content: center;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Pagination-div {
+    gap: 0.625rem;
+    padding: 1.25rem 0px;
+  }
 }/*# sourceMappingURL=Pagination.css.map */

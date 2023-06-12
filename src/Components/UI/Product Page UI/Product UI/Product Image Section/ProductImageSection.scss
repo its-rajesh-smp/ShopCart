@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   gap: torem(20px);
-  width: torem(160px);
+  width: torem(150px);
+  box-sizing: border-box;
   i {
     align-self: flex-end;
     color: grey;
@@ -13,7 +14,7 @@
     height: torem(200px);
     object-fit: cover;
   }
-}
+} 
 
 .ProductImageSection-div__btnContainer {
   display: flex;
@@ -38,16 +39,8 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .ProductImageSection-div {
     justify-content: space-evenly;
-    i {
-    }
     img {
       width: torem(100px);
     }
   }
-}
-/* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
-/* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
 }

@@ -16,7 +16,7 @@
     justify-content: center;
     border: none;
     border-radius: torem(5px);
-
+    
   }
   .Pagination-div__next {
     color: $header_base;
@@ -33,5 +33,15 @@
     border-radius: torem(5px);
     align-items: center;
     justify-content: center;
+  }
+}
+
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Pagination-div {
+    gap: torem(10px);
+      padding: torem(20px) 0px;
   }
 }

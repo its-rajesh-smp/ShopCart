@@ -17,7 +17,7 @@
 }
 .ProductDescriptionSection-div__descPoints {
   font-size: torem(12px);
-  margin-left: torem(20px);
+  margin-left: torem(20px); 
   margin-top: torem(6px);
 }
 
@@ -34,10 +34,4 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
-}
-/* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
-/* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
 }

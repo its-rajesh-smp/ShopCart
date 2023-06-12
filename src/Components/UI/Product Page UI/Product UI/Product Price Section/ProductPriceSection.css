@@ -27,4 +27,11 @@
 }
 .ProductPriceSection-div .freeDel {
   font-size: 0.75rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProductPriceSection-div {
+    padding: 5px;
+  }
 }/*# sourceMappingURL=ProductPriceSection.css.map */
