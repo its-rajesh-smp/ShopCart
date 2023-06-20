@@ -9,20 +9,23 @@ import { fetchCurrentProduct } from "../../Store/Actions/fetchCurrentProduct";
 function Productdetailspage(props) {
   const param = useParams();
   const dispatch = useDispatch();
-  const selector = useSelector(
+
+  const productData = useSelector(
     (state) => state.currentProductSlice.productData
   );
 
   // Fetch Current Product
   useEffect(() => {
     dispatch(fetchCurrentProduct(param.category, param.productid));
-  }, []);
+  }, [param.productid, param.category]);
 
   return (
-    <div className=" Productdetailspage-div remove__Header ">
-      <ProductDetailsImageSection data={selector} />
-      <ProductDetailsDetailsSection data={selector} />
-    </div>
+    productData && (
+      <div className=" Productdetailspage-div remove__Header ">
+        <ProductDetailsImageSection data={productData} />
+        <ProductDetailsDetailsSection data={productData} />
+      </div>
+    )
   );
 }
 

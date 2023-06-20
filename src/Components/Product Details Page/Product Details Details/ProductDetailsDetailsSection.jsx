@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductDetailsDetailsSection.css";
 import ProductDescriptionSection from "../../UI/Product Page UI/Product UI/Product Description Section/ProductDescriptionSection";
 import ProductPriceSection from "../../UI/Product Page UI/Product UI/Product Price Section/ProductPriceSection";
@@ -10,6 +10,24 @@ import ProductReview from "../../UI/Prodcut Details Page UI/Review/ProductReview
 import CreateReview from "../../UI/Prodcut Details Page UI/Create Review/CreateReview";
 
 function ProductDetailsDetailsSection(props) {
+  // All Reviews
+  const [reviews, setReviews] = useState([]);
+
+  // Updating The Review Array Whenever Product Data is changed
+  useEffect(() => {
+    const reviewArr = props.data.review
+      ? Object.keys(props.data.review).map((key) => {
+          return {
+            ...props.data.review[key],
+            key: key,
+            category: props.data.category,
+            id: props.data.id,
+          };
+        })
+      : [];
+    setReviews(reviewArr);
+  }, [props.data]);
+
   return (
     <div className=" ProductDetailsDetailsSection-div ">
       <ProductDescriptionSection data={props.data} showDetailsList={false} />
@@ -30,12 +48,12 @@ function ProductDetailsDetailsSection(props) {
 
       <ProductBigDescriptionContainer for={"Review"}>
         <OverallReview />
-        <CreateReview />
 
-        <ProductReview />
-        <ProductReview />
-        <ProductReview />
-        <ProductReview />
+        <CreateReview setReviews={setReviews} data={props.data} />
+
+        {reviews.map((review) => (
+          <ProductReview key={review.key} data={review} />
+        ))}
       </ProductBigDescriptionContainer>
     </div>
   );

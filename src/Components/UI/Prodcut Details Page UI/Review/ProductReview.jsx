@@ -1,28 +1,23 @@
-import React from 'react';
-import "./ProductReview.css"
+import React from "react";
+import "./ProductReview.css";
 
 function ProductReview(props) {
-    return (
-        <div className=' ProductReview-div '>
-            <p className='ProductReview-div_name'>santoshi chandra</p>
-            <div className='ProductReview-div_rating'>
-                <p>5.0⭐</p>
-                <p>Posted on 3 Sep 2022</p>
-            </div>
-            <div className='ProductReview-div_comment'>
-                <p>
-                    Very nice product thanks meesho costumer is very happy 😊😊😊😊😊😊😊
-                </p>
-            </div>
-
-
-            <div className='ProductReview-div_btnGroup'>
-                <button className='ProductReview-div_btnHelpfull'><i className='bx bxs-hand-up'></i> (<span style={{ fontWeight: 600 }}>13</span>)</button>
-                <button className='ProductReview-div_btnHelpfull'><i className='bx bxs-hand-down'></i> (<span style={{ fontWeight: 600 }}>13</span>)</button>
-            </div>
-
-        </div>
-    );
+  return (
+    <div className=" ProductReview-div ">
+      <p className="ProductReview-div_name">{props.data.userName}</p>
+      <div className="ProductReview-div_rating">
+        <p>
+          <span>{props.data.rating}</span>⭐
+        </p>
+        <p>
+          Posted on <span>{props.data.date}</span>
+        </p>
+      </div>
+      <div className="ProductReview-div_comment">
+        <p>{props.data.review}</p>
+      </div>
+    </div>
+  );
 }
 
 export default ProductReview;
