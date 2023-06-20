@@ -8,8 +8,23 @@ import ProductSpecificationCard from "../../UI/Prodcut Details Page UI/Product S
 import OverallReview from "../../UI/Prodcut Details Page UI/Overall Review/OverallReview";
 import ProductReview from "../../UI/Prodcut Details Page UI/Review/ProductReview";
 import CreateReview from "../../UI/Prodcut Details Page UI/Create Review/CreateReview";
+import { useSelector } from "react-redux";
 
 function ProductDetailsDetailsSection(props) {
+  const userOrders = useSelector((state) => state.userOrdersSlice.orders);
+
+  let isUserBuy = false;
+
+  for (let i = 0; i < userOrders.length; i++) {
+    if (
+      userOrders[i].category === props.data.category &&
+      userOrders[i].id === props.data.id
+    ) {
+      isUserBuy = true;
+      break;
+    }
+  }
+
   // All Reviews
   const [reviews, setReviews] = useState([]);
 
@@ -49,7 +64,9 @@ function ProductDetailsDetailsSection(props) {
       <ProductBigDescriptionContainer for={"Review"}>
         <OverallReview />
 
-        <CreateReview setReviews={setReviews} data={props.data} />
+        {isUserBuy && (
+          <CreateReview setReviews={setReviews} data={props.data} />
+        )}
 
         {reviews.map((review) => (
           <ProductReview key={review.key} data={review} />
