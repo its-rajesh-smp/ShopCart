@@ -1,0 +1,24 @@
+.CreateReview {
+  display: flex;
+  gap: 0.3125rem;
+  justify-content: space-between;
+  margin: 1.25rem;
+}
+.CreateReview input,
+.CreateReview button,
+.CreateReview select {
+  padding: 0.3125rem;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: 0.3125rem;
+}
+.CreateReview input {
+  flex-basis: 70%;
+  flex-shrink: 50%;
+  border: 0.0625rem solid black;
+}
+.CreateReview button {
+  background-color: #015ff8;
+  color: white;
+  font-weight: 600;
+}/*# sourceMappingURL=CreateReview.css.map */

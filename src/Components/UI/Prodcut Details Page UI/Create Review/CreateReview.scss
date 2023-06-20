@@ -1,0 +1,32 @@
+@import "../../../../Style/color";
+
+.CreateReview {
+    display: flex;
+    gap: torem(5px);
+    justify-content: space-between;
+    margin: torem(20px);
+
+    input,
+    button,
+    select {
+
+        padding: torem(5px);
+        font-size: torem(12px);
+        border: none;
+        border-radius: torem(5px);
+
+    }
+
+    input {
+        flex-basis: 70%;
+        flex-shrink: 50%;
+        border: torem(1px) solid black;
+    }
+
+    button {
+        background-color: $header_base;
+        color: white;
+        font-weight: 600;
+    }
+
+}

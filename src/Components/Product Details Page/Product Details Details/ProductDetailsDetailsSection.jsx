@@ -7,6 +7,7 @@ import ProductDescriptionCard from "../../UI/Prodcut Details Page UI/Product Des
 import ProductSpecificationCard from "../../UI/Prodcut Details Page UI/Product Specification Card/ProductSpecificationCard";
 import OverallReview from "../../UI/Prodcut Details Page UI/Overall Review/OverallReview";
 import ProductReview from "../../UI/Prodcut Details Page UI/Review/ProductReview";
+import CreateReview from "../../UI/Prodcut Details Page UI/Create Review/CreateReview";
 
 function ProductDetailsDetailsSection(props) {
   return (
@@ -29,6 +30,7 @@ function ProductDetailsDetailsSection(props) {
 
       <ProductBigDescriptionContainer for={"Review"}>
         <OverallReview />
+        <CreateReview />
 
         <ProductReview />
         <ProductReview />
