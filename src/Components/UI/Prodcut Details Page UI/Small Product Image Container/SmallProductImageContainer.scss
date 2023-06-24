@@ -1,9 +1,11 @@
 @import "../../../../Style/color";
+
 .SmallProductImageContainer-div {
   display: flex;
   margin: torem(20px);
 
   position: fixed;
+
   .SmallProductImageContainer-div__contianer {
     display: flex;
     flex-direction: column;
@@ -11,28 +13,33 @@
     border: 1px solid gainsboro;
     justify-content: space-evenly;
     padding: 20px 10px;
+
     img {
       border: torem(1px) solid gainsboro;
-      width: torem(60px);
+      width: torem(70px);
       height: torem(60px);
       object-fit: cover;
     }
   }
+
   .SmallProductImageContainer-div__mainImgContainer {
     display: flex;
     flex-direction: column;
+
     .SmallProductImageContainer-div__mainImg {
       border: torem(1px) solid gainsboro;
       width: 30vw;
       height: 60vh;
       object-fit: cover;
     }
+
     div {
       margin-top: torem(10px);
       display: flex;
       gap: torem(15px);
       align-items: center;
       justify-content: space-between;
+
       button {
         border: none;
         font-weight: 500;
@@ -44,10 +51,12 @@
         height: torem(40px);
         border-radius: torem(2px);
       }
+
       .buyNowBtn {
         color: white;
         background-color: orange;
       }
+
       .addToCartBtn {
         background-color: whitesmoke;
         color: $header_base;
@@ -64,6 +73,7 @@
     padding: torem(15px) 0px;
     flex-direction: column;
     position: unset;
+
     .SmallProductImageContainer-div__contianer {
       flex-direction: row;
       overflow: scroll;
@@ -71,24 +81,21 @@
       border: none;
       gap: 20px;
       padding: 0px;
+
       img {
-        width: 100%;
-        border: none;
+        width: 100vw;
+        height: 50vh;
       }
     }
+
     .SmallProductImageContainer-div__mainImgContainer {
       .SmallProductImageContainer-div__mainImg {
         display: none;
       }
+
       div {
         justify-content: space-evenly;
         gap: torem(0px);
-        button {
-        }
-        .buyNowBtn {
-        }
-        .addToCartBtn {
-        }
       }
     }
   }
@@ -101,6 +108,7 @@
     padding: torem(15px) 0px;
     flex-direction: column;
     position: unset;
+
     .SmallProductImageContainer-div__contianer {
       flex-direction: row;
       overflow: scroll;
@@ -108,28 +116,31 @@
       border: none;
       gap: 20px;
       padding: 0px;
+
       img {
         width: 100vw;
-        border: none;
+        height: 50vh;
       }
     }
+
     .SmallProductImageContainer-div__mainImgContainer {
       .SmallProductImageContainer-div__mainImg {
         display: none;
       }
+
       div {
         justify-content: space-evenly;
         gap: torem(0px);
-        button {
-        }
-        .buyNowBtn {
-        }
-        .addToCartBtn {
-        }
+
+        button {}
+
+        .buyNowBtn {}
+
+        .addToCartBtn {}
       }
     }
   }
 }
+
 /* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {}

@@ -13,7 +13,7 @@
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__contianer img {
   border: 0.0625rem solid gainsboro;
-  width: 3.75rem;
+  width: 4.375rem;
   height: 3.75rem;
   -o-object-fit: cover;
      object-fit: cover;
@@ -73,8 +73,8 @@
     padding: 0px;
   }
   .SmallProductImageContainer-div .SmallProductImageContainer-div__contianer img {
-    width: 100%;
-    border: none;
+    width: 100vw;
+    height: 50vh;
   }
   .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer .SmallProductImageContainer-div__mainImg {
     display: none;
@@ -102,7 +102,7 @@
   }
   .SmallProductImageContainer-div .SmallProductImageContainer-div__contianer img {
     width: 100vw;
-    border: none;
+    height: 50vh;
   }
   .SmallProductImageContainer-div .SmallProductImageContainer-div__mainImgContainer .SmallProductImageContainer-div__mainImg {
     display: none;
