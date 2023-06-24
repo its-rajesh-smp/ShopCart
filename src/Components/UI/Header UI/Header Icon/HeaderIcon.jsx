@@ -8,6 +8,7 @@ function HeaderIcon(props) {
   //   On Click Logo
   const onClickNavigateHome = () => {
     navigate("/");
+    props.closeHambargar();
   };
 
   return (

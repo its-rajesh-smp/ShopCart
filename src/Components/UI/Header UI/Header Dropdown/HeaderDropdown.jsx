@@ -51,7 +51,6 @@ export function HeaderDropdownItem(props) {
     <div
       onClick={() => {
         props.onClick();
-        props.onClickHambargarBtn && props.onClickHambargarBtn();
       }}
       className="HeaderDropdownItem__div"
     >

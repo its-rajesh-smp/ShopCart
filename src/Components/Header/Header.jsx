@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 
 // Media
@@ -22,35 +22,40 @@ function Header(props) {
   const isAuth = useSelector((state) => state.authSlice.isAuth);
   const navigate = useNavigate();
 
-  // On Click Logout
-  const onClickLogout = () => {
-    dispatch(logoutUser());
-    localStorage.clear("shopcart");
-  };
-
-  const onClickLogin = () => {
-    dispatch(setLogin());
-  };
-
-  // On Click My Order
-  const onClickNavigateMyOrder = () => {
-    navigate("/yourorder");
-  };
-
   // On Click Hambargar
   const [hambargar, setHambargar] = useState(true);
   const onClickHambargarBtn = () => {
     setHambargar((p) => !p);
   };
-
-  const [searchedArr, setSearchedArr] = useState([]);
+  const closeHambargar = () => {
+    setHambargar(false);
+  };
 
   // Note...
   /**
    * When user click on the search bar send a get request and get all the data
-   * Sync with filter with debouncing
+   *
    */
-  // const onClickSearchBar
+  const [searchedArr, setSearchedArr] = useState([]);
+
+  // On Click Logout
+  const onClickLogout = () => {
+    dispatch(logoutUser());
+    localStorage.clear("shopcart");
+    closeHambargar();
+  };
+
+  // On Click Login
+  const onClickLogin = () => {
+    dispatch(setLogin());
+    closeHambargar();
+  };
+
+  // On Click My Order
+  const onClickNavigateMyOrder = () => {
+    navigate("/yourorder");
+    closeHambargar();
+  };
 
   return (
     <>
@@ -64,7 +69,6 @@ function Header(props) {
               name={"My Orders"}
               icon={<i className="bx bxs-shopping-bag"></i>}
               onClick={onClickNavigateMyOrder}
-              onClickHambargarBtn={onClickHambargarBtn}
             />
 
             {isAuth && (
@@ -72,7 +76,6 @@ function Header(props) {
                 name={"Logout"}
                 icon={<i className="bx bxs-log-out"></i>}
                 onClick={onClickLogout}
-                onClickHambargarBtn={onClickHambargarBtn}
               />
             )}
 
@@ -81,27 +84,26 @@ function Header(props) {
                 name={"Login"}
                 icon={<i className="bx bxs-log-out"></i>}
                 onClick={onClickLogin}
-                onClickHambargarBtn={onClickHambargarBtn}
               />
             )}
+
             <HeaderSearch setSearchedArr={setSearchedArr} />
-            <SearchProductWrapper searchedArr={searchedArr} />
+
+            <SearchProductWrapper
+              closeHambargar={closeHambargar}
+              searchedArr={searchedArr}
+            />
           </HeaderHambargar>
         </ShowOnMobile>
 
-        <HeaderIcon />
+        <HeaderIcon closeHambargar={closeHambargar} />
 
         <ShowOnDesktop>
           <HeaderSearch setSearchedArr={setSearchedArr} />
         </ShowOnDesktop>
 
         {!isAuth && (
-          <button
-            onClick={() => {
-              dispatch(setLogin());
-            }}
-            className="header__loginBTn"
-          >
+          <button onClick={onClickLogin} className="header__loginBTn">
             LOGIN
           </button>
         )}
@@ -121,10 +123,13 @@ function Header(props) {
           )}
         </HeaderDropdown>
 
-        <HeaderCart />
+        <HeaderCart closeHambargar={closeHambargar} />
       </div>
       <ShowOnDesktop>
-        <SearchProductWrapper searchedArr={searchedArr} />
+        <SearchProductWrapper
+          closeHambargar={closeHambargar}
+          searchedArr={searchedArr}
+        />
       </ShowOnDesktop>
     </>
   );

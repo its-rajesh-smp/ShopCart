@@ -11,6 +11,7 @@ function HeaderCart(props) {
   const navigate = useNavigate();
   const onClickCartNavigate = () => {
     navigate("/cart");
+    props.closeHambargar();
   };
 
   return (
