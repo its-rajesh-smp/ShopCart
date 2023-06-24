@@ -55,19 +55,23 @@ function Header(props) {
             onClickHambargarBtn={onClickHambargarBtn}
           />
 
-          <HeaderDropdownItem
-            name={"Logout"}
-            icon={<i className="bx bxs-log-out"></i>}
-            onClick={onClickLogout}
-            onClickHambargarBtn={onClickHambargarBtn}
-          />
+          {isAuth && (
+            <HeaderDropdownItem
+              name={"Logout"}
+              icon={<i className="bx bxs-log-out"></i>}
+              onClick={onClickLogout}
+              onClickHambargarBtn={onClickHambargarBtn}
+            />
+          )}
 
-          <HeaderDropdownItem
-            name={"Login"}
-            icon={<i className="bx bxs-log-out"></i>}
-            onClick={onClickLogin}
-            onClickHambargarBtn={onClickHambargarBtn}
-          />
+          {!isAuth && (
+            <HeaderDropdownItem
+              name={"Login"}
+              icon={<i className="bx bxs-log-out"></i>}
+              onClick={onClickLogin}
+              onClickHambargarBtn={onClickHambargarBtn}
+            />
+          )}
 
           <div className="hambargarSearch__div">
             <input className="hambargarSearch" placeholder="SEARCH" />
@@ -99,11 +103,13 @@ function Header(props) {
           icon={<i className="bx bxs-shopping-bag"></i>}
           onClick={onClickNavigateMyOrder}
         />
-        <HeaderDropdownItem
-          name={"Logout"}
-          icon={<i className="bx bxs-log-out"></i>}
-          onClick={onClickLogout}
-        />
+        {isAuth && (
+          <HeaderDropdownItem
+            name={"Logout"}
+            icon={<i className="bx bxs-log-out"></i>}
+            onClick={onClickLogout}
+          />
+        )}
       </HeaderDropdown>
 
       <HeaderCart />
