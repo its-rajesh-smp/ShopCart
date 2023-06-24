@@ -48,7 +48,13 @@ export default HeaderDropdown;
 /* -------------------------------------------------------------------------- */
 export function HeaderDropdownItem(props) {
   return (
-    <div onClick={props.onClick} className="HeaderDropdownItem__div">
+    <div
+      onClick={() => {
+        props.onClick();
+        props.onClickHambargarBtn && props.onClickHambargarBtn();
+      }}
+      className="HeaderDropdownItem__div"
+    >
       {props.icon}
       <p>{props.name}</p>
     </div>

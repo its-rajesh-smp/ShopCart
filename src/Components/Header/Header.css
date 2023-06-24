@@ -29,13 +29,25 @@
   cursor: pointer;
 }
 
-.header__becomeASeller {
-  color: white;
-  font-family: roboto;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  text-align: center;
+.hambargarSearch__div {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+.hambargarSearch__div input,
+.hambargarSearch__div button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.hambargarSearch__div input {
+  flex-basis: 100%;
+  width: 100%;
+}
+.hambargarSearch__div button {
+  width: 10%;
 }
 
 /*? Smartphones (portrait and landscape) ----------- */
@@ -46,8 +58,7 @@
     padding: 0px 0.625rem;
     height: 5rem;
   }
-  .header__loginBTn,
-  .header__becomeASeller {
+  .header__loginBTn {
     display: none;
   }
 }
@@ -57,17 +68,11 @@
     height: 3.5rem;
     display: flex;
   }
-  .header__becomeASeller {
-    text-align: left;
-  }
 }
 /* Tablet 2 */
 @media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
   .Header-div {
     height: 6.25rem;
     display: flex;
-  }
-  .header__becomeASeller {
-    text-align: left;
   }
 }/*# sourceMappingURL=Header.css.map */

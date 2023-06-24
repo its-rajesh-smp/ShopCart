@@ -1,39 +1,20 @@
-import React from 'react';
-import "./HeaderHambargar.css"
-import { HeaderDropdownItem } from '../Header Dropdown/HeaderDropdown';
+import React from "react";
+import "./HeaderHambargar.css";
 
 function HeaderHambargar(props) {
-    return (
-        <div className=' HeaderHambargar-div '>
-            <i className='bx bx-menu'></i>
+  return (
+    <div className=" HeaderHambargar-div ">
+      <i onClick={props.onClickHambargarBtn} className="bx bx-menu"></i>
 
-            {/* 
-            <div className='HeaderHambargar-div__menu'>
-                <div className='HeaderHambargar-div__menu__container'>
-                    <p className='HeaderHambargar-div__menu_cataName'>Account</p>
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <p className='HeaderHambargar-div__menu_cataName'>Order</p>
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <p className='HeaderHambargar-div__menu_cataName'>Order</p>
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                    <HeaderDropdownItem />
-                </div>
-            </div> */}
-
-
-
+      {props.showHambargar && (
+        <div className="HeaderHambargar-div__menu">
+          <div className="HeaderHambargar-div__menu__container">
+            {props.children}
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 }
-
-
 
 export default HeaderHambargar;

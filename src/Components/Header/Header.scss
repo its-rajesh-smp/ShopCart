@@ -15,6 +15,7 @@
   z-index: 1000;
   box-shadow: 0.5px 0.5px 5px black;
 }
+
 .header__loginBTn {
   background-color: white;
   border: none;
@@ -29,13 +30,29 @@
   justify-content: center;
   cursor: pointer;
 }
-.header__becomeASeller {
-  color: white;
-  font-family: roboto;
-  font-weight: 600;
-  font-size: torem(16px);
-  cursor: pointer;
-  text-align: center;
+
+.hambargarSearch__div {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+
+  input,
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  input {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  button {
+    width: 10%;
+  }
 }
 
 //? Media
@@ -48,8 +65,8 @@
     padding: 0px torem(10px);
     height: torem(80px);
   }
-  .header__loginBTn,
-  .header__becomeASeller {
+
+  .header__loginBTn {
     display: none;
   }
 }
@@ -60,17 +77,16 @@
     height: torem(56px);
     display: flex;
   }
-  .header__becomeASeller {
-    text-align: left;
-  }
+
+
 }
+
 /* Tablet 2 */
 @media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
   .Header-div {
     height: torem(100px);
     display: flex;
   }
-  .header__becomeASeller {
-    text-align: left;
-  }
+
+
 }

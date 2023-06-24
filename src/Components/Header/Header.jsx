@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 
 // Media
@@ -27,15 +27,55 @@ function Header(props) {
     localStorage.clear("shopcart");
   };
 
+  const onClickLogin = () => {
+    dispatch(setLogin());
+  };
+
   // On Click My Order
   const onClickNavigateMyOrder = () => {
     navigate("/yourorder");
   };
 
+  const [hambargar, setHambargar] = useState(true);
+  const onClickHambargarBtn = () => {
+    setHambargar((p) => !p);
+  };
+
   return (
     <div className=" Header-div ">
       <ShowOnMobile>
-        <HeaderHambargar />
+        <HeaderHambargar
+          onClickHambargarBtn={onClickHambargarBtn}
+          showHambargar={hambargar}
+        >
+          <HeaderDropdownItem
+            name={"My Orders"}
+            icon={<i className="bx bxs-shopping-bag"></i>}
+            onClick={onClickNavigateMyOrder}
+            onClickHambargarBtn={onClickHambargarBtn}
+          />
+
+          <HeaderDropdownItem
+            name={"Logout"}
+            icon={<i className="bx bxs-log-out"></i>}
+            onClick={onClickLogout}
+            onClickHambargarBtn={onClickHambargarBtn}
+          />
+
+          <HeaderDropdownItem
+            name={"Login"}
+            icon={<i className="bx bxs-log-out"></i>}
+            onClick={onClickLogin}
+            onClickHambargarBtn={onClickHambargarBtn}
+          />
+
+          <div className="hambargarSearch__div">
+            <input className="hambargarSearch" placeholder="SEARCH" />
+            <button>
+              <i className="bx bx-search"></i>
+            </button>
+          </div>
+        </HeaderHambargar>
       </ShowOnMobile>
 
       <HeaderIcon />
