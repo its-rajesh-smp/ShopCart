@@ -10,21 +10,23 @@ import checkoutStepReducer from "../Reducer/checkoutStepReducer";
 import userOrdersReducer from "../Reducer/userOrdersReducer";
 import orderDetailsReducer from "../Reducer/orderDetailsReducer";
 import filterSortReducer from "../Reducer/filterSortReducer";
+import searchProductReducer from "../Reducer/searchProductReducer";
 
 const store = configureStore({
-    reducer: {
-        toggleLoginSlice: toggleLoginReducer.reducer,
-        authSlice: authReducer.reducer,
-        homeProductSlice: homeProductsReducer.reducer,
-        currentProductSlice: currentProductReducer.reducer,
-        userCartSlice: userCartReducer.reducer,
-        totalAmountSlice: totalAmoutReducer.reducer,
-        userAddressSlice: userAddressReducer.reducer,
-        checkoutStepSlice: checkoutStepReducer.reducer,
-        userOrdersSlice: userOrdersReducer.reducer,
-        orderDetailsSlice: orderDetailsReducer.reducer,
-        filterSortSlice:filterSortReducer.reducer
-    }
-})
+  reducer: {
+    toggleLoginSlice: toggleLoginReducer.reducer,
+    authSlice: authReducer.reducer,
+    homeProductSlice: homeProductsReducer.reducer,
+    currentProductSlice: currentProductReducer.reducer,
+    userCartSlice: userCartReducer.reducer,
+    totalAmountSlice: totalAmoutReducer.reducer,
+    userAddressSlice: userAddressReducer.reducer,
+    checkoutStepSlice: checkoutStepReducer.reducer,
+    userOrdersSlice: userOrdersReducer.reducer,
+    orderDetailsSlice: orderDetailsReducer.reducer,
+    filterSortSlice: filterSortReducer.reducer,
+    searchProductSlice: searchProductReducer.reducer,
+  },
+});
 
-export default store
+export default store;

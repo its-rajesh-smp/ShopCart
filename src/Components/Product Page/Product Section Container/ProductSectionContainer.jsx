@@ -23,12 +23,12 @@ function ProductSectionContainer(props) {
       </ShowOnMobile>
 
       {props.productList
-        .map((product, index) => {
+        .map((product) => {
           return (
             <Product
               showDetailsList={true}
               key={Math.random()}
-              id={index}
+              id={product.id}
               data={product}
             />
           );

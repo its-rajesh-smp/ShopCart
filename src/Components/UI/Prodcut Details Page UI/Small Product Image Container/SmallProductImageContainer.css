@@ -1,7 +1,6 @@
 .SmallProductImageContainer-div {
   display: flex;
   margin: 1.25rem;
-  position: fixed;
 }
 .SmallProductImageContainer-div .SmallProductImageContainer-div__contianer {
   display: flex;

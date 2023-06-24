@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 
 // Media
-import { ShowOnMobile } from "../../Style/Media";
+import { ShowOnDesktop, ShowOnMobile } from "../../Style/Media";
 
 // Components
 import HeaderIcon from "../UI/Header UI/Header Icon/HeaderIcon";
@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
 import { logoutUser } from "../../Store/Reducer/authReducer";
 import { useNavigate } from "react-router-dom";
+import SearchProductWrapper from "../UI/SearchProductWrapper/SearchProductWrapper";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -36,84 +37,96 @@ function Header(props) {
     navigate("/yourorder");
   };
 
+  // On Click Hambargar
   const [hambargar, setHambargar] = useState(true);
   const onClickHambargarBtn = () => {
     setHambargar((p) => !p);
   };
 
+  const [searchedArr, setSearchedArr] = useState([]);
+
+  // Note...
+  /**
+   * When user click on the search bar send a get request and get all the data
+   * Sync with filter with debouncing
+   */
+  // const onClickSearchBar
+
   return (
-    <div className=" Header-div ">
-      <ShowOnMobile>
-        <HeaderHambargar
-          onClickHambargarBtn={onClickHambargarBtn}
-          showHambargar={hambargar}
-        >
+    <>
+      <div className=" Header-div ">
+        <ShowOnMobile>
+          <HeaderHambargar
+            onClickHambargarBtn={onClickHambargarBtn}
+            showHambargar={hambargar}
+          >
+            <HeaderDropdownItem
+              name={"My Orders"}
+              icon={<i className="bx bxs-shopping-bag"></i>}
+              onClick={onClickNavigateMyOrder}
+              onClickHambargarBtn={onClickHambargarBtn}
+            />
+
+            {isAuth && (
+              <HeaderDropdownItem
+                name={"Logout"}
+                icon={<i className="bx bxs-log-out"></i>}
+                onClick={onClickLogout}
+                onClickHambargarBtn={onClickHambargarBtn}
+              />
+            )}
+
+            {!isAuth && (
+              <HeaderDropdownItem
+                name={"Login"}
+                icon={<i className="bx bxs-log-out"></i>}
+                onClick={onClickLogin}
+                onClickHambargarBtn={onClickHambargarBtn}
+              />
+            )}
+            <HeaderSearch setSearchedArr={setSearchedArr} />
+            <SearchProductWrapper searchedArr={searchedArr} />
+          </HeaderHambargar>
+        </ShowOnMobile>
+
+        <HeaderIcon />
+
+        <ShowOnDesktop>
+          <HeaderSearch setSearchedArr={setSearchedArr} />
+        </ShowOnDesktop>
+
+        {!isAuth && (
+          <button
+            onClick={() => {
+              dispatch(setLogin());
+            }}
+            className="header__loginBTn"
+          >
+            LOGIN
+          </button>
+        )}
+
+        <HeaderDropdown for="My Account">
           <HeaderDropdownItem
             name={"My Orders"}
             icon={<i className="bx bxs-shopping-bag"></i>}
             onClick={onClickNavigateMyOrder}
-            onClickHambargarBtn={onClickHambargarBtn}
           />
-
           {isAuth && (
             <HeaderDropdownItem
               name={"Logout"}
               icon={<i className="bx bxs-log-out"></i>}
               onClick={onClickLogout}
-              onClickHambargarBtn={onClickHambargarBtn}
             />
           )}
+        </HeaderDropdown>
 
-          {!isAuth && (
-            <HeaderDropdownItem
-              name={"Login"}
-              icon={<i className="bx bxs-log-out"></i>}
-              onClick={onClickLogin}
-              onClickHambargarBtn={onClickHambargarBtn}
-            />
-          )}
-
-          <div className="hambargarSearch__div">
-            <input className="hambargarSearch" placeholder="SEARCH" />
-            <button>
-              <i className="bx bx-search"></i>
-            </button>
-          </div>
-        </HeaderHambargar>
-      </ShowOnMobile>
-
-      <HeaderIcon />
-
-      <HeaderSearch />
-
-      {!isAuth && (
-        <button
-          onClick={() => {
-            dispatch(setLogin());
-          }}
-          className="header__loginBTn"
-        >
-          LOGIN
-        </button>
-      )}
-
-      <HeaderDropdown for="My Account">
-        <HeaderDropdownItem
-          name={"My Orders"}
-          icon={<i className="bx bxs-shopping-bag"></i>}
-          onClick={onClickNavigateMyOrder}
-        />
-        {isAuth && (
-          <HeaderDropdownItem
-            name={"Logout"}
-            icon={<i className="bx bxs-log-out"></i>}
-            onClick={onClickLogout}
-          />
-        )}
-      </HeaderDropdown>
-
-      <HeaderCart />
-    </div>
+        <HeaderCart />
+      </div>
+      <ShowOnDesktop>
+        <SearchProductWrapper searchedArr={searchedArr} />
+      </ShowOnDesktop>
+    </>
   );
 }
 
