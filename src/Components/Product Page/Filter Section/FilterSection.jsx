@@ -5,7 +5,6 @@ import TopFilter from "../../UI/Product Page UI/Filter Section UI/Top Filter/Top
 import PriceFilter from "../../UI/Product Page UI/Filter Section UI/Price Filter/PriceFilter";
 import RatingFilter from "../../UI/Product Page UI/Filter Section UI/Rating Filter/RatingFilter";
 import SortFilter from "../../UI/Product Page UI/Filter Section UI/Sort Filter/SortFilter";
-import { useSelector } from "react-redux";
 
 function FilterSection(props) {
   return (
@@ -15,7 +14,10 @@ function FilterSection(props) {
       <RatingFilter />
       <ShowOnMobile>
         <SortFilter />
-        <button className="FilterSection-div__applyFilterBTN">
+        <button
+          onClick={props.showFilterHandeler}
+          className="FilterSection-div__applyFilterBTN"
+        >
           APPLY FILTER
         </button>
       </ShowOnMobile>

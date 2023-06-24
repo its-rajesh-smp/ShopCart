@@ -4,20 +4,29 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 html {
   font-size: toper(16);
   background-color: gainsboro;
 }
-.App-div {
+
+body {
+  overflow-x: hidden;
 }
+
+.App-div {}
+
 .remove__Header {
   margin-top: torem(56px);
 }
+
 a {
   color: unset;
   text-decoration: none;
 }
+
 button {
   cursor: pointer;
 }
@@ -28,24 +37,29 @@ button {
   html {
     font-size: toper(12);
   }
+
   .remove__Header {
     margin-top: torem(80px);
   }
 }
+
 /* Tablet */
 @media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
   html {
     font-size: toper(15);
   }
+
   .remove__Header {
     margin-top: torem(56px);
   }
 }
+
 /* Tablet 2 */
 @media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
   html {
     font-size: toper(10);
   }
+
   .remove__Header {
     margin-top: torem(100px);
   }

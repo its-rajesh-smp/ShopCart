@@ -2,11 +2,16 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 100%;
   background-color: gainsboro;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .remove__Header {

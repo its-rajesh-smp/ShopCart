@@ -1,9 +1,11 @@
 .Productpage-div {
   background-color: #e0e0e0;
   display: flex;
+
 }
 
 //? Media
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Productpage-div {}
 }

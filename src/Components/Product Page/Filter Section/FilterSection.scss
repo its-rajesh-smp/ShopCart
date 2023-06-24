@@ -1,22 +1,27 @@
 @import "../../../Style/color";
+
 .FilterSection-div {
   width: torem(270px);
   padding: 0px torem(10px);
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  left: 0px;
+  height: fit-content;
 }
+
 .FilterSection-div__applyFilterBTN {
   align-self: center;
-  width: 150px;
-  height: 40px;
+  width: torem(150px);
+  height: torem(40px);
   border: none;
   background-color: $header_base;
   color: white;
   font-family: roboto;
-  border-radius: 5px;
-  margin: 20px;
+  border-radius: torem(5px);
+  margin: torem(20px);
 }
+
 .filterCard {
   padding: torem(15px);
   background-color: white;
@@ -27,12 +32,12 @@
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .FilterSection-div {
-    width: calc(100vw - torem(20px));
+    width: 100%;
   }
 }
+
 /* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {}
+
 /* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {}
