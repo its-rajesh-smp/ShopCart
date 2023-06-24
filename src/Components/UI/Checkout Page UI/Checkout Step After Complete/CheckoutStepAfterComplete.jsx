@@ -18,7 +18,7 @@ function CheckoutStepAfterComplete(props) {
   };
 
   return (
-    <div className="CheckoutAccordionCard-div_bar CheckoutAccordionCard-div_bar__shadow ">
+    <div className="CheckoutAccordionCard-div_bar   CheckoutAccordionCard-div_bar__shadow">
       <p className="CheckoutAccordionCard-div__number">{props.step}</p>
       <div>
         <div className="CheckoutAccordionCard-div_bar_currentTick">

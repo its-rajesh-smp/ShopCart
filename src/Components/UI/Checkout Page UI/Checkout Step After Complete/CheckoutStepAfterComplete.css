@@ -1,1 +1,8 @@
-/*# sourceMappingURL=CheckoutStepAfterComplete.css.map */
+.CheckoutAccordionCard-div_bar__shadow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CheckoutAccordionCard-div_bar__shadow p {
+  font-size: 0.75rem;
+}/*# sourceMappingURL=CheckoutStepAfterComplete.css.map */

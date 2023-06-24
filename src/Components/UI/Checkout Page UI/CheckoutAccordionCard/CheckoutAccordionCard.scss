@@ -1,7 +1,8 @@
 @import "../../../../Style/color";
+
 .CheckoutAccordionCard-div {
   background-color: white;
-  margin-bottom: 5px;
+  margin-bottom: torem(5px);
 }
 
 .CheckoutAccordionCard-div_bar {
@@ -15,10 +16,12 @@
   border-top-right-radius: torem(2px);
 
   padding: torem(0px) torem(20px);
+
   p {
     color: white;
     font-weight: 500;
   }
+
   .CheckoutAccordionCard-div__number {
     background-color: white;
     color: $header_base;
@@ -38,15 +41,19 @@
     display: flex;
     gap: torem(20px);
   }
+
   p {
     color: gray;
   }
+
   .CheckoutAccordionCard-div__number {
     background-color: gainsboro;
   }
+
   .CheckoutAccordionCard-div_bar__shadow__current {
     color: black;
   }
+
   button {
     border-radius: torem(3px);
     justify-self: flex-end;

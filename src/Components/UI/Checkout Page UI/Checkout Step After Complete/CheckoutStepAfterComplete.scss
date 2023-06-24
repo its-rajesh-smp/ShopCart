@@ -1,0 +1,11 @@
+@import "../../../../Style/color";
+
+.CheckoutAccordionCard-div_bar__shadow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        font-size: torem(12px);
+    }
+}
