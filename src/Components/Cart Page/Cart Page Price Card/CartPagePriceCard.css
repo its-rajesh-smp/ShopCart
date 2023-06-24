@@ -32,14 +32,14 @@
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .CartPagePriceCard-div__container {
-    width: calc(100% - 2.5rem);
+    width: 100%;
     position: unset;
   }
 }
 /* Tablet */
 @media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
   .CartPagePriceCard-div__container {
-    width: calc(100% - 2.5rem);
+    width: 100%;
     position: unset;
   }
 }

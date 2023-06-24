@@ -1,6 +1,7 @@
 @import "../../../Style/color";
-.CartPagePriceCard-div {
-}
+
+.CartPagePriceCard-div {}
+
 .CartPagePriceCard-div__container {
   border-radius: 5px;
   display: flex;
@@ -11,6 +12,7 @@
   gap: torem(20px);
   margin-bottom: torem(20px);
   position: fixed;
+
   div {
     div {
       margin-top: torem(15px);
@@ -18,17 +20,20 @@
       justify-content: space-between;
     }
   }
+
   .priceDetails {
     padding-bottom: torem(20px);
     border-bottom: torem(1px) solid gainsboro;
     color: gray;
   }
+
   .totalPrice {
     border-top: torem(1px) dashed gainsboro;
     border-bottom: torem(1px) dashed gainsboro;
     font-size: torem(20px);
     padding: torem(10px) torem(0px);
   }
+
   .totalSave {
     color: green;
   }
@@ -38,17 +43,18 @@
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .CartPagePriceCard-div__container {
-    width: calc(100% - torem(40px));
+    width: 100%;
     position: unset;
   }
 }
+
 /* Tablet */
 @media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
   .CartPagePriceCard-div__container {
-    width: calc(100% - torem(40px));
+    width: 100%;
     position: unset;
   }
 }
+
 /* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {}
