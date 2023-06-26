@@ -1,0 +1,50 @@
+@import "../../Styles/color";
+.ErrorPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    h1{
+        font-family: roboto;
+        font-size: torem(30px);
+        color: yellow;
+        text-shadow: 1px 1px 1px black;
+    }
+    img{
+        width: 30vw;
+        object-fit: contain;
+    }
+    button{
+        padding: torem(10px);
+        font-family: roboto;
+        font-size: torem(16px);
+        background-color: yellow;
+        border: none;
+        border-radius: torem(5px);
+    }
+}
+
+
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .ErrorPage{
+        img{
+        width: 80vw;
+        object-fit: contain;
+    }    
+    }
+
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+    .ErrorPage{
+        img{
+        width: 60vw;
+        object-fit: contain;
+    }    
+    }
+}
+  

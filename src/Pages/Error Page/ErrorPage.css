@@ -1,0 +1,43 @@
+.ErrorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.ErrorPage h1 {
+  font-family: roboto;
+  font-size: 1.875rem;
+  color: yellow;
+  text-shadow: 1px 1px 1px black;
+}
+.ErrorPage img {
+  width: 30vw;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.ErrorPage button {
+  padding: 0.625rem;
+  font-family: roboto;
+  font-size: 1rem;
+  background-color: yellow;
+  border: none;
+  border-radius: 0.3125rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ErrorPage img {
+    width: 80vw;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .ErrorPage img {
+    width: 60vw;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}/*# sourceMappingURL=ErrorPage.css.map */

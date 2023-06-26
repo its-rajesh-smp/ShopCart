@@ -5,6 +5,7 @@ import ProductDetailsDetailsSection from "../../Components/Product Details Page/
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrentProduct } from "../../Store/Actions/fetchCurrentProduct";
+import ErrorPage from "../Error Page/ErrorPage";
 
 function Productdetailspage(props) {
   const param = useParams();
@@ -20,12 +21,12 @@ function Productdetailspage(props) {
   }, [param.productid, param.category]);
 
   return (
-    productData && (
+    productData ? (
       <div className=" Productdetailspage-div remove__Header ">
         <ProductDetailsImageSection data={productData} />
         <ProductDetailsDetailsSection data={productData} />
       </div>
-    )
+    ) : <ErrorPage />
   );
 }
 

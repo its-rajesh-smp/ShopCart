@@ -23,7 +23,7 @@ function Header(props) {
   const navigate = useNavigate();
 
   // On Click Hambargar
-  const [hambargar, setHambargar] = useState(true);
+  const [hambargar, setHambargar] = useState(false);
   const onClickHambargarBtn = () => {
     setHambargar((p) => !p);
   };
