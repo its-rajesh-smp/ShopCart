@@ -15,10 +15,8 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .NavCategory-div__itemContainer {
     gap: 0.9375rem;
-    justify-content: flex-start;
+    justify-content: space-around;
     overflow: scroll;
-    width: -moz-max-content;
-    width: max-content;
   }
   ::-webkit-scrollbar {
     display: none;
