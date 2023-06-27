@@ -1,4 +1,5 @@
 @import "../../../Style/color";
+
 .YourOrderItem-div {
   background-color: white;
   display: grid;
@@ -6,29 +7,36 @@
   padding: torem(20px);
   margin-bottom: torem(5px);
   font-family: roboto;
+  width: 100%;
 }
+
 .YourOrderItem-div__imageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+
   img {
     margin-right: torem(15px);
     width: torem(200px);
+    height: torem(200px);
     object-fit: cover;
   }
 }
 
 .YourOrderItem-div__nameContainer {
   padding: torem(20px);
+
   p {
     &:first-child {
       font-size: torem(16px);
       font-weight: 500;
     }
+
     &:nth-child(2) {
       font-size: torem(12px);
       color: gray;
     }
+
     &:last-child {
       font-size: torem(12px);
       color: green;
@@ -42,6 +50,7 @@
       font-weight: 500;
       font-size: torem(16px);
     }
+
     &:last-child {
       font-size: torem(12px);
     }
@@ -61,14 +70,17 @@
       width: torem(50px);
     }
   }
+
   .YourOrderItem-div__nameContainer {
     p {
       &:first-child {
         font-size: torem(12px);
       }
+
       &:nth-child(2) {
         font-size: torem(10px);
       }
+
       &:last-child {
         font-size: torem(10px);
       }
@@ -81,6 +93,7 @@
     &:first-child {
       font-size: torem(12px);
     }
+
     &:last-child {
       font-size: torem(10px);
     }
@@ -88,8 +101,7 @@
 }
 
 /* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {}
+
 /* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {}

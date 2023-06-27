@@ -1,9 +1,13 @@
 @import "../../Style/color";
+
 .Yourorderpage-div {
   padding: torem(10px);
-  display: grid;
-  gap: torem(30px);
-  grid-template-columns: 0.2fr 1fr;
+  // display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // gap: torem(30px);
+  // grid-template-columns: 0.2fr 1fr;
 }
 
 //? Media
@@ -15,10 +19,4 @@
     padding: 0px 5px;
     gap: 0px;
   }
-}
-/* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
-/* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
 }

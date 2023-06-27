@@ -9,50 +9,49 @@ import { useSelector } from "react-redux";
 
 function Productpage(props) {
   const param = useParams();
-  const [productList, setProductList] = useState([]);
   const data = useFetchProduct(param.category);
   const myFilter = useSelector((state) => state.filterSortSlice.filter);
 
-  // Set Product First Time
-  useEffect(() => {
-    setProductList(data);
-  }, [data]);
 
-  // Filter Logic
-  useEffect(() => {
-    const filteredArr = data.filter((product) => {
-      const price = product.price;
-      const rating = Math.floor(product.rating);
-      if (
-        (price <= myFilter.maxPrice || myFilter.maxPrice == "") &&
-        (price >= myFilter.minPrice || myFilter.minPrice == "") &&
-        (rating == myFilter.rating || myFilter.rating == "")
-      ) {
-        return true;
-      }
-    });
 
-    // Sort
-    if (myFilter.sortBy === "popularity") {
-    } else if (myFilter.sortBy === "low_to_high") {
-      filteredArr.sort((item1, item2) => {
-        return -item2.price + item1.price;
-      });
-    } else if (myFilter.sortBy === "high_to_low") {
-      filteredArr.sort((item1, item2) => {
-        return item2.price - item1.price;
-      });
-    } else if (myFilter.sortBy === "discount") {
-      filteredArr.sort((item1, item2) => {
-        return item2.discountPercentage - item1.discountPercentage;
-      });
-    } else if (myFilter.sortBy === "popularity") {
-      filteredArr.sort((item1, item2) => {
-        return item2.price - item1.price;
-      });
+  /* -------------------------------------------------------------------------- */
+  /*                                  FILTERING                                 */
+  /* -------------------------------------------------------------------------- */
+  const filteredArr = data.filter((product) => {
+    const price = product.price;
+    const rating = Math.floor(product.rating);
+    if (
+      (price <= myFilter.maxPrice || myFilter.maxPrice == "") &&
+      (price >= myFilter.minPrice || myFilter.minPrice == "") &&
+      (rating == myFilter.rating || myFilter.rating == "")
+    ) {
+      return true;
     }
-    setProductList(filteredArr);
-  }, [myFilter]);
+  });
+
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   SORTING                                  */
+  /* -------------------------------------------------------------------------- */
+  if (myFilter.sortBy === "popularity") {
+  } else if (myFilter.sortBy === "low_to_high") {
+    filteredArr.sort((item1, item2) => {
+      return -item2.price + item1.price;
+    });
+  } else if (myFilter.sortBy === "high_to_low") {
+    filteredArr.sort((item1, item2) => {
+      return item2.price - item1.price;
+    });
+  } else if (myFilter.sortBy === "discount") {
+    filteredArr.sort((item1, item2) => {
+      return item2.discountPercentage - item1.discountPercentage;
+    });
+  } else if (myFilter.sortBy === "popularity") {
+    filteredArr.sort((item1, item2) => {
+      return item2.price - item1.price;
+    });
+  }
+
 
   return (
     data && (
@@ -63,8 +62,7 @@ function Productpage(props) {
 
         <ProductSectionContainer
           category={param.category}
-          setProductList={setProductList}
-          productList={productList}
+          productList={filteredArr}
         />
       </div>
     )

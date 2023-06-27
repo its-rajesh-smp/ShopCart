@@ -11,10 +11,10 @@ function YourOrderContainer(props) {
 
   return (
     <div className=" YourOrderContainer-div ">
-      <div className="YourOrderContainer-div__searchDiv">
+      {/* <div className="YourOrderContainer-div__searchDiv">
         <input type="text" placeholder="Search your orders here" />
         <button>Search Orders</button>
-      </div>
+      </div> */}
 
       <div className="YourOrderContainer-div__orderContainer">
         {yourOrders.map((order) => {

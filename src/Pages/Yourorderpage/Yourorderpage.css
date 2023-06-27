@@ -1,8 +1,8 @@
 .Yourorderpage-div {
   padding: 0.625rem;
-  display: grid;
-  gap: 1.875rem;
-  grid-template-columns: 0.2fr 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Smartphones  */
@@ -13,6 +13,4 @@
     padding: 0px 5px;
     gap: 0px;
   }
-}
-/* Tablet */
-/* Tablet 2 *//*# sourceMappingURL=Yourorderpage.css.map */
+}/*# sourceMappingURL=Yourorderpage.css.map */

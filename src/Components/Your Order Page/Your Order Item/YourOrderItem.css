@@ -5,6 +5,7 @@
   padding: 1.25rem;
   margin-bottom: 0.3125rem;
   font-family: roboto;
+  width: 100%;
 }
 
 .YourOrderItem-div__imageContainer {
@@ -15,6 +16,7 @@
 .YourOrderItem-div__imageContainer img {
   margin-right: 0.9375rem;
   width: 12.5rem;
+  height: 12.5rem;
   -o-object-fit: cover;
      object-fit: cover;
 }

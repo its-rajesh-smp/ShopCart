@@ -1,9 +1,9 @@
 @import "../../../Style/color";
-.YourOrderContainer-div {
-}
+
 .YourOrderContainer-div__searchDiv {
   height: torem(40px);
   display: flex;
+
   input {
     width: 50%;
     height: 100%;
@@ -14,6 +14,7 @@
     border-top-left-radius: torem(2px);
     border-bottom-left-radius: torem(2px);
   }
+
   button {
     box-shadow: torem(1px) torem(1px) torem(3px) gray;
     border-top-right-radius: torem(2px);
@@ -29,7 +30,7 @@
 
 .YourOrderContainer-div__orderContainer {
   margin: torem(20px) torem(0px);
-  margin-right: torem(20px);
+  // margin-right: torem(20px);
 }
 
 //? Media
@@ -38,22 +39,25 @@
   .YourOrderContainer-div__searchDiv {
     background-color: white;
     margin-top: 10px;
+
     input {
       width: 70%;
       height: torem(50px);
     }
+
     button {
       height: torem(50px);
       width: 30%;
     }
   }
+
   .YourOrderContainer-div__orderContainer {
     margin-right: 0px;
   }
 }
+
 /* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {}
+
 /* Tablet 2 */
-@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
-}
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {}
