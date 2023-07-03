@@ -13,6 +13,7 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [switchLogin, setSwitchLogin] = useState(false);
+  const [loader, setLoader] = useState(false)
 
   // On Click Close BTN
   const closeLoginHandeler = () => {
@@ -26,14 +27,20 @@ function Login(props) {
 
   // On Create New Acc Btn Click
   const onCreateNewBtnHandeler = () => {
-    const enteredData = { email: email, password: password };
-    dispatch(createUserWithEmailAndPass(enteredData, closeLoginHandeler));
+    if (!loader) {
+      setLoader(true)
+      const enteredData = { email: email, password: password };
+      dispatch(createUserWithEmailAndPass(enteredData, closeLoginHandeler, setLoader));
+    }
   };
 
   // On Login Btn Click
   const onLoginBtnHandeler = () => {
-    const enteredData = { email: email, password: password };
-    dispatch(loginUserWithEmailAndPass(enteredData, closeLoginHandeler));
+    if (!loader) {
+      setLoader(true)
+      const enteredData = { email: email, password: password };
+      dispatch(loginUserWithEmailAndPass(enteredData, closeLoginHandeler, setLoader));
+    }
   };
 
   return (
@@ -74,10 +81,10 @@ function Login(props) {
               Policy.
             </p>
             {switchLogin ? (
-              <button onClick={onLoginBtnHandeler}>LOGIN</button>
+              <button onClick={onLoginBtnHandeler}>{loader ? <i className='bx bx-loader-circle bx-spin' /> : "LOGIN"}</button>
             ) : (
               <button onClick={onCreateNewBtnHandeler}>
-                Create New Account
+                {loader ? <i className='bx bx-loader-circle bx-spin' /> : "Create New Account"}
               </button>
             )}
           </div>

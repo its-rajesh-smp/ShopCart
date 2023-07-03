@@ -4,7 +4,11 @@ import { loginUser } from "../Reducer/authReducer";
 import { fetchCart } from "./userCartActions";
 import { fetchUserOrders } from "./userOrdersActions";
 
-export const createUserWithEmailAndPass = (enteredData, closeLoginHandeler) => {
+export const createUserWithEmailAndPass = (
+  enteredData,
+  closeLoginHandeler,
+  setLoader
+) => {
   return async (dispatch, getState) => {
     try {
       const { data: authData } = await axios.post(SIGN_UP, {
@@ -23,9 +27,14 @@ export const createUserWithEmailAndPass = (enteredData, closeLoginHandeler) => {
       console.log(error);
     }
   };
+  setLoader(false);
 };
 
-export const loginUserWithEmailAndPass = (enteredData, closeLoginHandeler) => {
+export const loginUserWithEmailAndPass = (
+  enteredData,
+  closeLoginHandeler,
+  setLoader
+) => {
   return async (dispatch, getState) => {
     try {
       const { data: authData } = await axios.post(SIGN_IN, {
@@ -45,6 +54,7 @@ export const loginUserWithEmailAndPass = (enteredData, closeLoginHandeler) => {
       console.log(error);
     }
   };
+  setLoader(false);
 };
 
 // Fetching Cart Products After Fetching The User
