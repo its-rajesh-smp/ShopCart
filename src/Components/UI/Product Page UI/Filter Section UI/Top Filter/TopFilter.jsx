@@ -4,8 +4,9 @@ import Filter from "./Filter/Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { clearFilter } from "../../../../../Store/Reducer/filterSortReducer";
 
-function TopFilter(props) {
-  const myFilter = useSelector((state) => state.filterSortSlice.filter);
+function TopFilter() {
+  // Getting Applied Filters
+  const appliedFilters = useSelector((state) => state.filterSortSlice.filter);
   const dispatch = useDispatch();
 
   // On Click Clear Filter
@@ -26,7 +27,7 @@ function TopFilter(props) {
       </div>
 
       <div>
-        {Object.entries(myFilter)
+        {Object.entries(appliedFilters)
           .map((item) => <Filter key={item[0]} name={item} />)
           .filter((item) => {
             if (item.props.name[1] !== "") {

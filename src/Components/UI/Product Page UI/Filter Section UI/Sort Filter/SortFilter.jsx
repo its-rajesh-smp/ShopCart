@@ -10,8 +10,7 @@ function SortFilter() {
       <SortOption name='POPULARITY' />
       <SortOption name='LOW_HIGH' />
       <SortOption name='HIGH_LOW' />
-      <SortOption name='REVIEWS' />
-
+      <SortOption name='DISCOUNT' />
     </div>
   );
 }

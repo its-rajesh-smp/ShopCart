@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 function Product({ showDetailsList, productDetails }) {
   const navigate = useNavigate();
 
-  console.log(productDetails);
+
 
   /* -------------------------------------------------------------------------- */
   /*                              ON CLICK PRODUCT                              */

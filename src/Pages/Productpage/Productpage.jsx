@@ -5,7 +5,7 @@ import ProductSectionContainer from "../../Components/Product Page/Product Secti
 import { ShowOnDesktop } from "../../Style/Media";
 import { useParams } from "react-router-dom";
 import useFetchProduct from "../../Hooks/useFetchProduct";
-import { useSelector } from "react-redux";
+
 
 function Productpage(props) {
   const param = useParams();
@@ -17,7 +17,7 @@ function Productpage(props) {
 
 
   return (
-    productList.length !== 0 && (
+    (
       <div className=" Productpage-div remove__Header ">
         <ShowOnDesktop>
           <FilterSection />

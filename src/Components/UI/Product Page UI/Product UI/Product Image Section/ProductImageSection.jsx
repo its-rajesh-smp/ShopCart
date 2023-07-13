@@ -8,7 +8,7 @@ import {
 
 function ProductImageSection({ productDetails }) {
   const dispatch = useDispatch();
-  console.log(productDetails);
+
 
   // Increament Quantity
   const increamentQuantity = () => {

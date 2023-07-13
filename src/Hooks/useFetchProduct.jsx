@@ -4,11 +4,11 @@ import { Query } from "appwrite";
 import { useSelector } from "react-redux";
 
 const filterQuery = {
-  'LOW>HIGH': [],
-  'HIGH>LOW': [],
-  'DISCOUNT': [],
-  'RATING': [],
-
+  'POPULARITY': [Query.orderAsc('price')],
+  'LOW_HIGH': [Query.orderAsc('price')],
+  'HIGH_LOW': [Query.orderDesc('price')],
+  'DISCOUNT': [Query.orderDesc('discount')],
+  'REVIEWS': [Query.orderDesc('rating')],
 }
 
 function useFetchProduct(category) {
@@ -17,21 +17,31 @@ function useFetchProduct(category) {
   // Getting Filter Param
   const filterParams = useSelector((state) => state.filterSortSlice.filter);
 
-  // FILTER QUERY ARRAY
 
+
+  // SORTING ARRAYS
+  const sortByArr = filterParams.sortBy !== "" ? filterQuery[filterParams.sortBy] : []
+  const minPriceFilterArr = filterParams.minPrice !== "" ? [Query.greaterThanEqual('price', +filterParams.minPrice)] : []
+  const maxPriceFilterArr = filterParams.maxPrice !== "" ? [Query.lessThanEqual('price', +filterParams.maxPrice)] : []
+  const ratingFilterArr = filterParams.rating !== "" ? [Query.equal('rating', +filterParams.rating)] : []
 
 
 
 
   useEffect(() => {
     (async function () {
-      const { documents } = await databases.listDocuments("64afc25ef201d64ed376", '64afd414f12ad37e978f', [
-        Query.equal('category', category)
-      ])
+      try {
+        const { documents } = await databases.listDocuments("64afc25ef201d64ed376", '64afd414f12ad37e978f', [
+          Query.equal('category', category), ...sortByArr, ...minPriceFilterArr, ...maxPriceFilterArr, ...ratingFilterArr
+        ])
 
-      setData(documents)
+        setData(documents)
+
+      } catch (error) {
+        console.log(error);
+      }
     })()
-  }, [category]);
+  }, [category, filterParams]);
 
   return data;
 }
