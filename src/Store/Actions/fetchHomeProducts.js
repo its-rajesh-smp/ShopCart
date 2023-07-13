@@ -21,15 +21,16 @@ export const fetchHomeProducts = (setLoader) => {
                 addsList: addsResponse.documents
             }
 
-            console.log(finalResponseObj);
 
             // Send To Reducer
             dispatch(setHomeProducts(finalResponseObj))
 
+
             // Set User Loader False
             setLoader(p => {
                 return { ...p, userLoader: false }
-            })
+            });
+
         } catch (error) {
             console.log(error);
         }

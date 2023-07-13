@@ -9,7 +9,11 @@ import { useSelector } from "react-redux";
 
 function Productpage(props) {
   const param = useParams();
-  const data = useFetchProduct(param.category);
+
+  // Fetching ProductsList using category
+  const productList = useFetchProduct(param.category);
+
+  // Getting Filter Param
   const myFilter = useSelector((state) => state.filterSortSlice.filter);
 
 
@@ -17,7 +21,7 @@ function Productpage(props) {
   /* -------------------------------------------------------------------------- */
   /*                                  FILTERING                                 */
   /* -------------------------------------------------------------------------- */
-  const filteredArr = data.filter((product) => {
+  const filteredArr = productList.filter((product) => {
     const price = product.price;
     const rating = Math.floor(product.rating);
     if (
@@ -54,7 +58,7 @@ function Productpage(props) {
 
 
   return (
-    data && (
+    productList.length !== 0 && (
       <div className=" Productpage-div remove__Header ">
         <ShowOnDesktop>
           <FilterSection />
