@@ -4,7 +4,7 @@ import "./Header.css";
 // Media
 import { ShowOnDesktop, ShowOnMobile } from "../../Style/Media";
 
-// Components
+
 import HeaderIcon from "../UI/Header UI/Header Icon/HeaderIcon";
 import HeaderSearch from "../UI/Header UI/Header Search/HeaderSearch";
 import HeaderDropdown from "../UI/Header UI/Header Dropdown/HeaderDropdown";
@@ -13,7 +13,6 @@ import HeaderHambargar from "../UI/Header UI/Header Hambargar/HeaderHambargar";
 import { HeaderDropdownItem } from "../UI/Header UI/Header Dropdown/HeaderDropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
-import { logoutUser } from "../../Store/Reducer/authReducer";
 import { useNavigate } from "react-router-dom";
 import SearchProductWrapper from "../UI/SearchProductWrapper/SearchProductWrapper";
 import { logoutUserFun } from "../../Store/Actions/userLoginActions";

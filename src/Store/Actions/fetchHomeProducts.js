@@ -1,25 +1,35 @@
-import axios from "axios"
-import { HOME_PRODUCTS } from "../../Firebase/API_URL"
 import { setHomeProducts } from "../Reducer/homeProductsReducer"
-
+import { databases } from "../../AppWrite/appwriteconfig"
 
 
 /* -------------------------------------------------------------------------- */
 /*              FETCH HOME PRODUCTS (CATEGORY/ADDS/SLIDER IMAGES)             */
 /* -------------------------------------------------------------------------- */
-export const fetchHomeProducts = () => {
+export const fetchHomeProducts = (setLoader) => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(`${HOME_PRODUCTS}.json`)
-            const categoryList = Object.values(data.HomeAllProductCategorie)
-            const sliderList = Object.values(data.HomeSliderImage)
-            const addsList = Object.values(data.HomeAllProductCover)
+            // Getting Response
+            const categoryResponse = await databases.listDocuments('64afb32e65cedbcc3628', '64afb36fc36271a3232d')
+            const addsResponse = await databases.listDocuments('64afb32e65cedbcc3628', '64afb9093df024cdb318')
+            const sliderResponse = await databases.listDocuments('64afb32e65cedbcc3628', '64afba0903227e051c5e')
 
-            dispatch(setHomeProducts({
-                categoryList: categoryList,
-                sliderList: sliderList,
-                addsList: addsList
-            }))
+
+            // Creating Final Object
+            const finalResponseObj = {
+                categoryList: categoryResponse.documents,
+                sliderList: sliderResponse.documents,
+                addsList: addsResponse.documents
+            }
+
+            console.log(finalResponseObj);
+
+            // Send To Reducer
+            dispatch(setHomeProducts(finalResponseObj))
+
+            // Set User Loader False
+            setLoader(p => {
+                return { ...p, userLoader: false }
+            })
         } catch (error) {
             console.log(error);
         }

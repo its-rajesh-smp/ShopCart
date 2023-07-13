@@ -68,13 +68,18 @@ export const loginUserFun = (
 /* -------------------------------------------------------------------------- */
 /*                                 FETCH USER                                 */
 /* -------------------------------------------------------------------------- */
-export const getUserFun = () => {
+export const getUserFun = (setLoader) => {
   return async (dispatch) => {
     try {
 
       //Getting User From Server
       const getResponse = await account.get()
       dispatch(loginUser(getResponse.email))
+
+      // Set User Loader False
+      setLoader(p => {
+        return { ...p, productLoader: false }
+      })
 
     } catch (error) {
       console.log(error);
