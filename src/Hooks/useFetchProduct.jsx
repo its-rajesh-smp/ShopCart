@@ -1,10 +1,27 @@
 import { useEffect, useState } from "react";
 import { databases } from "../AppWrite/appwriteconfig";
 import { Query } from "appwrite";
+import { useSelector } from "react-redux";
 
+const filterQuery = {
+  'LOW>HIGH': [],
+  'HIGH>LOW': [],
+  'DISCOUNT': [],
+  'RATING': [],
+
+}
 
 function useFetchProduct(category) {
   const [data, setData] = useState([]);
+
+  // Getting Filter Param
+  const filterParams = useSelector((state) => state.filterSortSlice.filter);
+
+  // FILTER QUERY ARRAY
+
+
+
+
 
   useEffect(() => {
     (async function () {
@@ -14,7 +31,6 @@ function useFetchProduct(category) {
 
       setData(documents)
     })()
-
   }, [category]);
 
   return data;

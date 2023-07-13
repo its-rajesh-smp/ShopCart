@@ -13,48 +13,7 @@ function Productpage(props) {
   // Fetching ProductsList using category
   const productList = useFetchProduct(param.category);
 
-  // Getting Filter Param
-  const myFilter = useSelector((state) => state.filterSortSlice.filter);
 
-
-
-  /* -------------------------------------------------------------------------- */
-  /*                                  FILTERING                                 */
-  /* -------------------------------------------------------------------------- */
-  const filteredArr = productList.filter((product) => {
-    const price = product.price;
-    const rating = Math.floor(product.rating);
-    if (
-      (price <= myFilter.maxPrice || myFilter.maxPrice == "") &&
-      (price >= myFilter.minPrice || myFilter.minPrice == "") &&
-      (rating == myFilter.rating || myFilter.rating == "")
-    ) {
-      return true;
-    }
-  });
-
-
-  /* -------------------------------------------------------------------------- */
-  /*                                   SORTING                                  */
-  /* -------------------------------------------------------------------------- */
-  if (myFilter.sortBy === "popularity") {
-  } else if (myFilter.sortBy === "low_to_high") {
-    filteredArr.sort((item1, item2) => {
-      return -item2.price + item1.price;
-    });
-  } else if (myFilter.sortBy === "high_to_low") {
-    filteredArr.sort((item1, item2) => {
-      return item2.price - item1.price;
-    });
-  } else if (myFilter.sortBy === "discount") {
-    filteredArr.sort((item1, item2) => {
-      return item2.discountPercentage - item1.discountPercentage;
-    });
-  } else if (myFilter.sortBy === "popularity") {
-    filteredArr.sort((item1, item2) => {
-      return item2.price - item1.price;
-    });
-  }
 
 
   return (
@@ -66,7 +25,7 @@ function Productpage(props) {
 
         <ProductSectionContainer
           category={param.category}
-          productList={filteredArr}
+          productList={productList}
         />
       </div>
     )
