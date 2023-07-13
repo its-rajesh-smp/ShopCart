@@ -16,6 +16,7 @@ import { setLogin } from "../../Store/Reducer/toggleLogin";
 import { logoutUser } from "../../Store/Reducer/authReducer";
 import { useNavigate } from "react-router-dom";
 import SearchProductWrapper from "../UI/SearchProductWrapper/SearchProductWrapper";
+import { logoutUserFun } from "../../Store/Actions/userLoginActions";
 
 function Header(props) {
   const dispatch = useDispatch();
@@ -40,9 +41,7 @@ function Header(props) {
 
   // On Click Logout
   const onClickLogout = () => {
-    dispatch(logoutUser());
-    localStorage.clear("shopcart");
-    closeHambargar();
+    dispatch(logoutUserFun(closeHambargar));
   };
 
   // On Click Login

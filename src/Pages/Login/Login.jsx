@@ -3,10 +3,9 @@ import "./Login.css";
 import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../../Store/Reducer/toggleLogin";
-import {
-  createUserWithEmailAndPass,
-  loginUserWithEmailAndPass,
-} from "../../Store/Actions/userLoginActions";
+import { createUserFun, loginUserFun } from "../../Store/Actions/userLoginActions";
+import useStopScroll from "../../Hooks/useStopScroll";
+
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -14,6 +13,10 @@ function Login(props) {
   const [password, setPassword] = useState("");
   const [switchLogin, setSwitchLogin] = useState(false);
   const [loader, setLoader] = useState(false)
+
+  // Stop Body To Scroll
+  useStopScroll()
+
 
   // On Click Close BTN
   const closeLoginHandeler = () => {
@@ -25,21 +28,24 @@ function Login(props) {
     setSwitchLogin((p) => !p);
   };
 
-  // On Create New Acc Btn Click
+
+  /* -------------------------------------------------------------------------- */
+  /*                            ON NEW ACC BTN CLICK                            */
+  /* -------------------------------------------------------------------------- */
   const onCreateNewBtnHandeler = () => {
     if (!loader) {
       setLoader(true)
-      const enteredData = { email: email, password: password };
-      dispatch(createUserWithEmailAndPass(enteredData, closeLoginHandeler, setLoader));
+      dispatch(createUserFun(email, password, closeLoginHandeler, setLoader));
     }
   };
 
-  // On Login Btn Click
+  /* -------------------------------------------------------------------------- */
+  /*                             ON LOGIN BTN CLICK                             */
+  /* -------------------------------------------------------------------------- */
   const onLoginBtnHandeler = () => {
     if (!loader) {
       setLoader(true)
-      const enteredData = { email: email, password: password };
-      dispatch(loginUserWithEmailAndPass(enteredData, closeLoginHandeler, setLoader));
+      dispatch(loginUserFun(email, password, closeLoginHandeler, setLoader));
     }
   };
 

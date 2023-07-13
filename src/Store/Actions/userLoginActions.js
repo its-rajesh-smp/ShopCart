@@ -1,84 +1,111 @@
-import axios from "axios";
-import { GET_USER_BY_IDTOKEN, SIGN_IN, SIGN_UP } from "../../Firebase/API_URL";
-import { loginUser } from "../Reducer/authReducer";
-import { fetchCart } from "./userCartActions";
-import { fetchUserOrders } from "./userOrdersActions";
+import { account } from "../../AppWrite/appwriteconfig";
+import { v4 } from "uuid";
+import { loginUser, logoutUser } from "../Reducer/authReducer";
 
-export const createUserWithEmailAndPass = (
-  enteredData,
+/* -------------------------------------------------------------------------- */
+/*                                 CREATE USER                                */
+/* -------------------------------------------------------------------------- */
+export const createUserFun = (
+  email, password,
   closeLoginHandeler,
   setLoader
 ) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
-      const { data: authData } = await axios.post(SIGN_UP, {
-        ...enteredData,
-        returnSecureToken: true,
-      });
-      dispatch(
-        loginUser({
-          idToken: authData.idToken,
-          userData: { email: authData.email },
-        })
-      );
-      localStorage.setItem("shopcart", authData.idToken);
-      closeLoginHandeler();
+
+      // Generate UUID
+      const uuid = v4()
+
+      // Create The User
+      const createResponse = await account.create(uuid, email, password, "")
+      dispatch(loginUser(createResponse.email))
+
+      // Closing The Login Component
+      closeLoginHandeler()
+
+      // Create A Session For User
+      const sessionResponse = await account.createEmailSession(createResponse.email, password)
+
+      // Store Session Id
+      localStorage.setItem('shopcartSession', sessionResponse.$id)
+
+    } catch (error) {
+      console.log(error);
+    }
+    setLoader(false);
+  };
+};
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 LOGIN USER                                 */
+/* -------------------------------------------------------------------------- */
+export const loginUserFun = (
+  email, password,
+  closeLoginHandeler,
+  setLoader
+) => {
+  return async (dispatch) => {
+    try {
+
+      // Creating Session Using Authenticated credential
+      const sessionResponse = await account.createEmailSession(email, password)
+      dispatch(loginUser(sessionResponse.providerUid))
+
+      // Closing The Login Component
+      closeLoginHandeler()
+
+    } catch (error) {
+      console.log(error);
+    }
+    setLoader(false);
+  };
+};
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 FETCH USER                                 */
+/* -------------------------------------------------------------------------- */
+export const getUserFun = () => {
+  return async (dispatch) => {
+    try {
+
+      //Getting User From Server
+      const getResponse = await account.get()
+      dispatch(loginUser(getResponse.email))
+
     } catch (error) {
       console.log(error);
     }
   };
-  setLoader(false);
 };
 
-export const loginUserWithEmailAndPass = (
-  enteredData,
-  closeLoginHandeler,
-  setLoader
-) => {
-  return async (dispatch, getState) => {
-    try {
-      const { data: authData } = await axios.post(SIGN_IN, {
-        ...enteredData,
-        returnSecureToken: true,
-      });
-      dispatch(
-        loginUser({
-          idToken: authData.idToken,
-          userData: { email: authData.email },
-        })
-      );
-      localStorage.setItem("shopcart", authData.idToken);
-      closeLoginHandeler();
-      dispatch(fetchCart(authData.email));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  setLoader(false);
-};
 
-// Fetching Cart Products After Fetching The User
-export const fetchUserOnLoadUsingIdToken = () => {
-  return async (dispatch, getState) => {
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 LOGOUT USER                                */
+/* -------------------------------------------------------------------------- */
+export const logoutUserFun = (closeHambargar) => {
+  return async (dispatch) => {
     try {
-      const localIdToken = localStorage.getItem("shopcart");
-      if (!localIdToken) {
-        return;
+
+      // Getting Local Session Id
+      const localSessionID = localStorage.getItem('shopcartSession')
+
+      if (localSessionID) {
+        // Deleting Session
+        await account.deleteSession(localSessionID)
+        localStorage.removeItem('shopcartSession')
       }
-      const { data } = await axios.post(GET_USER_BY_IDTOKEN, {
-        idToken: localIdToken,
-      });
-      const authData = data.users[0];
-      dispatch(
-        loginUser({
-          idToken: localIdToken,
-          userData: { email: authData.email },
-        })
-      );
-      dispatch(fetchCart(authData.email));
-      dispatch(fetchUserOrders());
+
+      // Closing Hambargar 
+      closeHambargar()
+      dispatch(logoutUser())
     } catch (error) {
       console.log(error);
     }
-  };
-};
+  }
+}
