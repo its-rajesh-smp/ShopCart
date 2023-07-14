@@ -7,36 +7,35 @@ import { useDispatch } from "react-redux";
 import { setDelivery } from "../../../../Store/Reducer/checkoutStepReducer";
 import { selectAddress } from "../../../../Store/Reducer/userAddressReducer";
 
-function DeliveryAddress(props) {
-  const [edit, setEdit] = useState(false);
+function DeliveryAddress({ addressData, forEdit }) {
+  const [showForm, setShowForm] = useState(false);
   const dispatch = useDispatch();
 
   // toggle Between Edit And not Edit
-  const onClickSetEdit = () => {
+  const handelShowForm = () => {
     setEdit((p) => !p);
   };
 
   // On Delivery Here Btn Click
-  const onClickDeliveryHereBtn = (addressData) => {
+  const handelDelivery = (addressData) => {
     dispatch(setDelivery());
     dispatch(selectAddress(addressData));
   };
 
   return (
     <div className=" DeliveryAddress-div ">
-      {!edit && (
+      {!showForm && (
         <DeliveryAddressMain
-          data={props.data}
-          onClickEdit={onClickSetEdit}
-          onClickDeliveryHereBtn={onClickDeliveryHereBtn}
+          addressData={addressData}
+          handelShowForm={handelShowForm}
+          handelDelivery={handelDelivery}
         />
       )}
-      {edit && (
+      {showForm && (
         <EditDeliveryAddress
-          onClickSaveDeliver={onClickDeliveryHereBtn}
-          data={props.data}
-          forEdit={props.forEdit}
-          onClickCancle={onClickSetEdit}
+          addressData={addressData}
+          forEdit={forEdit}
+          handelShowForm={handelShowForm}
         />
       )}
     </div>

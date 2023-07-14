@@ -3,73 +3,85 @@ import "./EditDeliveryAddress.css";
 import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {
-  addAddress,
+  addAddressFun,
   editUserAddress,
 } from "../../../../Store/Actions/userAddressActions";
 
-function EditDeliveryAddress(props) {
+function EditDeliveryAddress({ handelShowForm, selectedAddress, forEdit }) {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState(props.data ? props.data.name : "");
-  const [mobile, setMobile] = useState(props.data ? props.data.mobile : "");
-  const [pincode, setPincode] = useState(props.data ? props.data.pincode : "");
+  /* -------------------------------------------------------------------------- */
+  /*                              States For Inputs                             */
+  /* -------------------------------------------------------------------------- */
+  const [name, setName] = useState(selectedAddress ? selectedAddress.name : "");
+  const [mobile, setMobile] = useState(selectedAddress ? selectedAddress.mobile : "");
+  const [pincode, setPincode] = useState(selectedAddress ? selectedAddress.pincode : "");
   const [locality, setLocality] = useState(
-    props.data ? props.data.locality : ""
+    selectedAddress ? selectedAddress.locality : ""
   );
-  const [area, setArea] = useState(props.data ? props.data.area : "");
-  const [city, setCity] = useState(props.data ? props.data.city : "");
-  const [state, setState] = useState(props.data ? props.data.state : "");
+  const [area, setArea] = useState(selectedAddress ? selectedAddress.area : "");
+  const [city, setCity] = useState(selectedAddress ? selectedAddress.city : "");
+  const [state, setState] = useState(selectedAddress ? selectedAddress.state : "");
   const [landmark, setLandmark] = useState(
-    props.data ? props.data.landmark : ""
+    selectedAddress ? selectedAddress.landmark : ""
   );
   const [alternateMobile, setAlternateMobile] = useState(
-    props.data ? props.data.alternateMobile : ""
+    selectedAddress ? selectedAddress.alternateMobile : ""
   );
 
-  // ON ADD NEW ADDRESS BTN CLICK
+
+
+  /* -------------------------------------------------------------------------- */
+  /*                        ON ADD NEW ADDRESS BTN CLICK                        */
+  /* -------------------------------------------------------------------------- */
   const onClickAddNewAddress = () => {
     const newAddressObj = {
-      name: name,
-      mobile: mobile,
-      pincode: pincode,
-      locality: locality,
-      area: area,
-      city: city,
-      state: state,
-      landmark: landmark,
-      alternateMobile: alternateMobile,
+      userName: name,
+      userMobile: mobile,
+      userPincode: pincode,
+      userLocality: locality,
+      userArea: area,
+      userCity: city,
+      userState: state,
+      userLandmark: landmark,
+      userAlternateMobile: alternateMobile,
     };
-    dispatch(addAddress(newAddressObj, props.onClick));
+    dispatch(addAddressFun(newAddressObj, handelShowForm));
   };
 
-  // ON CLICK SAVE AND EDIT BTN
+  /* -------------------------------------------------------------------------- */
+  /*                         ON CLICK SAVE AND EDIT BTN                         */
+  /* -------------------------------------------------------------------------- */
   const onClickEditAddress = () => {
     const newAddressObj = {
-      name: name,
-      mobile: mobile,
-      pincode: pincode,
-      locality: locality,
-      area: area,
-      city: city,
-      state: state,
-      landmark: landmark,
-      alternateMobile: alternateMobile,
+      userName: name,
+      userMobile: mobile,
+      userPincode: pincode,
+      userLocality: locality,
+      userArea: area,
+      userCity: city,
+      userState: state,
+      userLandmark: landmark,
+      userAlternateMobile: alternateMobile,
     };
+
     dispatch(
-      editUserAddress(props.data.id, newAddressObj, props.onClickSaveDeliver)
+      editUserAddress(selectedAddress.id, newAddressObj, props.onClickSaveDeliver)
     );
   };
 
-  // ON CANCLE BTN CLICK
+  /* -------------------------------------------------------------------------- */
+  /*                             ON CANCLE BTN CLICK                            */
+  /* -------------------------------------------------------------------------- */
   const onCancleBtnClick = () => {
-    props.onClick && props.onClick();
-    props.onClickCancle && props.onClickCancle();
+    handelShowForm && handelShowForm();
+    // props.onClickCancle && props.onClickCancle();
   };
 
   return (
     <div className=" EditDeliveryAddress-div ">
       <div className="EditDeliveryAddress-div__center">
-        <p>{props.forEdit ? "EDIT ADDRESS" : "ADD NEW ADDRESS"}</p>
+        <p>{forEdit ? "EDIT ADDRESS" : "ADD NEW ADDRESS"}</p>
 
         <button className="EditDeliveryAddress-div__center__locationBtn">
           Use my current location
@@ -163,11 +175,11 @@ function EditDeliveryAddress(props) {
         </form>
 
         <div className="EditDeliveryAddress-div__center__btnGrp">
-          {props.forEdit && (
+          {forEdit && (
             <button onClick={onClickEditAddress}>SAVE AND DELIVER HERE</button>
           )}
 
-          {!props.forEdit && (
+          {!forEdit && (
             <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>
           )}
 

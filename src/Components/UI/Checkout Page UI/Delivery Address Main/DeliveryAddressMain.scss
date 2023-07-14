@@ -1,8 +1,9 @@
 @import "../../../../Style/color";
 
 .DeliveryAddressMain-div {
-  display: grid;
-  grid-template-columns: 0.2fr 3fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: torem(13px);
 }
 
@@ -11,11 +12,13 @@
   gap: torem(15px);
   font-weight: 700;
 }
+
 .DeliveryAddressMain-div__center {
   display: flex;
   flex-direction: column;
   gap: torem(5px);
 }
+
 .DeliveryAddressMain-div__center button {
   background-color: #fb641b;
   border: none;
@@ -25,6 +28,7 @@
   font-family: roboto;
   border-radius: torem(5px);
 }
+
 .DeliveryAddressMain-div__right {
   display: flex;
   justify-content: flex-end;

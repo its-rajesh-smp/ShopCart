@@ -1,16 +1,23 @@
 import axios from "axios"
 import { USER } from "../../Firebase/API_URL"
-import { setAddress } from "../Reducer/userAddressReducer"
+import { addAddress, setAddress } from "../Reducer/userAddressReducer"
+import formatEmail from "../../Functions/formatEmail"
+import { databases } from "../../AppWrite/appwriteconfig"
+import { v4 } from "uuid"
+import { Query } from "appwrite"
 
-export const addAddress = (enteredData,onClick) => {
+const DATABASEID = "64b00cb6dcee8f83f868"
+const COLLECTIONID = "64b0e7371b9241ca439c"
+
+export const addAddressFun = (newAddressObj, handelShowForm) => {
     return async (dispatch, getState) => {
-        const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
-        const prevAddressArr = getState().userAddressSlice.address
+        const userEmail = formatEmail(getState().authSlice.email)
         try {
-            const { data } = await axios.post(`${USER}/${userEmail}/address.json`, enteredData)
-            const newAddressArr = [...prevAddressArr, { ...enteredData, id: data.name }]
-            dispatch(setAddress(newAddressArr))
-            onClick()
+            newAddressObj.userEmail = userEmail
+            const addressResponse = await databases.createDocument(DATABASEID, COLLECTIONID, v4(), newAddressObj)
+            dispatch(addAddress(addressResponse))
+            handelShowForm()
+
         } catch (error) {
             console.log(error);
         }
@@ -21,13 +28,19 @@ export const addAddress = (enteredData,onClick) => {
 
 export const fetchUserAddress = () => {
     return async (dispatch, getState) => {
-        const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
+        const userEmail = formatEmail(getState().authSlice.email)
         try {
-            const { data } = await axios.get(`${USER}/${userEmail}/address.json`)
-            const addressArr = Object.keys(data).map((addressKey) => {
-                return { ...data[addressKey], id: addressKey }
-            })
-            dispatch(setAddress(addressArr))
+
+            const { documents: addressListResponse } = await databases.listDocuments(DATABASEID, COLLECTIONID, [
+                Query.equal('userEmail', userEmail)
+            ])
+
+            if (!addressListResponse) { return }
+
+            dispatch(setAddress(addressListResponse))
+
+
+            // dispatch(setAddress(addressArr))
         } catch (error) {
             console.log(error);
         }

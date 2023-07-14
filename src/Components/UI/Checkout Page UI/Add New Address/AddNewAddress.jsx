@@ -3,22 +3,23 @@ import "./AddNewAddress.css";
 import EditDeliveryAddress from "../Edit Delivery Address/EditDeliveryAddress";
 
 function AddNewAddress(props) {
-  const [addressForm, setAddressForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  const onClickAddAddressOpen = () => {
-    setAddressForm((p) => !p);
+  // Function To Show and Hide Edit Delivery Address Form
+  const handelShowForm = () => {
+    setShowForm((p) => !p);
   };
 
   return (
     <div className=" AddNewAddress-div ">
-      {!addressForm && (
+      {!showForm && (
         <div className="AddNewAddress-div__bar">
           <i className="bx bx-plus"></i>
-          <p onClick={onClickAddAddressOpen}>Add new Address</p>
+          <p onClick={handelShowForm}>Add new Address</p>
         </div>
       )}
 
-      {addressForm && <EditDeliveryAddress onClick={onClickAddAddressOpen} />}
+      {showForm && <EditDeliveryAddress handelShowForm={handelShowForm} />}
     </div>
   );
 }

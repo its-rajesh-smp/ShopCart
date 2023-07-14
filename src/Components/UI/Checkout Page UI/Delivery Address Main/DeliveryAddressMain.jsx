@@ -1,35 +1,33 @@
 import React from "react";
 import "./DeliveryAddressMain.css";
 
-function DeliveryAddressMain(props) {
+function DeliveryAddressMain({ handelShowForm, addressData, handelDelivery }) {
   return (
     <div className=" DeliveryAddressMain-div ">
-      <div className="DeliveryAddressMain-div__left">
-        <input name="address" type="radio" />
-      </div>
-
       <div className="DeliveryAddressMain-div__center">
         <div>
-          <p>{props.data.name}</p>
-          <p>{props.data.mobile}</p>
+          <p>{addressData.userName}</p>
+          <p>{addressData.userMobile}</p>
         </div>
 
         <p>
-          <span>{props.data.area}</span>,<span>{props.data.locality}</span>,
-          <span>{props.data.city}</span>,<span>{props.data.state}</span>-
-          <span>{props.data.pincode}</span>
+          <span>{addressData.userArea}</span>,<span>{addressData.userLocality}</span>,
+          <span>{addressData.userCity}</span>,<span>{addressData.userState}</span>-
+          <span>{addressData.userPincode}</span>
         </p>
         <button
           onClick={() => {
-            props.onClickDeliveryHereBtn(props.data);
+            handelDelivery(addressData);
           }}
         >
           DELIVERY HERE
         </button>
       </div>
 
+
+
       <div className="DeliveryAddressMain-div__right">
-        <p onClick={props.onClickEdit}>EDIT</p>
+        <p onClick={handelShowForm}>EDIT</p>
       </div>
     </div>
   );

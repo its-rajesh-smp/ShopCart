@@ -11,7 +11,10 @@ import { placeUserOrder } from "../../../Store/Actions/userOrdersActions";
 import CheckoutStepAfterComplete from "../../UI/Checkout Page UI/Checkout Step After Complete/CheckoutStepAfterComplete";
 
 function CheckoutDropdownAccordionContainer(props) {
-  const userAddress = useSelector((state) => state.userAddressSlice);
+
+  // Getting User All Address
+  const userAddressList = useSelector((state) => state.userAddressSlice);
+
   const checkoutStep = useSelector((state) => state.checkoutStepSlice);
   const totalUserCart = useSelector(
     (state) => state.totalAmountSlice.amountDetails
@@ -30,16 +33,18 @@ function CheckoutDropdownAccordionContainer(props) {
 
   return (
     <div className=" CheckoutDropdownAccordionContainer-div ">
+
+      {/* ADDRESS */}
       {!checkoutStep.showShadowDelivery ? (
         <CheckoutAccordionCard step="1" for="DELIVERY ADDRESS">
           {checkoutStep.deliveryAddress && (
             <>
-              {userAddress.address.map((addressData) => {
+              {userAddressList.address.map((addressData) => {
                 return (
                   <DeliveryAddress
                     forEdit={true}
-                    key={addressData.id}
-                    data={addressData}
+                    key={addressData.$id}
+                    addressData={addressData}
                   />
                 );
               })}
@@ -55,6 +60,9 @@ function CheckoutDropdownAccordionContainer(props) {
         />
       )}
 
+
+
+      {/* CART ITEMS */}
       {!checkoutStep.showShadowCart ? (
         <CheckoutAccordionCard step="2" for="CART ITEMS">
           {checkoutStep.cart && (
@@ -74,6 +82,9 @@ function CheckoutDropdownAccordionContainer(props) {
         />
       )}
 
+
+
+      {/* PAYMENT OPTION */}
       <CheckoutAccordionCard step="3" for="PAYMENT METHOD">
         {checkoutStep.payment && (
           <>

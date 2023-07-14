@@ -8,6 +8,7 @@ import OrderSuccessPage from "../OrderSuccessPage/OrderSuccessPage";
 
 function Checkoutpage(props) {
   const dispatch = useDispatch();
+
   // Fetching User Address
   useEffect(() => {
     dispatch(fetchUserAddress());
@@ -15,6 +16,8 @@ function Checkoutpage(props) {
 
   // On Click Place Order
   const [showPlaceOrder, setShowPlaceOrder] = useState(false);
+
+
   const onPlaceOrderBtnClick = () => {
     setShowPlaceOrder((p) => !p);
   };

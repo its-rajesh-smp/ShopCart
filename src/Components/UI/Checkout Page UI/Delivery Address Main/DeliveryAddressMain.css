@@ -1,6 +1,7 @@
 .DeliveryAddressMain-div {
-  display: grid;
-  grid-template-columns: 0.2fr 3fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.8125rem;
 }
 
