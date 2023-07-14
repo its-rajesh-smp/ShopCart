@@ -5,7 +5,7 @@ import ProductDescriptionSection from "../../UI/Product Page UI/Product UI/Produ
 import ProductPriceSection from "../../UI/Product Page UI/Product UI/Product Price Section/ProductPriceSection";
 import { useNavigate } from "react-router-dom";
 
-function Product({ showDetailsList, productDetails }) {
+function Product({ showDetailsList, productDetails, incDecBtn }) {
   const navigate = useNavigate();
 
 
@@ -25,6 +25,7 @@ function Product({ showDetailsList, productDetails }) {
   return (
     <div onClick={onProductClick} className=" Product-div ">
       <ProductImageSection
+        incDecBtn={incDecBtn}
         productDetails={productDetails}
       />
 

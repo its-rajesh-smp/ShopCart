@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 function Cartpage(props) {
   const namvigate = useNavigate();
+
+
+  // On Click Place Order Navigate To Checkout Page
   const onClickNavigateToCheckout = () => {
     namvigate("/checkout");
   };

@@ -6,29 +6,23 @@ import {
   increamentCartQuantity,
 } from "../../../../../Store/Actions/userCartActions";
 
-function ProductImageSection({ productDetails }) {
+function ProductImageSection({ productDetails, incDecBtn }) {
   const dispatch = useDispatch();
 
 
   // Increament Quantity
-  const increamentQuantity = () => {
+  const increamentQuantity = (e) => {
+    e.stopPropagation()
     dispatch(
-      increamentCartQuantity(
-        productDetails.cartId,
-        productDetails.quantity,
-        productDetails.price
-      )
+      increamentCartQuantity(productDetails)
     );
   };
 
   // Decreament Quantity
-  const decreamentQuantity = () => {
+  const decreamentQuantity = (e) => {
+    e.stopPropagation()
     dispatch(
-      decreamentCartQuantity(
-        productDetails.cartId,
-        productDetails.quantity,
-        productDetails.price
-      )
+      decreamentCartQuantity(productDetails)
     );
   };
 
@@ -36,15 +30,15 @@ function ProductImageSection({ productDetails }) {
     <div className=" ProductImageSection-div ">
       <i className="bx bxs-heart"></i>
       <img
-        // onClick={props.onClick}
         src={productDetails.images[0]}
         alt="productImage"
       />
 
-      {false && (
+      {/* Cart Quantity Increament Decreament Buttons */}
+      {incDecBtn && (
         <div className="ProductImageSection-div__btnContainer">
           <button onClick={increamentQuantity}>+</button>
-          <p>{productDetails.quantity}</p>
+          <p>{productDetails.cartQuantity}</p>
           <button onClick={decreamentQuantity}>-</button>
         </div>
       )}

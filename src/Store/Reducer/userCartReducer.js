@@ -11,6 +11,8 @@ const userCartReducer = createSlice({
             // Find Is Present
             let isPresent = false
             let newCartArr = state.cartArr.map((cartItem) => {
+
+                // Matching and Increamenting The Cart Quantity
                 if (cartItem.cartId === action.payload.cartId) {
                     cartItem.cartQuantity += 1
                     isPresent = true
@@ -18,7 +20,7 @@ const userCartReducer = createSlice({
                 return cartItem
             })
 
-            // If Not Present
+            // If Not Present Store in cart
             if (isPresent === false) {
                 newCartArr = [action.payload, ...newCartArr]
             }
@@ -28,19 +30,22 @@ const userCartReducer = createSlice({
         },
         decreamentQuantity: (state, action) => {
             const newCartArr = state.cartArr.filter((cartItem) => {
-                if (cartItem.id === action.payload.id) {
-                    cartItem.quantity -= 1
+
+                // Matching And Decreamenting the cart quantity
+                if (cartItem.cartId === action.payload.cartId) {
+                    cartItem.cartQuantity -= 1
                 }
-                // If Current Quantity is 1  then remove it because we dont want to store quantity as 0
-                if (action.payload.quantity !== 1) {
-                    return cartItem
+
+                // If Quantity is 0 then not store in the cart array
+                if (cartItem.cartQuantity !== 0) {
+                    return true
                 }
             })
 
             // Update The State
             state.cartArr = newCartArr
         },
-        clearCart: (state, action) => {
+        clearCart: (state) => {
             state.cartArr = []
         }
     }

@@ -1,8 +1,4 @@
-import axios from "axios"
-import { USER } from "../../Firebase/API_URL"
-import { increamentQuantity, setCart } from "../Reducer/userCartReducer"
-import { setTotalAmount } from "./totalAmountActions"
-import { increamentTotal, decreamentTotal } from "../Reducer/totalAmoutReducer"
+import { decreamentQuantity, increamentQuantity, setCart } from "../Reducer/userCartReducer"
 import formatEmail from "../../Functions/formatEmail"
 import { databases } from "../../AppWrite/appwriteconfig"
 import { v4 } from "uuid"
@@ -10,7 +6,7 @@ import { Query } from "appwrite"
 
 
 const DATABASEID = "64b00cb6dcee8f83f868"
-const CARTID = "64b00cc059876fd2f273"
+const COLLECTIONID = "64b00cc059876fd2f273"
 
 
 // Add To Cart
@@ -25,10 +21,10 @@ export const addProductInUserCart = (productDetails) => {
 
 
             // Storing in Database
-            const cartResponse = await databases.createDocument(DATABASEID, CARTID, v4(), cartPayload)
+            const cartResponse = await databases.createDocument(DATABASEID, COLLECTIONID, v4(), cartPayload)
 
 
-            // Forming Cart Product with cartid & cartQuantity
+            // Forming Cart Product with cartid & cartQuantity with product details
             const newCartProduct = { cartId: cartResponse.$id, cartQuantity: cartResponse.cartQuantity, ...productDetails }
 
 
@@ -50,14 +46,14 @@ export const fetchCart = () => {
             const userEmail = formatEmail(getState().authSlice.email)
 
             // Geting cart items of the user
-            const { documents: cartResponse } = await databases.listDocuments(DATABASEID, CARTID, [
+            const { documents: cartResponse } = await databases.listDocuments(DATABASEID, COLLECTIONID, [
                 Query.equal('email', userEmail)
             ])
 
 
             if (cartResponse.length === 0) { return }
 
-            // Forming Fetch Product Id to fetch products 
+            // Forming Fetch Product Id Array to Query and fetch products 
             const productIdArr = cartResponse.map((cartItem) => cartItem.productId)
 
 
@@ -66,7 +62,6 @@ export const fetchCart = () => {
                 Query.equal('$id', productIdArr)
             ])
 
-            console.log(productResponse);
 
             const newFinalProductArr = []
 
@@ -92,9 +87,15 @@ export const fetchCart = () => {
 
 
 // Increament Quantity
-export const increamentCartQuantity = (cartId, quantity, price) => {
+export const increamentCartQuantity = (productDetails) => {
     return async (dispatch, getState) => {
         try {
+
+            // Increamenting In Server
+            await databases.updateDocument(DATABASEID, COLLECTIONID, productDetails.cartId, { cartQuantity: productDetails.cartQuantity + 1 })
+
+            // Dispatching To Reducer There Increament CartItemQuantity
+            dispatch(increamentQuantity(productDetails))
 
         } catch (error) {
             console.log(error);
@@ -103,9 +104,21 @@ export const increamentCartQuantity = (cartId, quantity, price) => {
 }
 
 // Decreament Quantity
-export const decreamentCartQuantity = (cartId, quantity, price) => {
+export const decreamentCartQuantity = (productDetails) => {
     return async (dispatch, getState) => {
         try {
+
+            if (productDetails.cartQuantity === 1) {
+                // If Current Quantity is 1 means after decreament it will 0 so remove from server
+                await databases.deleteDocument(DATABASEID, COLLECTIONID, productDetails.cartId)
+            }
+            else {
+                //Else Decreamenting In Server
+                await databases.updateDocument(DATABASEID, COLLECTIONID, productDetails.cartId, { cartQuantity: productDetails.cartQuantity - 1 })
+            }
+
+            // Dispatching To Reducer There Decreament CartItemQuantity
+            dispatch(decreamentQuantity(productDetails))
 
         } catch (error) {
             console.log(error);

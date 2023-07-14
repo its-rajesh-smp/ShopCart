@@ -5,16 +5,18 @@ import { useSelector } from "react-redux";
 
 function CartProductsContainer(props) {
   const cartProductList = useSelector((state) => state.userCartSlice.cartArr);
+  console.log(cartProductList);
+
+
   return (
     <div className=" CartProductsContainer-div ">
-      {cartProductList.map((cartItem, index) => {
+      {cartProductList.map((cartItem) => {
         return (
           <Product
+            incDecBtn={true}
+            key={cartItem.$id}
             showDetailsList={false}
-            showBtn={true}
-            key={Math.random()}
-            id={cartItem.id}
-            data={cartItem}
+            productDetails={cartItem}
           />
         );
       })}
