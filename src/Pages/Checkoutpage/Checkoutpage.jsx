@@ -14,21 +14,24 @@ function Checkoutpage(props) {
     dispatch(fetchUserAddress());
   }, []);
 
+
   // On Click Place Order
-  const [showPlaceOrder, setShowPlaceOrder] = useState(false);
+  const [placeOrderPage, setPlaceOrderPage] = useState(false);
 
 
-  const onPlaceOrderBtnClick = () => {
-    setShowPlaceOrder((p) => !p);
+  // On Click Place Order Button Show Place Order Screen
+  const handelOrderSuccess = () => {
+    setPlaceOrderPage((p) => !p);
   };
 
-  if (showPlaceOrder) {
-    return <OrderSuccessPage afterFive={onPlaceOrderBtnClick} />;
+
+  if (placeOrderPage) {
+    return <OrderSuccessPage afterFive={handelOrderSuccess} />;
   }
 
   return (
     <div className=" Checkoutpage-div remove__Header">
-      <CheckoutDropdownAccordionContainer onOrderPlace={onPlaceOrderBtnClick} />
+      <CheckoutDropdownAccordionContainer handelOrderSuccess={handelOrderSuccess} />
       <CartPagePriceCard />
     </div>
   );

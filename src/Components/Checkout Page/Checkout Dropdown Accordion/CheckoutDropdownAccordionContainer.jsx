@@ -10,11 +10,14 @@ import { setCart } from "../../../Store/Reducer/checkoutStepReducer";
 import { placeUserOrder } from "../../../Store/Actions/userOrdersActions";
 import CheckoutStepAfterComplete from "../../UI/Checkout Page UI/Checkout Step After Complete/CheckoutStepAfterComplete";
 
-function CheckoutDropdownAccordionContainer(props) {
+function CheckoutDropdownAccordionContainer({ handelOrderSuccess }) {
+  const dispatch = useDispatch();
+
 
   // Getting User All Address
   const userAddressList = useSelector((state) => state.userAddressSlice);
 
+  // Getting Checkout Steps
   const checkoutStep = useSelector((state) => state.checkoutStepSlice);
 
   // Getting Total Amounts
@@ -22,16 +25,16 @@ function CheckoutDropdownAccordionContainer(props) {
     (state) => state.totalAmountSlice.amountDetails
   );
 
-  const dispatch = useDispatch();
-
   // On  Click Continue Btn In Cart Accrodian
   const onClickContinueBtnHandeler = () => {
     dispatch(setCart());
   };
 
-  // On Click Place Order Btn In Payment Accrodian
+  /* -------------------------------------------------------------------------- */
+  /*                          PLACE ORDER BTN HANDELER                          */
+  /* -------------------------------------------------------------------------- */
   const onClickPlaceOrderBtnHandeler = () => {
-    dispatch(placeUserOrder(props.onOrderPlace));
+    dispatch(placeUserOrder(handelOrderSuccess));
   };
 
   return (

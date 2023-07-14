@@ -3,37 +3,35 @@ import "./YourOrderItem.css";
 import OrderStatus from "../Order Status/OrderStatus";
 import { useNavigate } from "react-router-dom";
 
-function YourOrderItem(props) {
+function YourOrderItem({ orderDetails }) {
   const navigate = useNavigate();
-  const onClickNavigate = () => {
-    if (props.path === "FROM_ORDERDETAILS") {
-      navigate(`/productdetails/${props.data.category}/${props.data.id}`);
-    } else {
-      navigate(`/orderdetails/${props.data.orderId}`);
-    }
-  };
+
+  // On Click Order Navigate To Order Details Page
+  const onClickNavigateToOrderDetails = () => {
+    navigate(`/orderdetails/${orderDetails.orderId}`)
+  }
 
   return (
-    <div onClick={onClickNavigate} className=" YourOrderItem-div ">
+    <div onClick={onClickNavigateToOrderDetails} className=" YourOrderItem-div ">
       <div className="YourOrderItem-div__imageContainer">
-        <img src={props.data.thumbnail} alt="" />
+        <img src={orderDetails.images[0]} alt="" />
       </div>
 
       <div className="YourOrderItem-div__nameContainer">
-        <p>{props.data.description}</p>
+        <p>{orderDetails.name}</p>
         <p>
-          Order Id: <span>{props.data.orderId}</span>
+          Order Id: <span>{orderDetails.orderId}</span>
         </p>
-        <p>{props.data.orderStatus.status}</p>
+        <p>DUMMY ORDER STATUS</p>
       </div>
 
       <div className="YourOrderItem-div__priceContainer">
-        <p>{props.data.price} $</p>
-        <p>{props.data.quantity}</p>
+        <p>{orderDetails.price} $</p>
+        <p>{orderDetails.cartQuantity}</p>
       </div>
 
       <div className="YourOrderItem-div__statusContainer">
-        <OrderStatus data={props.data.orderStatus} />
+        <OrderStatus />
       </div>
     </div>
   );

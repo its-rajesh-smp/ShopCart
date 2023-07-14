@@ -1,52 +1,46 @@
 import axios from "axios"
 import { USER } from "../../Firebase/API_URL"
 import { setOrders } from "../Reducer/userOrdersReducer"
-import { clearCart } from "../Reducer/userCartReducer"
-import { clearTotal } from "../Reducer/totalAmoutReducer"
-import { goToFirstStep } from "../Reducer/checkoutStepReducer"
+import formatEmail from "../../Functions/formatEmail"
+import formatJSON from "../../Functions/formatJSON"
+import { databases } from "../../AppWrite/appwriteconfig"
+import { v4 } from "uuid"
+import { Query } from "appwrite"
 
-export const placeUserOrder = (goToOrderSuccess) => {
+
+const DATABASEID = "64b00cb6dcee8f83f868"
+const COLLECTIONID = "64b1009999a48f0771b4"
+
+
+export const placeUserOrder = (handelOrderSuccess) => {
     return async (dispatch, getState) => {
         try {
-            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
+
+            // Getting User Email
+            const userEmail = formatEmail(getState().authSlice.email)
+
+            // Getting Selected Order Address
             const userSelectedAddress = getState().userAddressSlice.selectedAddress
+
+            // Getting UserCart
             const userCart = getState().userCartSlice.cartArr
 
-            //   To show order status dynamically i am usnign math.random to generate different order status
-            function getRndInteger(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            const randomStatusArr = [
-                "ORDER PROCESSING",
-                "READY TO DISPATCH",
-                "DISPATCHED",
-                "ON THE WAY",
-                "READY TO RECIVE ON YOUR PLACE",
-                "NEAR TO YOU",
-                "OUT FOR DELIVERY",
-                "DELIVERED",
-            ];
-            const priorityStatus = [8, 7, 6, 5, 4, 3, 2, 1, 0]
-
-            for (let i = 0; i < userCart.length; i++) {
-                const randomStatusCode = getRndInteger(0, 7)
-                const currentStatus = randomStatusArr[randomStatusCode];
-                const currentStatusCode = priorityStatus[randomStatusCode]
-
-                const orderStatus = {
-                    status: currentStatus,
-                    statusCode: currentStatusCode,
-                    orderDate: new Date().toLocaleString(),
-                    deliveryDate: new Date().toLocaleString()
+            // Forming A Array Of Promise
+            const orderPromise = userCart.map((cartItem) => {
+                const newOrderObj = {
+                    productId: cartItem.$id,
+                    cartQuantity: cartItem.cartQuantity,
+                    userEmail: userEmail,
+                    deliveryAddress: formatJSON(userSelectedAddress)
                 }
-                const newSingleOrder = { ...userCart[i], orderStatus: orderStatus, orderAddress: userSelectedAddress }
-                await axios.post(`${USER}/${userEmail}/orders.json`, newSingleOrder)
-                await axios.delete(`${USER}/${userEmail}/cart.json`)
-            }
-            dispatch(clearCart())
-            dispatch(clearTotal())
-            dispatch(goToFirstStep())
-            goToOrderSuccess()
+                return databases.createDocument(DATABASEID, COLLECTIONID, v4(), newOrderObj)
+            })
+
+            // Wait Until All The PRomise Got Resolve
+            await Promise.all(orderPromise)
+
+            // Take user to order success page
+            handelOrderSuccess()
         } catch (error) {
             console.log(error);
         }
@@ -57,18 +51,50 @@ export const placeUserOrder = (goToOrderSuccess) => {
 export const fetchUserOrders = () => {
     return async (dispatch, getState) => {
         try {
-            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
-            const { data } = await axios.get(`${USER}/${userEmail}/orders.json`)
+            // Getting User Email
+            const userEmail = formatEmail(getState().authSlice.email)
 
-            const newOrdersArr = Object.keys(data).map((orderId) => {
-                return { orderId: orderId, ...data[orderId] }
+            // Fetching Orders Related to user
+            const { documents: userOrderResponse } = await databases.listDocuments(DATABASEID, COLLECTIONID, [
+                Query.equal('userEmail', userEmail)
+            ])
+
+            // Fetching Products
+            let orderProductsIdList = []
+
+            // Changing delivery address JSON to OBJ
+            userOrderResponse.forEach((userOrder) => {
+                userOrder.deliveryAddress = formatJSON(userOrder.deliveryAddress)
+                orderProductsIdList.push(userOrder.productId)
             })
 
-            newOrdersArr.reverse()
-            newOrdersArr.sort((a, b) => a.orderStatus.statusCode - b.orderStatus.statusCode)
+            // Getting Products From Database
+            const { documents: productList } = await databases.listDocuments('64afc25ef201d64ed376', '64afd414f12ad37e978f', [
+                Query.equal('$id', orderProductsIdList)
+            ])
 
 
-            dispatch(setOrders(newOrdersArr))
+            const finalMixedOrders = []
+
+            // Mixing Both
+            for (let i = 0; i < productList.length; i++) {
+                for (let j = 0; j < orderProductsIdList.length; j++) {
+                    if (productList[i].$id === userOrderResponse[j].productId) {
+                        const newDataObj = {
+                            ...productList[i],
+                            deliveryAddress: userOrderResponse[j].deliveryAddress,
+                            cartQuantity: userOrderResponse[j].cartQuantity,
+                            orderId: userOrderResponse[j].$id
+                        }
+                        finalMixedOrders.push(newDataObj)
+                    }
+
+                }
+            }
+
+
+            // Dispatch Mixed Array
+            dispatch(setOrders(finalMixedOrders))
         } catch (error) {
             console.log(error);
         }

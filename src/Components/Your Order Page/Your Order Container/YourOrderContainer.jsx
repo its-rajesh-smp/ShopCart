@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 function YourOrderContainer(props) {
   const yourOrders = useSelector((state) => state.userOrdersSlice.orders);
+
   if (yourOrders.length === 0) {
     return;
   }
@@ -17,8 +18,9 @@ function YourOrderContainer(props) {
       </div> */}
 
       <div className="YourOrderContainer-div__orderContainer">
-        {yourOrders.map((order) => {
-          return <YourOrderItem data={order} key={order.orderId} />;
+        {yourOrders.map((orderItem) => {
+          console.log(orderItem);
+          return <YourOrderItem orderDetails={orderItem} key={orderItem.orderId} />;
         })}
       </div>
     </div>

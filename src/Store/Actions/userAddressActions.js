@@ -67,13 +67,13 @@ export const editUserAddressFun = (addressId, newAddressObj, handelShowForm) => 
             // Getting updated response
             const addressResponse = await databases.updateDocument(DATABASEID, COLLECTIONID, addressId, newAddressObj)
 
-
+            // Replace With Edited Address
             dispatch(editAddress(addressResponse))
+
+            // When Click On Edit and Delivery Here Button Store Delevery Address in selected address , close the form then move to next checkout step
             dispatch(selectAddress(addressResponse))
             handelShowForm()
             dispatch(setDelivery())
-
-
         } catch (error) {
             console.log(error);
         }
