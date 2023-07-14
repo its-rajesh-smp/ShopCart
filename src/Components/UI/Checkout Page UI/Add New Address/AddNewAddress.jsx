@@ -19,7 +19,7 @@ function AddNewAddress(props) {
         </div>
       )}
 
-      {showForm && <EditDeliveryAddress handelShowForm={handelShowForm} />}
+      {showForm && <EditDeliveryAddress forEdit={false} handelShowForm={handelShowForm} />}
     </div>
   );
 }

@@ -20,8 +20,9 @@ const userAddressReducer = createSlice({
                 if (address.$id === action.payload.$id) {
                     return action.payload
                 }
-                return newAddressArr
+                return address
             })
+
 
             // Changing The State
             state.address = newAddressArr

@@ -4,29 +4,29 @@ import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {
   addAddressFun,
-  editUserAddress,
+  editUserAddressFun,
 } from "../../../../Store/Actions/userAddressActions";
 
-function EditDeliveryAddress({ handelShowForm, selectedAddress, forEdit }) {
+function EditDeliveryAddress({ handelShowForm, forEdit, handelDelivery, addressData }) {
   const dispatch = useDispatch();
 
   /* -------------------------------------------------------------------------- */
   /*                              States For Inputs                             */
   /* -------------------------------------------------------------------------- */
-  const [name, setName] = useState(selectedAddress ? selectedAddress.name : "");
-  const [mobile, setMobile] = useState(selectedAddress ? selectedAddress.mobile : "");
-  const [pincode, setPincode] = useState(selectedAddress ? selectedAddress.pincode : "");
+  const [name, setName] = useState(addressData ? addressData.userName : "");
+  const [mobile, setMobile] = useState(addressData ? addressData.userMobile : "");
+  const [pincode, setPincode] = useState(addressData ? addressData.userPincode : "");
   const [locality, setLocality] = useState(
-    selectedAddress ? selectedAddress.locality : ""
+    addressData ? addressData.userLocality : ""
   );
-  const [area, setArea] = useState(selectedAddress ? selectedAddress.area : "");
-  const [city, setCity] = useState(selectedAddress ? selectedAddress.city : "");
-  const [state, setState] = useState(selectedAddress ? selectedAddress.state : "");
+  const [area, setArea] = useState(addressData ? addressData.userArea : "");
+  const [city, setCity] = useState(addressData ? addressData.userCity : "");
+  const [state, setState] = useState(addressData ? addressData.userState : "");
   const [landmark, setLandmark] = useState(
-    selectedAddress ? selectedAddress.landmark : ""
+    addressData ? addressData.userLandmark : ""
   );
   const [alternateMobile, setAlternateMobile] = useState(
-    selectedAddress ? selectedAddress.alternateMobile : ""
+    addressData ? addressData.userAlternateMobile : ""
   );
 
 
@@ -50,9 +50,9 @@ function EditDeliveryAddress({ handelShowForm, selectedAddress, forEdit }) {
   };
 
   /* -------------------------------------------------------------------------- */
-  /*                         ON CLICK SAVE AND EDIT BTN                         */
+  /*                         ON CLICK SAVE AND ORDER BTN                         */
   /* -------------------------------------------------------------------------- */
-  const onClickEditAddress = () => {
+  const onClickSaveAndDelivery = () => {
     const newAddressObj = {
       userName: name,
       userMobile: mobile,
@@ -66,17 +66,11 @@ function EditDeliveryAddress({ handelShowForm, selectedAddress, forEdit }) {
     };
 
     dispatch(
-      editUserAddress(selectedAddress.id, newAddressObj, props.onClickSaveDeliver)
+      editUserAddressFun(addressData.$id, newAddressObj, handelShowForm)
     );
   };
 
-  /* -------------------------------------------------------------------------- */
-  /*                             ON CANCLE BTN CLICK                            */
-  /* -------------------------------------------------------------------------- */
-  const onCancleBtnClick = () => {
-    handelShowForm && handelShowForm();
-    // props.onClickCancle && props.onClickCancle();
-  };
+
 
   return (
     <div className=" EditDeliveryAddress-div ">
@@ -176,14 +170,14 @@ function EditDeliveryAddress({ handelShowForm, selectedAddress, forEdit }) {
 
         <div className="EditDeliveryAddress-div__center__btnGrp">
           {forEdit && (
-            <button onClick={onClickEditAddress}>SAVE AND DELIVER HERE</button>
+            <button onClick={onClickSaveAndDelivery}>SAVE AND DELIVER HERE</button>
           )}
 
           {!forEdit && (
             <button onClick={onClickAddNewAddress}>ADD NEW ADDRESS</button>
           )}
 
-          <button onClick={onCancleBtnClick}>CANCEL</button>
+          <button onClick={handelShowForm}>CANCEL</button>
         </div>
       </div>
     </div>

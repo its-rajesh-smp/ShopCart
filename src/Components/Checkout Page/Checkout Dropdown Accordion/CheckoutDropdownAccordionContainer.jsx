@@ -16,9 +16,12 @@ function CheckoutDropdownAccordionContainer(props) {
   const userAddressList = useSelector((state) => state.userAddressSlice);
 
   const checkoutStep = useSelector((state) => state.checkoutStepSlice);
+
+  // Getting Total Amounts
   const totalUserCart = useSelector(
     (state) => state.totalAmountSlice.amountDetails
   );
+
   const dispatch = useDispatch();
 
   // On  Click Continue Btn In Cart Accrodian
@@ -54,7 +57,7 @@ function CheckoutDropdownAccordionContainer(props) {
         </CheckoutAccordionCard>
       ) : (
         <CheckoutStepAfterComplete
-          show={`${userAddress.selectedAddress.name}, ${userAddress.selectedAddress.mobile}, ${userAddress.selectedAddress.pincode}`}
+          show={`${userAddressList.selectedAddress.userName}, ${userAddressList.selectedAddress.userMobile}, ${userAddressList.selectedAddress.userPincode}`}
           step="1"
           for="DELIVERY ADDRESS"
         />
