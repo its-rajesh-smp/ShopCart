@@ -2,14 +2,26 @@ import React from "react";
 import "./OverallReview.css";
 import OverallRatingBar from "../Overall Rating  Bar/OverallRatingBar";
 
-function OverallReview(props) {
-  const maxValue = 1479;
+// To Show Dyncamic Used Math.Random
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function OverallReview({ productDetails }) {
+  const one = getRndInteger(0, 300)
+  const two = getRndInteger(100, 150)
+  const three = getRndInteger(20, 300)
+  const four = getRndInteger(0, 500)
+  const five = getRndInteger(100, 1000)
+  const maxValue = one + two + three + four + five;
+
+
 
   return (
     <div className=" OverallReview-div ">
       <div className="OverallReview-div_div1">
         <h1>
-          <span>4.4</span>⭐
+          <span>{productDetails.rating}</span>⭐
         </h1>
         <p>
           <span>{maxValue}</span> Ratings & <span>209</span> Reviews
@@ -21,31 +33,31 @@ function OverallReview(props) {
           number="5"
           maxValue={maxValue}
           color="green"
-          value={1470}
+          value={five}
         />
         <OverallRatingBar
           number="4"
           maxValue={maxValue}
           color="green"
-          value={300}
+          value={four}
         />
         <OverallRatingBar
           number="3"
           maxValue={maxValue}
           color="green"
-          value={100}
+          value={three}
         />
         <OverallRatingBar
           number="2"
           maxValue={maxValue}
           color="orangered"
-          value={50}
+          value={two}
         />
         <OverallRatingBar
           number="1"
           maxValue={maxValue}
           color="red"
-          value={200}
+          value={one}
         />
       </div>
     </div>

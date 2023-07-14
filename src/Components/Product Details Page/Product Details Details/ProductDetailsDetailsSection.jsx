@@ -8,69 +8,40 @@ import ProductSpecificationCard from "../../UI/Prodcut Details Page UI/Product S
 import OverallReview from "../../UI/Prodcut Details Page UI/Overall Review/OverallReview";
 import ProductReview from "../../UI/Prodcut Details Page UI/Review/ProductReview";
 import CreateReview from "../../UI/Prodcut Details Page UI/Create Review/CreateReview";
-import { useSelector } from "react-redux";
 
-function ProductDetailsDetailsSection(props) {
-  const userOrders = useSelector((state) => state.userOrdersSlice.orders);
 
-  let isUserBuy = false;
-
-  for (let i = 0; i < userOrders.length; i++) {
-    if (
-      userOrders[i].category === props.data.category &&
-      userOrders[i].id === props.data.id
-    ) {
-      isUserBuy = true;
-      break;
-    }
-  }
-
-  // All Reviews
-  const [reviews, setReviews] = useState([]);
-
-  // Updating The Review Array Whenever Product Data is changed
-  useEffect(() => {
-    const reviewArr = props.data.review
-      ? Object.keys(props.data.review).map((key) => {
-          return {
-            ...props.data.review[key],
-            key: key,
-            category: props.data.category,
-            id: props.data.id,
-          };
-        })
-      : [];
-    setReviews(reviewArr);
-  }, [props.data]);
+function ProductDetailsDetailsSection({ productDetails }) {
 
   return (
     <div className=" ProductDetailsDetailsSection-div ">
-      <ProductDescriptionSection data={props.data} showDetailsList={false} />
+      <ProductDescriptionSection productDetails={productDetails} showDetailsList={false} />
 
-      <ProductPriceSection data={props.data} />
+      <ProductPriceSection productDetails={productDetails} />
 
-      <ProductBigDescriptionContainer for={"Product Description"}>
+      {/* <ProductBigDescriptionContainer for={"Product Description"}>
         <ProductDescriptionCard num={1} />
         <ProductDescriptionCard num={2} />
         <ProductDescriptionCard num={3} />
-      </ProductBigDescriptionContainer>
+      </ProductBigDescriptionContainer> */}
 
-      <ProductBigDescriptionContainer for={"Specification"}>
+      {/* <ProductBigDescriptionContainer for={"Specification"}>
         <ProductSpecificationCard />
         <ProductSpecificationCard />
         <ProductSpecificationCard />
-      </ProductBigDescriptionContainer>
+      </ProductBigDescriptionContainer> */}
 
       <ProductBigDescriptionContainer for={"Review"}>
-        <OverallReview />
+        <OverallReview productDetails={productDetails} />
 
-        {isUserBuy && (
-          <CreateReview setReviews={setReviews} data={props.data} />
+        {/* {isUserBuy && (
+          <CreateReview setReviews={setReviews} data={productDetails} />
         )}
 
         {reviews.map((review) => (
           <ProductReview key={review.key} data={review} />
         ))}
+         */}
+
       </ProductBigDescriptionContainer>
     </div>
   );

@@ -1,38 +1,41 @@
 import axios from "axios"
 import { USER } from "../../Firebase/API_URL"
-import { setCart } from "../Reducer/userCartReducer"
+import { increamentQuantity, setCart } from "../Reducer/userCartReducer"
 import { setTotalAmount } from "./totalAmountActions"
 import { increamentTotal, decreamentTotal } from "../Reducer/totalAmoutReducer"
+import formatEmail from "../../Functions/formatEmail"
+import { databases } from "../../AppWrite/appwriteconfig"
+import { v4 } from "uuid"
+import { Query } from "appwrite"
+
+
+const DATABASEID = "64b00cb6dcee8f83f868"
+const CARTID = "64b00cc059876fd2f273"
+
 
 // Add To Cart
-export const addProductInUserCart = (product) => {
+export const addProductInUserCart = (productDetails) => {
     return async (dispatch, getState) => {
         try {
-            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
-            const currentCart = getState().userCartSlice.cartArr
-            let isPresent = false
-            let updatedQuantity = 1
-            let cartProductId = ""
-            const filteredCart = currentCart.map((cartProduct) => {
-                if (cartProduct.id === product.id) {
-                    isPresent = true
-                    cartProductId = cartProduct.cartId
-                    updatedQuantity = cartProduct.quantity + 1
-                    return { ...cartProduct, quantity: updatedQuantity }
-                }
-                return cartProduct
-            })
-            if (isPresent === true) {
-                const { data } = await axios.patch(`${USER}/${userEmail}/cart/${cartProductId}.json`, { quantity: updatedQuantity })
-                dispatch(setCart(filteredCart))
-                dispatch(setTotalAmount(filteredCart))
-            }
-            else {
-                const { data } = await axios.post(`${USER}/${userEmail}/cart.json`, { ...product, quantity: updatedQuantity })
-                const newCartProduct = { ...product, cartId: data.name, quantity: 1 }
-                dispatch(setCart([...filteredCart, newCartProduct]))
-                dispatch(setTotalAmount([...filteredCart, newCartProduct]))
-            }
+            const userEmail = formatEmail(getState().authSlice.email)
+
+
+            // Forming Cart Payload
+            const cartPayload = { email: userEmail, cartQuantity: 1, productId: productDetails.$id }
+
+
+            // Storing in Database
+            const cartResponse = await databases.createDocument(DATABASEID, CARTID, v4(), cartPayload)
+
+
+            // Forming Cart Product with cartid & cartQuantity
+            const newCartProduct = { cartId: cartResponse.$id, cartQuantity: cartResponse.cartQuantity, ...productDetails }
+
+
+            // Dispatch
+            dispatch(increamentQuantity(newCartProduct))
+
+
         } catch (error) {
             console.log(error);
         }
@@ -41,17 +44,46 @@ export const addProductInUserCart = (product) => {
 
 
 // Fetch Cart
-export const fetchCart = (email) => {
-    return async (dispatch) => {
+export const fetchCart = () => {
+    return async (dispatch, getState) => {
         try {
-            const userEmail = email.replace(".", "").replace("@", "")
-            const { data } = await axios.get(`${USER}/${userEmail}/cart.json`)
-            if (!data) { return }
-            const cartArr = Object.keys(data).map((cartId) => {
-                return { ...data[cartId], cartId: cartId }
-            })
-            dispatch(setCart(cartArr))
-            dispatch(setTotalAmount(cartArr))
+            const userEmail = formatEmail(getState().authSlice.email)
+
+            // Geting cart items of the user
+            const { documents: cartResponse } = await databases.listDocuments(DATABASEID, CARTID, [
+                Query.equal('email', userEmail)
+            ])
+
+
+            if (cartResponse.length === 0) { return }
+
+            // Forming Fetch Product Id to fetch products 
+            const productIdArr = cartResponse.map((cartItem) => cartItem.productId)
+
+
+            // Fetching products of cart items
+            const { documents: productResponse } = await databases.listDocuments('64afc25ef201d64ed376', '64afd414f12ad37e978f', [
+                Query.equal('$id', productIdArr)
+            ])
+
+            console.log(productResponse);
+
+            const newFinalProductArr = []
+
+
+            // Mixing Together In O N^2 Time Complexity 
+            // ! Need To Be Optimize
+            for (let i = 0; i < productIdArr.length; i++) {
+                for (let j = 0; j < productIdArr.length; j++) {
+                    if (cartResponse[i].productId === productResponse[j].$id) {
+                        newFinalProductArr.push({ ...productResponse[j], cartId: cartResponse[i].$id, cartQuantity: cartResponse[i].cartQuantity })
+                    }
+                }
+            }
+
+            // Dispatch
+            dispatch(setCart(newFinalProductArr))
+
         } catch (error) {
             console.log(error);
         }
@@ -63,18 +95,7 @@ export const fetchCart = (email) => {
 export const increamentCartQuantity = (cartId, quantity, price) => {
     return async (dispatch, getState) => {
         try {
-            const currentCart = getState().userCartSlice.cartArr
-            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
-            await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity + 1 })
 
-            const updatedCart = currentCart.map((cartItem) => {
-                if (cartId === cartItem.cartId) {
-                    return { ...cartItem, quantity: quantity + 1 }
-                }
-                return cartItem
-            })
-            dispatch(setCart(updatedCart))
-            dispatch(increamentTotal({ amount: price, quantity: 1 }))
         } catch (error) {
             console.log(error);
         }
@@ -85,29 +106,7 @@ export const increamentCartQuantity = (cartId, quantity, price) => {
 export const decreamentCartQuantity = (cartId, quantity, price) => {
     return async (dispatch, getState) => {
         try {
-            const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "");
-            if (quantity === 1) {
-                const currentCartArr = getState().userCartSlice.cartArr
-                await axios.delete(`${USER}/${userEmail}/cart/${cartId}.json`)
-                const filterCartAfterDelete = currentCartArr.filter((cartItem) => {
-                    if (cartItem.cartId !== cartId) {
-                        return true
-                    }
-                })
-                dispatch(setCart(filterCartAfterDelete))
-            }
-            else {
-                const currentCart = getState().userCartSlice.cartArr
-                await axios.patch(`${USER}/${userEmail}/cart/${cartId}.json`, { quantity: quantity - 1 })
-                const updatedCart = currentCart.map((cartItem) => {
-                    if (cartId === cartItem.cartId) {
-                        return { ...cartItem, quantity: quantity - 1 }
-                    }
-                    return cartItem
-                })
-                dispatch(setCart(updatedCart))
-            }
-            dispatch(decreamentTotal({ amount: price, quantity: 1 }))
+
         } catch (error) {
             console.log(error);
         }

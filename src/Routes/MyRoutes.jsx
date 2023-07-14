@@ -18,7 +18,7 @@ function MyRoutes(props) {
       <Route path="/cart" element={<Cartpage />} />
       <Route path="/product/:category" element={<Productpage />} />
       <Route
-        path="/productdetails/:category/:productid"
+        path="/productdetails/:productid"
         element={<Productdetailspage />}
       />
 

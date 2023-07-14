@@ -1,30 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./Productdetailspage.css";
 import ProductDetailsImageSection from "../../Components/Product Details Page/Product Details Image/ProductDetailsImageSection";
 import ProductDetailsDetailsSection from "../../Components/Product Details Page/Product Details Details/ProductDetailsDetailsSection";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCurrentProduct } from "../../Store/Actions/fetchCurrentProduct";
 import ErrorPage from "../Error Page/ErrorPage";
+import useFetch from "../../Hooks/useFetch";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 function Productdetailspage(props) {
-  const param = useParams();
-  const dispatch = useDispatch();
+  const { productid } = useParams();
+  const [loader, setLoader] = useState(true)
 
-  const productData = useSelector(
-    (state) => state.currentProductSlice.productData
-  );
+  // Fetching Current Product
+  const fetchedProduct = useFetch("64afc25ef201d64ed376", '64afd414f12ad37e978f', productid, setLoader)
 
-  // Fetch Current Product
-  useEffect(() => {
-    dispatch(fetchCurrentProduct(param.category, param.productid));
-  }, [param.productid, param.category]);
+
+  // Until Api Call Showing Loading Page
+  if (loader) {
+    return <LoadingPage />
+  }
 
   return (
-    productData ? (
+    fetchedProduct ? (
       <div className=" Productdetailspage-div remove__Header ">
-        <ProductDetailsImageSection data={productData} />
-        <ProductDetailsDetailsSection data={productData} />
+        <ProductDetailsImageSection productDetails={fetchedProduct} />
+        <ProductDetailsDetailsSection productDetails={fetchedProduct} />
       </div>
     ) : <ErrorPage />
   );

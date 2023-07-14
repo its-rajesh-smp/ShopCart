@@ -6,7 +6,7 @@ import { ShowOnDesktop } from "../../../../../Style/Media";
 function ProductDescriptionSection({ productDetails }) {
   return (
     <div className=" ProductDescriptionSection-div ">
-      <h2>{productDetails.title}</h2>
+      <h2>{productDetails.name}</h2>
 
       <div className="ProductDescriptionSection-div__ratingDiv">
         <Rating data={productDetails.rating} />

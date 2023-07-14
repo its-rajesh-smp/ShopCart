@@ -12,7 +12,7 @@ function ProductPriceSection({ productDetails }) {
           $<span>33540</span>
         </p>
         <p className="off">
-          <span>{productDetails.discountPercentage}</span>% off
+          <span>{productDetails.discount}</span>% off
         </p>
       </div>
       <p className="freeDel">Free delivery</p>

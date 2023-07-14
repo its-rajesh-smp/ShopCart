@@ -1,17 +1,30 @@
 import React, { useState } from "react";
 import "./SmallProductImageContainer.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProductInUserCart } from "../../../../Store/Actions/userCartActions";
 
-function SmallProductImageContainer(props) {
+function SmallProductImageContainer({ productDetails }) {
   const dispatch = useDispatch();
+
+
+  // Getting All Cart Products
+  const allCartItems = useSelector(state => state.userCartSlice.cartArr)
+
+  // Checking Is The Product is Already In Cart
+  const isPresent = allCartItems.find((cartItem) => cartItem.$id === productDetails.$id)
+
+
   // On Click Add to Cart Btn Product Add To Cart
   const onAddToCartBtnHandeler = () => {
-    dispatch(addProductInUserCart(props.data));
+    if (!isPresent) {
+      dispatch(addProductInUserCart(productDetails));
+    }
   };
 
+
   // Initially -1 so showing thumbnail
-  const [mainImage, setMainImage] = useState(-1);
+  const [mainImage, setMainImage] = useState(0);
+
 
   // Change Main Image on Click Small Image
   const onClickSmallImageChangeMainImage = (index) => {
@@ -21,7 +34,7 @@ function SmallProductImageContainer(props) {
   return (
     <div className=" SmallProductImageContainer-div ">
       <div className=" SmallProductImageContainer-div__contianer">
-        {props.data.images.map((img, index) => {
+        {productDetails.images.map((img, index) => {
           return (
             <img
               onClick={(e) => {
@@ -39,17 +52,13 @@ function SmallProductImageContainer(props) {
       <div className=" SmallProductImageContainer-div__mainImgContainer">
         <img
           className="SmallProductImageContainer-div__mainImg"
-          src={
-            mainImage === -1
-              ? props.data.thumbnail
-              : props.data.images[mainImage]
-          }
+          src={productDetails.images[mainImage]}
           alt=""
         />
         <div>
-          <button className="buyNowBtn">BUY NOW</button>
+          {/* <button className="buyNowBtn">BUY NOW</button> */}
           <button onClick={onAddToCartBtnHandeler} className="addToCartBtn">
-            ADD TO CART
+            {isPresent ? "ALREADY IN CART" : "ADD TO CART"}
           </button>
         </div>
       </div>

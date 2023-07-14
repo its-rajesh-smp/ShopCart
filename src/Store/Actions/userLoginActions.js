@@ -1,6 +1,7 @@
 import { account } from "../../AppWrite/appwriteconfig";
 import { v4 } from "uuid";
 import { loginUser, logoutUser } from "../Reducer/authReducer";
+import { fetchCart } from "./userCartActions";
 
 /* -------------------------------------------------------------------------- */
 /*                                 CREATE USER                                */
@@ -56,6 +57,9 @@ export const loginUserFun = (
       // Closing The Login Component
       closeLoginHandeler()
 
+      // Fetching User Cart
+      dispatch(fetchCart())
+
     } catch (error) {
       console.log(error);
     }
@@ -80,6 +84,9 @@ export const getUserFun = (setLoader) => {
       setLoader(p => {
         return { ...p, productLoader: false }
       })
+
+      // Fetching User Cart
+      dispatch(fetchCart())
 
     } catch (error) {
       console.log(error);
