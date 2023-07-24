@@ -10,7 +10,7 @@ import { fetchUserOnLoadUsingIdToken } from "../Store/Actions/userLoginActions";
 function App(props) {
   const dispatch = useDispatch();
 
-  // FETCH HOME PRODUCTS - USER
+  // FETCH HOME PRODUCTS & USER WITH HIS CART
   useEffect(() => {
     dispatch(fetchUserOnLoadUsingIdToken());
     dispatch(fetchHomeProducts());

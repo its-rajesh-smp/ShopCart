@@ -2,7 +2,9 @@ const sendError = require("../util/sendError")
 const jwt = require("../service/service")
 const Auth = require("../model/auth")
 
-
+/* -------------------------------------------------------------------------- */
+/*                               CREATE NEW USER                              */
+/* -------------------------------------------------------------------------- */
 exports.createNewUser = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -19,7 +21,9 @@ exports.createNewUser = async (req, res) => {
 
 
 
-
+/* -------------------------------------------------------------------------- */
+/*                                 LOGIN USER                                 */
+/* -------------------------------------------------------------------------- */
 exports.loginExistingUser = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -29,11 +33,11 @@ exports.loginExistingUser = async (req, res) => {
                 password: password
             }
         })
+
         if (!dbResponse) {
             sendError("NO USER EXIST", res)
             return
         }
-
 
         const idToken = jwt.encodeJwt(email, password)
         res.send({ status: true, email: email, idToken: idToken })
@@ -46,7 +50,9 @@ exports.loginExistingUser = async (req, res) => {
 
 
 
-
+/* -------------------------------------------------------------------------- */
+/*                                  GET USER                                  */
+/* -------------------------------------------------------------------------- */
 exports.getExistingUser = async (req, res) => {
     try {
         const { idToken } = req.body

@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../Components/Header/Header";
 import Login from "../Pages/Login/Login";
-import Checkoutpage from "../Pages/Checkoutpage/Checkoutpage";
 import { useSelector } from "react-redux";
 
 function MyLayout(props) {
+
   const isLoginVisible = useSelector(
     (state) => state.toggleLoginSlice.isLoginVisible
   );

@@ -10,8 +10,10 @@ import Productpage from "../Pages/Productpage/Productpage";
 import Productdetailspage from "../Pages/Productdetailspage/Productdetailspage";
 import Checkoutpage from "../Pages/Checkoutpage/Checkoutpage";
 
-function MyRoutes(props) {
+function MyRoutes() {
   const isAuth = useSelector((state) => state.authSlice.isAuth);
+
+
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
