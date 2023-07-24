@@ -4,18 +4,18 @@ const authReducer = createSlice({
     name: "auth/userData",
     initialState: {
         isAuth: false,
-        userData: {},
+        email: "",
         idToken: ""
     },
     reducers: {
         loginUser: (state, action) => {
-            state.isAuth = true,
-                state.userData = action.payload.userData,
-                state.idToken = action.payload.idToken
+            state.isAuth = true;
+            state.email = action.payload.email;
+            state.idToken = action.payload.idToken
         },
         logoutUser: (state) => {
             state.idToken = ""
-            state.userData = {}
+            state.email = ""
             state.isAuth = false
         }
     }

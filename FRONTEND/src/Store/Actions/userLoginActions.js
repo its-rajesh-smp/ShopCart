@@ -1,82 +1,122 @@
 import axios from "axios";
-import { GET_USER_BY_IDTOKEN, SIGN_IN, SIGN_UP } from "../../Firebase/API_URL";
 import { loginUser } from "../Reducer/authReducer";
-import { fetchCart } from "./userCartActions";
-import { fetchUserOrders } from "./userOrdersActions";
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 CREATE USER                                */
+/* -------------------------------------------------------------------------- */
 
 export const createUserWithEmailAndPass = (
   enteredData,
-  closeLoginHandeler,
+  closeLoginCardHandeler,
   setLoader
 ) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
-      const { data: authData } = await axios.post(SIGN_UP, {
-        ...enteredData,
-        returnSecureToken: true,
-      });
-      dispatch(
-        loginUser({
-          idToken: authData.idToken,
-          userData: { email: authData.email },
-        })
-      );
-      localStorage.setItem("shopcart", authData.idToken);
-      closeLoginHandeler();
+
+      // Sending Email Password To Backend
+      const { data } = await axios.post("http://localhost:5000/createNewUser", { ...enteredData })
+
+      // If Status == false Means Already User Present 
+      if (!data.status) {
+        setLoader(false);
+        alert("USER EXISTS")
+        return
+      }
+
+      // Storing IdToken In LocalStorage
+      localStorage.setItem("idToken", data.idToken)
+
+      // Sending Data To Redux
+      dispatch(loginUser(data))
+
+
+      // Closing Login Screen
+      closeLoginCardHandeler()
     } catch (error) {
       console.log(error);
     }
+    setLoader(false);
   };
-  setLoader(false);
 };
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 LOGIN USER                                 */
+/* -------------------------------------------------------------------------- */
 
 export const loginUserWithEmailAndPass = (
   enteredData,
-  closeLoginHandeler,
+  closeLoginCardHandeler,
   setLoader
 ) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
-      const { data: authData } = await axios.post(SIGN_IN, {
-        ...enteredData,
-        returnSecureToken: true,
-      });
-      dispatch(
-        loginUser({
-          idToken: authData.idToken,
-          userData: { email: authData.email },
-        })
-      );
-      localStorage.setItem("shopcart", authData.idToken);
-      closeLoginHandeler();
-      dispatch(fetchCart(authData.email));
+
+      // Sending Email Password To Backend
+      const { data } = await axios.post("http://localhost:5000/loginExistingUser", { ...enteredData })
+
+
+      // If Status==False means user Not Exists
+      if (!data.status) {
+        setLoader(false);
+        alert("USER NOT EXISTS")
+        return
+      }
+
+
+      // Storing IdToken In LocalStorage
+      localStorage.setItem("idToken", data.idToken)
+
+
+      // Sending Data to Redux
+      dispatch(loginUser(data))
+
+
+      // Closing Login Screen
+      closeLoginCardHandeler()
     } catch (error) {
       console.log(error);
     }
+    setLoader(false);
   };
-  setLoader(false);
 };
 
-// Fetching Cart Products After Fetching The User
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 FETCH USER                                 */
+/* -------------------------------------------------------------------------- */
+
 export const fetchUserOnLoadUsingIdToken = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
-      const localIdToken = localStorage.getItem("shopcart");
+
+      // Getting idToken From Localstorage
+      const localIdToken = localStorage.getItem("idToken");
       if (!localIdToken) {
         return;
       }
-      const { data } = await axios.post(GET_USER_BY_IDTOKEN, {
-        idToken: localIdToken,
-      });
-      const authData = data.users[0];
-      dispatch(
-        loginUser({
-          idToken: localIdToken,
-          userData: { email: authData.email },
-        })
-      );
-      dispatch(fetchCart(authData.email));
-      dispatch(fetchUserOrders());
+
+
+      // Sending IdToken To Backend To Verify And Extract User Data
+      const { data } = await axios.post('http://localhost:5000/getExistingUser', { idToken: localIdToken })
+
+      // If Status==false Means IdToken Not Verified or Wrong
+      if (!data.status) {
+        alert("ID TOKEN NOT VERIFIED")
+        return
+      }
+
+      // Sending Data To Redux
+      dispatch(loginUser(data))
+
     } catch (error) {
       console.log(error);
     }
