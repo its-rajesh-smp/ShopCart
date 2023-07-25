@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./HomeImageSlider.css";
 import HomeImageSliderImage from "../../UI/Home Page UI/Home Image Slider UI/Home Image Slider Image/HomeImageSliderImage";
 import HomeImageSliderBtn from "../../UI/Home Page UI/Home Image Slider UI/Home Image Slider Btn/HomeImageSliderBtn";
-import { useSelector } from "react-redux";
+import useFetch from "../../../Hooks/useFetch";
+import { GET_SLIDER_PRODUCTS } from "../../../API/endpoints";
+
 
 function HomeImageSlider() {
 
-  const sliderImgList = useSelector((state) => state.homeProductSlice.sliderList);
+  // FETCHING SLIDER PRODUCTS FROM DATABASE
+  const [sliderProductList] = useFetch(GET_SLIDER_PRODUCTS)
 
 
-  const [imageIndex, setImageIndex] = useState(0);
+  const [productIndex, setProductIndex] = useState(0);
   // On Left Click
   const onLeftClick = () => {
-    setImageIndex((p) => {
+    setProductIndex((p) => {
       if (p === 0) {
         return 2;
       } else {
@@ -23,7 +26,7 @@ function HomeImageSlider() {
 
   //   On Right Click
   const onRightClick = () => {
-    setImageIndex((p) => {
+    setProductIndex((p) => {
       if (p === 2) {
         return 0;
       } else {
@@ -33,9 +36,10 @@ function HomeImageSlider() {
   };
 
   return (
+    sliderProductList &&
     <div className=" HomeImageSlider-div ">
       <HomeImageSliderBtn onClick={onLeftClick} icon="<" />
-      <HomeImageSliderImage index={imageIndex} images={sliderImgList} />
+      <HomeImageSliderImage index={productIndex} products={sliderProductList} />
       <HomeImageSliderBtn onClick={onRightClick} icon=">" />
     </div>
   );

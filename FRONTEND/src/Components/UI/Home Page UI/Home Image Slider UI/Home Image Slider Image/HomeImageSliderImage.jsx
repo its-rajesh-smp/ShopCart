@@ -1,10 +1,10 @@
 import React from "react";
 import "./HomeImageSliderImage.css";
 
-function HomeImageSliderImage(props) {
+function HomeImageSliderImage({ products, index }) {
   return (
     <div className=" HomeImageSliderImage-div ">
-      <img src={props.images[props.index]} alt="img" />
+      <img src={products[index].image} alt="img" />
     </div>
   );
 }

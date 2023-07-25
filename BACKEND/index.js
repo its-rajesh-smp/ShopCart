@@ -11,6 +11,7 @@ const auth = require("./routes/auth")
 const products = require("./routes/products")
 const category = require("./routes/category")
 const ads = require("./routes/ads")
+const sliderProduct = require("./routes/sliderProduct")
 
 
 
@@ -23,6 +24,7 @@ app.use(auth)
 app.use(ads)
 app.use(category)
 app.use(products)
+app.use(sliderProduct)
 
 
 
