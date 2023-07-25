@@ -2,13 +2,13 @@ import React from "react";
 import "./NavCategory.css";
 import NavCategoryItem from "../../UI/Home Page UI/Nav Category UI/Nav Category Card/NavCategoryItem";
 import useFetch from "../../../Hooks/useFetch";
-import { GET_ALL_CART } from "../../../API/endpoints";
+import { GET_CATEGORY } from "../../../API/endpoints";
 
 
 function NavCategory() {
 
   // FETCHING CATEGORY LIST FROM DATABASE
-  const [categoryList] = useFetch(GET_ALL_CART)
+  const [categoryList] = useFetch(GET_CATEGORY)
 
 
 

@@ -1,10 +1,10 @@
 import React from "react";
 import "./Add.css";
 
-function Add(props) {
+function Add({ path, image }) {
   return (
     <div className=" Add-div ">
-      <img src={props.src} alt="Add" />
+      <img src={image} alt="Add" />
     </div>
   );
 }

@@ -15,6 +15,12 @@ export const fetchHomeProducts = () => {
             const sliderList = Object.values(data.HomeSliderImage)
             const addsList = Object.values(data.HomeAllProductCover)
 
+            console.log(addsList);
+            addsList.map((item) => {
+                console.log(item);
+            })
+
+
             dispatch(setHomeProducts({
                 categoryList: categoryList,
                 sliderList: sliderList,

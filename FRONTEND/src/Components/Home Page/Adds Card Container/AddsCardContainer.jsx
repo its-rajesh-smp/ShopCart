@@ -1,17 +1,19 @@
 import React from "react";
 import "./AddsCardContainer.css";
 import Add from "../../UI/Home Page UI/Adds Card Container UI/Add/Add";
-import { useSelector } from "react-redux";
+import useFetch from "../../../Hooks/useFetch";
+import { GET_ADDS } from "../../../API/endpoints";
 
 function AddsCardContainer() {
 
-  const addsList = useSelector((state) => state.homeProductSlice.addsList);
+  // FETCHING ADDS FROM DATABASE
+  const [addsList] = useFetch(GET_ADDS)
 
 
   return (
     <div className=" AddsCardContainer-div ">
-      {addsList.map((add) => {
-        return <Add key={Math.random()} src={add} />;
+      {addsList && addsList.map((add) => {
+        return <Add key={add.id} image={add.image} path={add.path} />;
       })}
     </div>
   );
