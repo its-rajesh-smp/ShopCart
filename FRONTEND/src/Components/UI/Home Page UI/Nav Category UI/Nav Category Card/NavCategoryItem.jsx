@@ -2,12 +2,12 @@ import React from "react";
 import "./NavCategoryItem.css";
 import { NavLink } from "react-router-dom";
 
-function NavCategoryItem(props) {
+function NavCategoryItem({ path, image, name }) {
   return (
-    <NavLink to={`/product/${props.category.path}`}>
+    <NavLink to={`/product/${path}`}>
       <div className=" NavCategoryItem-div ">
-        <img src={props.category.img} alt="item" />
-        <p>{props.category.path.toUpperCase()}</p>
+        <img src={image} alt="item" />
+        <p>{name}</p>
       </div>
     </NavLink>
   );

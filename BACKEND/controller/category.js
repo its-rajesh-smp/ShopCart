@@ -13,4 +13,13 @@ exports.addCategory = async (req, res) => {
 }
 
 
-exports.getCategory = (req, res) => { }
+exports.getCategory = async (req, res) => {
+    try {
+        const dbResponse = await Category.findAll()
+        res.send(dbResponse)
+
+    } catch (error) {
+        console.log(error);
+        res.send(false)
+    }
+}

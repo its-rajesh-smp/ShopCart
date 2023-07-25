@@ -1,19 +1,22 @@
 import React from "react";
 import "./NavCategory.css";
 import NavCategoryItem from "../../UI/Home Page UI/Nav Category UI/Nav Category Card/NavCategoryItem";
-import { useSelector } from "react-redux";
+import useFetch from "../../../Hooks/useFetch";
+import { GET_ALL_CART } from "../../../API/endpoints";
+
 
 function NavCategory() {
 
-  const categoryList = useSelector((state) => state.homeProductSlice.categoryList);
+  // FETCHING CATEGORY LIST FROM DATABASE
+  const [categoryList] = useFetch(GET_ALL_CART)
+
 
 
   return (
     <div className=" NavCategory-div ">
       <div className="NavCategory-div__itemContainer">
-
-        {categoryList.map((category) => {
-          return <NavCategoryItem key={category.path} category={category} />;
+        {categoryList && categoryList.map((category) => {
+          return <NavCategoryItem key={category.path} path={category.path} image={category.image} name={category.name} />;
         })}
 
       </div>
