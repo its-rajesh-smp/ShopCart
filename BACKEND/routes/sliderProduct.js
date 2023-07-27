@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 router.post("/createSliderProduct", SliderProductController.createSliderProduct)
-router.post("/getSliderProducts", SliderProductController.getSliderProducts)
+router.get("/getSliderProducts", SliderProductController.getSliderProducts)
 
 
 

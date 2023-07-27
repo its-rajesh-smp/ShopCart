@@ -5,27 +5,27 @@ import ProductDescriptionSection from "../../UI/Product Page UI/Product UI/Produ
 import ProductPriceSection from "../../UI/Product Page UI/Product UI/Product Price Section/ProductPriceSection";
 import { useNavigate } from "react-router-dom";
 
-function Product(props) {
+function Product({ productDetails }) {
   const navigate = useNavigate();
 
   // On Product Click --> Product Details
   const onProductClick = () => {
-    navigate(`/productdetails/${props.data.category}/${props.id}`);
-    props.closeHambargar && props.closeHambargar();
+    navigate(`/productdetails/${productDetails.category}/${productDetails.id}`);
+    // props.closeHambargar && props.closeHambargar();
   };
 
   return (
     <div className=" Product-div ">
       <ProductImageSection
         onClick={onProductClick}
-        data={props.data}
-        showBtn={props.showBtn}
+        productDetails={productDetails}
+      // showBtn={props.showBtn}
       />
       <ProductDescriptionSection
-        data={props.data}
-        showDetailsList={props.showDetailsList}
+        productDetails={productDetails}
+      // showDetailsList={props.showDetailsList}
       />
-      <ProductPriceSection data={props.data} />
+      <ProductPriceSection productDetails={productDetails} />
     </div>
   );
 }

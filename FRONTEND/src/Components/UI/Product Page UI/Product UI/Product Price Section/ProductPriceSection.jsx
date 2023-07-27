@@ -1,18 +1,18 @@
 import React from "react";
 import "./ProductPriceSection.css";
 
-function ProductPriceSection(props) {
+function ProductPriceSection({ productDetails }) {
   return (
     <div className=" ProductPriceSection-div ">
       <h1>
-        $<span>{props.data.price}</span>
+        $<span>{productDetails.price}</span>
       </h1>
       <div>
         <p className="fakePrice">
           $<span>33540</span>
         </p>
         <p className="off">
-          <span>{props.data.discountPercentage}</span>% off
+          <span>{productDetails.discount}</span>% off
         </p>
       </div>
       <p className="freeDel">Free delivery</p>

@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 router.post("/addCategory", categoryController.addCategory)
-router.post("/getCategory", categoryController.getCategory)
+router.get("/getCategory", categoryController.getCategory)
 
 
 module.exports = router

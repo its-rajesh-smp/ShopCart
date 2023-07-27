@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 router.post("/createAd", AdsController.createAd)
-router.post("/getAds", AdsController.getAds)
+router.get("/getAds", AdsController.getAds)
 
 
 

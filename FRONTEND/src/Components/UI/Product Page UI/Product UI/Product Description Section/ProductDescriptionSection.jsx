@@ -3,13 +3,13 @@ import "./ProductDescriptionSection.css";
 import Rating from "../../../Ratting/Rating";
 import { ShowOnDesktop } from "../../../../../Style/Media";
 
-function ProductDescriptionSection(props) {
+function ProductDescriptionSection({ productDetails }) {
   return (
     <div className=" ProductDescriptionSection-div ">
-      <h2>{props.data.title}</h2>
+      <h2>{productDetails.name}</h2>
 
       <div className="ProductDescriptionSection-div__ratingDiv">
-        <Rating data={props.data.rating} />
+        <Rating data={productDetails.rating} />
         <p className="ProductDescriptionSection-div__totalrating">
           <span>{1250}</span> Ratings & <span>2500</span> Reviews
         </p>
@@ -18,7 +18,7 @@ function ProductDescriptionSection(props) {
         </p>
       </div>
 
-      {props.showDetailsList && (
+      {false && (
         <ShowOnDesktop>
           <ul className="ProductDescriptionSection-div__descPoints">
             <li>Lorem ipsum dolor sit amet.</li>

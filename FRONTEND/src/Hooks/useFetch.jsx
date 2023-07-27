@@ -6,7 +6,7 @@ function useFetch(path, setLoader) {
 
     useEffect(() => {
         (async () => {
-            const { data: dbResponse } = await axios.post(path)
+            const { data: dbResponse } = await axios.get(path)
             setData(dbResponse)
             if (setLoader) { setLoader(false) }
         })()

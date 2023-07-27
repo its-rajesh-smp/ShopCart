@@ -1,20 +1,20 @@
-function PaginationNumber(props) {
+function PaginationNumber({ number, setSkip, skip }) {
+
+
   // On Click Page Number
-  const onClickPage = (pageNumber) => {
-    if (props.currentPage != props.number) {
-      props.setSkip((p) => {
-        return 5 * +pageNumber;
-      });
-      props.setCurrentPage(+pageNumber);
-    }
+  const onClickPage = () => {
+    setSkip(5 * number - 5)
   };
+
+
 
   return (
     <button
-      className={`${props.currentPage == props.number ? "active_page" : ""}`}
-      onClick={(e) => onClickPage(e.target.innerText)}
+      className={`${(5 * number - 5) === skip && "active_page"}`}
+      disabled={skip === (5 * number - 5)}
+      onClick={onClickPage}
     >
-      {props.number}
+      {number}
     </button>
   );
 }
