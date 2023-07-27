@@ -7,6 +7,7 @@ function PriceFilter(props) {
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filterSortSlice.filter);
 
+
   // On Change Filter Price
   const onChangeMaxPriceHandeler = (price) => {
     if (price !== "MAX") {
@@ -15,6 +16,8 @@ function PriceFilter(props) {
       dispatch(setFilter({ maxPrice: "" }));
     }
   };
+
+
   const onChangeMinPriceHandeler = (price) => {
     if (price !== "MIN") {
       dispatch(setFilter({ minPrice: price }));

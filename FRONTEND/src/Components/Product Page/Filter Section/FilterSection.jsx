@@ -12,6 +12,10 @@ function FilterSection(props) {
       <TopFilter />
       <PriceFilter />
       <RatingFilter />
+
+
+
+
       <ShowOnMobile>
         <SortFilter />
         <button
@@ -21,6 +25,7 @@ function FilterSection(props) {
           APPLY FILTER
         </button>
       </ShowOnMobile>
+
     </div>
   );
 }
