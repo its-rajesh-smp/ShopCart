@@ -11,10 +11,8 @@ function PaginationNextPrev({ text, setSkip, skip, length }) {
   }
 
 
-
-
   let isDissabled;
-  if (text === "NEXT" && skip === length - 5) {
+  if (text === "NEXT" && skip >= length - 5) {
     isDissabled = true
   }
   else if (text === "PREV" && skip === 0) {

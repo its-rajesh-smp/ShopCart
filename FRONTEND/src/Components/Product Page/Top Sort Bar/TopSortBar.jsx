@@ -6,7 +6,7 @@ import { ShowOnDesktop } from "../../../Style/Media";
 function TopSortBar({ category, totalItem, skip }) {
 
   let start = skip
-  let end = skip + 5
+  let end = ((skip + 5) < totalItem) ? (skip + 5) : totalItem
 
   return (
     <div className=" TopSortBar-div ">

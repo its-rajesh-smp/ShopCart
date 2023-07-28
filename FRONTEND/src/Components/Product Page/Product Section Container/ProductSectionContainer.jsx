@@ -10,6 +10,7 @@ import useFetch from "../../../Hooks/useFetch";
 import { GET_PRODUCTS_BY_CATEGORY } from "../../../API/endpoints";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import useScrollTop from "../../../Hooks/useScrollTop";
 
 function ProductSectionContainer() {
 
@@ -32,7 +33,8 @@ function ProductSectionContainer() {
     setSkip(0)
   }, [filter])
 
-
+  // Using useScrollTop hook to whenever page or filter changed Scroll To Top
+  useScrollTop([skip, filter])
 
 
   return (
